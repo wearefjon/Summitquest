@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Dashboard - SummitQuest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#e6eeff",
+                      "tertiary-fixed": "#ffdcbc",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#2c1700",
+                      "secondary-fixed": "#b1f0ce",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-surface": "#0d1c2e",
+                      "tertiary": "#3b2000",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-tertiary-fixed-variant": "#683d00",
+                      "on-primary-container": "#86af99",
+                      "on-secondary-fixed": "#002114",
+                      "surface-container-high": "#dce9ff",
+                      "on-secondary-fixed-variant": "#0e5138",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed": "#002114",
+                      "primary-container": "#1b4332",
+                      "surface-variant": "#d5e3fc",
+                      "inverse-primary": "#a5d0b9",
+                      "surface-tint": "#3f6653",
+                      "on-tertiary-container": "#ed9101",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "tertiary-container": "#593300",
+                      "on-background": "#0d1c2e",
+                      "surface-off-white": "#F8F9FA",
+                      "outline-variant": "#c1c8c2",
+                      "primary-fixed": "#c1ecd4",
+                      "surface-dim": "#ccdbf3",
+                      "surface-container-highest": "#d5e3fc",
+                      "brand-coral": "#FF5A5F",
+                      "primary": "#012d1d",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#316e52",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#2c694e",
+                      "background": "#f8f9ff",
+                      "tertiary-fixed-dim": "#ffb86b",
+                      "outline": "#717973",
+                      "surface": "#f8f9ff",
+                      "on-surface-variant": "#414844",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary": "#ffffff",
+                      "secondary-container": "#aeeecb",
+                      "inverse-surface": "#233144",
+                      "text-dark": "#1E293B",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "accent-gold": "#FFBF69"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.04em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0d1c2e;
+        }
+        .ambient-shadow {
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md flex min-h-screen">
+<!-- SideNavBar -->
+<nav class="hidden md:flex h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-inverse-surface shadow-md bg-surface-container-low dark:bg-inverse-surface flex-col p-4 gap-2 z-50">
+<div class="mb-8 px-4 mt-4">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">SummitQuest</h1>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 mb-6 bg-surface-container rounded-xl">
+<img alt="User avatar" class="w-10 h-10 rounded-full object-cover" data-alt="A small, circular profile picture of a young male traveler wearing a casual outdoor jacket against a blurred mountain background. The lighting is bright and natural, reflecting a premium outdoor adventure aesthetic. Warm colors and crisp details emphasize a clean, modern UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARwM0rZKcPSWpHsdiqZNtn_0oX8muNA6al5UtnFnHytRJiCnBBirfQ72YjouJK8tc5zkQcHa28IZnsxYGHHFrriEszYSH-nbU4qaArzTjYSHigwOpR3JqpINAjQkb6diGrsbRWfFhENf06kF6dfRN3UxanQNVqdaKbQP8RRV0FR1h0oVcaWVzMhmQ5B-wE-Hdbbj-I_dUxjkMg-oTTjCabn-oOARbEbshKCLI20UgHdQa8rdidE-CMRgqM3jsqjmTNwQhyHzzEBx4"/>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">Sumit Deshmukh</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Explorer Tier</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold font-label-md text-label-md translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Bookings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Earnings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<div class="mt-auto mb-4 px-2">
+<button class="w-full bg-brand-coral text-on-tertiary font-label-md text-label-md py-3 rounded-[16px] font-bold shadow-sm hover:opacity-90 transition-opacity">
+                Upgrade to Pro
+            </button>
+</div>
+<div class="border-t border-outline-variant pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 w-full min-h-screen p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto">
+<!-- Header Section -->
+<header class="mb-12 md:mb-16 mt-8 md:mt-0 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Welcome back, Sumit!</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Ready for your next adventure in Maharashtra?</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-[16px] font-label-md text-label-md hover:bg-secondary transition-colors ambient-shadow flex items-center gap-2 max-w-fit">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                Explore Destinations
+            </button>
+</header>
+<!-- Quick Stats Bento Grid -->
+<section class="mb-16">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Quick Stats</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow border border-outline-variant/30 flex items-center gap-6 transform hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[28px]" data-icon="hiking">hiking</span>
+</div>
+<div>
+<div class="font-display-lg text-display-lg text-primary mb-1">12</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Trips Taken</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow border border-outline-variant/30 flex items-center gap-6 transform hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[28px]" data-icon="map">map</span>
+</div>
+<div>
+<div class="font-display-lg text-display-lg text-primary mb-1">8</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Destinations Visited</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow border border-outline-variant/30 flex items-center gap-6 transform hover:scale-[1.02] transition-transform">
+<div class="w-14 h-14 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[28px]" data-icon="rate_review">rate_review</span>
+</div>
+<div>
+<div class="font-display-lg text-display-lg text-primary mb-1">5</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Reviews Written</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Bookings -->
+<section class="mb-16">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Upcoming Bookings</h3>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">View All <span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span></a>
+</div>
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/30 flex flex-col md:flex-row group cursor-pointer hover:shadow-xl transition-shadow">
+<div class="md:w-2/5 h-48 md:h-auto relative overflow-hidden">
+<img alt="Harishchandragad Trek" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A breathtaking view of Harishchandragad fort in Maharashtra during sunrise. Golden hour light illuminating the rugged cliffs and lush green valleys below. High quality travel photography style, emphasizing the grandeur of the outdoors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCthPm6RvlfqyaQ79mmUvnZUhnUlEm9C74NwwFeesk3tcp8Szp0UGXds5hPEbk7SxiXytnj7xnxBTp34DVOKuEd3Jtuu_Q3fmYrZ-Olaz0Id4vvIsD7do4xByQv-5hSZtaAMRkUrcSGVE7S-b0upBIxdl53bunAySKv7hYqsUgjgUe18KPUmT6E-yfm_vHH4Zb-RyD-0z_NQ2kpxrsiYL1EqH8fal9cIw5iz_4IWCsD_x8wMA2HkmQ4eYOVU_Pm1P5knBHcfgnaGUM"/>
+<div class="absolute top-4 left-4 bg-surface-off-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-label-sm text-label-sm text-primary font-bold">In 3 Days</div>
+</div>
+<div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Harishchandragad Trek</h4>
+<span class="px-3 py-1 bg-secondary-fixed-dim/30 text-on-secondary-fixed rounded-full font-label-sm text-label-sm">Moderate</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="location_on">location_on</span> Ahmednagar, Maharashtra
+                        </p>
+<div class="flex gap-6 mb-6">
+<div>
+<div class="font-label-sm text-label-sm text-outline mb-1">Date</div>
+<div class="font-label-md text-label-md text-on-surface">Oct 15 - 16, 2024</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-outline mb-1">Guide</div>
+<div class="font-label-md text-label-md text-on-surface">Raj Patil</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4 border-t border-outline-variant/30 pt-4">
+<button class="bg-transparent border-[1.5px] border-primary text-primary px-5 py-2 rounded-[16px] font-label-md text-label-md hover:bg-primary/5 transition-colors">Manage Booking</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-[16px] font-label-md text-label-md hover:bg-secondary transition-colors">View Itinerary</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended for You -->
+<section class="mb-16">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">Recommended for You</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 -mt-4">Based on your wishlist and past adventures.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/30 flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+<div class="h-48 relative overflow-hidden">
+<img alt="Malvan Scuba Diving" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="Scuba diving scene in the clear coastal waters of Malvan, Maharashtra. A diver exploring colorful coral reefs with fish swimming around. Bright underwater photography, conveying an exciting and serene aquatic adventure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs0RcV0bMCCTZiIs5MbrxcmJfMDecoHXaJbjo-6I6niNTxJKscgeTNFYvsIYGi6HoPq-wJR_ohVa3QtZ47z7heh03PO9KaH1S5CLliHeuU6SikYsVoi7CkOEZWsApSRMM70BdJBygVUG9cf8rlBvWgWtREKCoNS_kZDelzIjPV-MXy3KQWeDgWqLiT6RdsNvw5uqXpZWqPDfPO_uIsdsaPqD0ahX7b-b8BmNvE7WU_jf-oBuvo4kaIBJVWvxI1Cf4q1TY7x_GdI28"/>
+<button class="absolute top-4 right-4 w-8 h-8 bg-surface-off-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-brand-coral hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2 gap-2">
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Malvan Scuba Diving</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Explore the vibrant underwater life along the Konkan coast.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="font-label-md text-label-md font-bold text-primary">₹3,500 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/person</span></div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/30 flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+<div class="h-48 relative overflow-hidden">
+<img alt="Kalsubai Peak Trek" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A misty morning view of Kalsubai Peak, the highest point in Maharashtra. Trekkers ascending iron ladders against a dramatic, foggy mountain backdrop. High contrast, atmospheric outdoor photography emphasizing a challenging but rewarding trek." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZIigiYtbseHK4V8L6gZePh3RMLECZ2eZEsOBryhpyVVpr-TmzoclIiHDvGAVnmdgM7f4M02SYCFhVfZFwNy4lb-Jk_bjNoE-7DAf82MF_ddYIdS34WyrFLUMflLDdehtZevdbUya1hiYkIpWM5FxfCS9aKfshPck2KWjo0l6wIY6K5w2oHEEk6fxyjgMQQg0mHsCN2sjIfdpn9MVKW-RXv8yMGrEeDt22mtRZaYaxm930wRRfavRa8jiQW-G-yRGLCuvMuCGnuIA"/>
+<button class="absolute top-4 right-4 w-8 h-8 bg-surface-off-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-outline hover:text-brand-coral hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 bg-brand-coral/90 backdrop-blur-sm px-2 py-1 rounded-md font-label-sm text-label-sm text-white font-bold">Trending</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2 gap-2">
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Kalsubai Peak Trek</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Conquer the highest peak of Maharashtra with professional guides.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="font-label-md text-label-md font-bold text-primary">₹1,200 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/person</span></div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/30 flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300 md:hidden lg:flex">
+<div class="h-48 relative overflow-hidden">
+<img alt="Pawna Lake Camping" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A serene lakeside camping setup at Pawna Lake, Maharashtra during twilight. Tents glowing warmly from inside, a small campfire, and calm water reflecting the fading light. Cozy, relaxing, and premium outdoor lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLST2mQg_KvzKJHt7FycqWKZ5zCPTssf9YU_QUys0BeQ0jPXVhxHDbagFXnGCPkHow9G3X7qXalqlia2vMl1mgURQbkkk_anNOPK5hi4cR5GJeTonkMpUCxh68DXEmBT6klWfHyBrp0RI1dcMxYXYwHCwyYxxuPp1W6cH_bmeX_EQdyIHqt6vc292Ya1UyXHOpM0So0mYzhJGExwQX3AcDR8FWt3miJKcg8l7T69F0x3DmVVsGwrOaQbdacT0nIwGLfMIxZdsS7oo"/>
+<button class="absolute top-4 right-4 w-8 h-8 bg-surface-off-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-outline hover:text-brand-coral hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2 gap-2">
+<h4 class="font-headline-sm text-headline-sm text-primary leading-tight">Pawna Lake Camping</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">A relaxing weekend getaway with lakeside tents and BBQ.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="font-label-md text-label-md font-bold text-primary">₹1,800 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/person</span></div>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom Nav Bar (Fallback for small screens) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container-lowest border-t border-outline-variant/30 px-6 py-3 flex justify-between items-center z-50 pb-safe">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm">Wishlist</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<div class="md:hidden h-20 w-full"></div> <!-- Spacer for mobile nav -->
+</body></html>

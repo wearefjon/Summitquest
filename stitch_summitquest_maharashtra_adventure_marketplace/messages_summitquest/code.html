@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Messages - SummitQuest Maharashtra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#a5d0b9",
+                    "on-primary-container": "#86af99",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#683d00",
+                    "secondary-fixed-dim": "#95d4b3",
+                    "on-secondary-fixed-variant": "#0e5138",
+                    "outline-variant": "#c1c8c2",
+                    "on-surface": "#0d1c2e",
+                    "on-primary-fixed": "#002114",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "secondary": "#2c694e",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#414844",
+                    "tertiary-fixed": "#ffdcbc",
+                    "tertiary": "#3b2000",
+                    "inverse-surface": "#233144",
+                    "text-dark": "#1E293B",
+                    "outline": "#717973",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ed9101",
+                    "surface-tint": "#3f6653",
+                    "on-secondary-fixed": "#002114",
+                    "surface-dim": "#ccdbf3",
+                    "surface-container": "#e6eeff",
+                    "surface-container-high": "#dce9ff",
+                    "tertiary-container": "#593300",
+                    "surface-bright": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#2c1700",
+                    "surface-container-low": "#eff4ff",
+                    "brand-coral": "#FF5A5F",
+                    "primary-container": "#1b4332",
+                    "secondary-fixed": "#b1f0ce",
+                    "primary": "#012d1d",
+                    "secondary-container": "#aeeecb",
+                    "on-background": "#0d1c2e",
+                    "tertiary-fixed-dim": "#ffb86b",
+                    "on-secondary": "#ffffff",
+                    "accent-gold": "#FFBF69",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#c1ecd4",
+                    "background": "#f8f9ff",
+                    "on-secondary-container": "#316e52",
+                    "surface-variant": "#d5e3fc",
+                    "surface-container-highest": "#d5e3fc",
+                    "surface-off-white": "#F8F9FA",
+                    "error": "#ba1a1a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Montserrat"
+                    ],
+                    "headline-md": [
+                            "Montserrat"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Montserrat"
+                    ],
+                    "display-lg": [
+                            "Montserrat"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.04em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation (Shell) -->
+<nav class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-black/5 dark:border-white/5 shadow-sm h-16 flex-shrink-0">
+<div class="flex justify-between items-center px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-6">
+<a class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed !text-2xl !leading-none tracking-tight" href="#">SummitQuest Maharashtra</a>
+<div class="hidden md:flex items-center gap-6 ml-8">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#">Discover</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#">Expeditions</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#">Destinations</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-md text-label-md hover:text-secondary transition-colors duration-200" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-secondary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden bg-surface-variant ml-2 border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A small, high-quality profile picture of an adventurous user, shot in bright daylight against a subtle blurred mountain background. The lighting is natural and flattering, embodying a premium outdoor lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqQ4eTMBJwrSskLGcd4DVn0Fz6nbjgGumDhaSFNfofW6RIUk5YGk-mFRWm7OLTMfXWYAprJgkfP4mFm7vjOuOcyljOmgoQzdT16pHcPDbRuitHNzuriuHAgUKBGl04olufqnC8PWtD7zSP_6rDlpAspWac7IVrL5_YjzUPRUpOR3x9cl-vvsYUa1ZZupDFqRpHmRmjdHeah2WnfGmaal7wByRRWjsWz_K_Q3N06yfnxVgK9wI3u0mFBq0I06vRdwnfFvAiOhuVpO8"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Layout -->
+<main class="flex-1 flex mt-16 max-w-container-max mx-auto w-full overflow-hidden bg-surface-off-white">
+<!-- Sidebar - Conversations List -->
+<aside class="w-80 border-r border-outline-variant bg-surface-container-lowest flex flex-col flex-shrink-0">
+<div class="p-4 border-b border-outline-variant">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-4">Messages</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-label-md font-label-md text-on-surface placeholder:text-outline focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Search operators..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- Active Conversation -->
+<div class="p-4 border-b border-outline-variant bg-surface-container-low cursor-pointer border-l-4 border-l-secondary transition-colors relative">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional logo for an outdoor expedition company named Sahyadri Rangers. The logo features a stylized mountain peak in deep forest green against a clean white background. High resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVKJUP1rVCJHWU3ubu0zUpXWqdKrkosDm4sZal0-AB8tBnjt1N85RyXBB7VJquZ5NHQRrkVVhVtVVj1efH0hVLFENRGIKm89F2RKIgkoO1us9vzwr2K5O_B63CgbI2TN4nURgiCiTL30ieA6GcCB43daWxRX4wTHmxfW8LwVqKPzca1B8q5ofGM9kNLTvTDLABYosFeUdX607LuEEm-NZFf57o0pg4FAjmu2eB7JM--e7O9QlDCf5iSYDxq4RAHxD-x9NfGwYduSA"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-surface-container-low"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-primary truncate">Sahyadri Rangers</h3>
+<span class="font-label-sm text-label-sm text-outline-variant whitespace-nowrap">10:42 AM</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm truncate">Yes, the 40L pack should be perfect.</p>
+</div>
+</div>
+</div>
+<!-- Other Conversations -->
+<div class="p-4 border-b border-outline-variant hover:bg-surface-bright cursor-pointer border-l-4 border-l-transparent transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional logo for an outdoor expedition company named Adventure India. The logo features a compass motif in warm orange against a clean white background. High resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXsD6269Xj6Ln_O9aD9EcalCV2gEaNF_TykN03ZGh1nI7SjX5GE1CzemYFzaughb_5M1f8a3HOcg-0WwLXzuJkYm8wktjvidbi9tC3c7krlBr-hYzi5nlt_LXIRN1w29l3VZXUiwqVpw7jVpDuamVQ3tmBkapMlURPYPoV0I4IWO8sQFa9B5QWVPqdiCWSchcgpq3wUVwqmEXP7xeJoPR90sEInC_WMNNNQgZTs2_Msf43Tt94ECzTKrREPcOY5fJ_yYs4tWZj30g"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Adventure India</h3>
+<span class="font-label-sm text-label-sm text-outline-variant whitespace-nowrap">Yesterday</span>
+</div>
+<p class="font-body-md text-body-md text-outline text-sm truncate">Looking forward to seeing you at base camp!</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-b border-outline-variant hover:bg-surface-bright cursor-pointer border-l-4 border-l-transparent transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional logo for an outdoor expedition company named Western Ghats Treks. The logo features a stylized leaf and tent icon in deep primary green against a clean white background. High resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqgYHgWVaXOLCszRtoMg0-X3T8BuWlMQbpvDgXVD6ZDCQotffB1OcKty1kBdiZdmd3YpY1Rjj7dZzCaHRpnRpxTThaTWv6Sb28oCEOhlL8hjLaSauVtwRouen7iA4D7bm7iRSJtnaMhkDJWhXW5oLutLp42PhtG-4uJujpxpPa1ifWTNhiV8Ms3G9Jr1ZDd5vUs_QUYS2Z5jL83qpKdoaX2qQG0_xwuG8JfOayONWXehKf-t-QoaAy4N9IVcXkvOCS9jWhTbd39HE"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-label-md text-label-md text-on-surface truncate">Western Ghats Treks</h3>
+<span class="font-label-sm text-label-sm text-outline-variant whitespace-nowrap">Oct 12</span>
+</div>
+<p class="font-body-md text-body-md text-outline text-sm truncate">Booking confirmed for Harishchandragad.</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Chat Area -->
+<section class="flex-1 flex flex-col bg-surface-container-lowest">
+<!-- Chat Header -->
+<header class="h-20 border-b border-outline-variant px-6 flex items-center justify-between bg-surface-container-lowest flex-shrink-0 shadow-[0_2px_10px_rgba(30,41,59,0.02)] z-10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A professional logo for an outdoor expedition company named Sahyadri Rangers. The logo features a stylized mountain peak in deep forest green against a clean white background. High resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBwgByRPjF_MEkaLcrmB4tZ9Fi-8bBnQbhfqVrysT0aZDYokpBMq74LT-Cg8ZYzStlgjzQSXDYKkF3HNKove34XXlgkyva-F9lvQEnJkHbPbLGVpLD4hQcjzJMfKwF5BKno4B2t_CXGwHQZLHxMBnhaJ7fWP30cV_essGonfIn85ofyVJqGecBexfxvVp_RdbvJqNwZQURyJtLDg1UBxCvEeZThxDJkud3lQCFRTOs88ic6gzKP0W1m7SspLKWJIOewUOmmfNL3xs"/>
+</div>
+<div>
+<h2 class="font-label-md text-label-md text-primary text-lg">Sahyadri Rangers</h2>
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="w-2 h-2 bg-secondary rounded-full"></span>
+<span class="font-label-sm text-label-sm">Typically replies in 15 mins</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Chat Messages -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6 bg-surface-off-white">
+<div class="text-center my-4">
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-low px-3 py-1 rounded-full">Today</span>
+</div>
+<!-- Message (Operator) -->
+<div class="flex gap-3 max-w-[80%]">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant flex-shrink-0 mt-1">
+<img class="w-full h-full object-cover" data-alt="A professional logo for an outdoor expedition company named Sahyadri Rangers. The logo features a stylized mountain peak in deep forest green against a clean white background. High resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEAbg1Cihy-_kbDI64y-8lAk-AjR3L3ZRwp5LtXYgV-0DGrIqOZsYL5zzgNRXlXmhu3yVta0XIouCV-2B1ndfKFgrVv8Imw4rzgeQZW8xaEfDBVys-ocMheoEywexrsUZ2ADcTkNIZBEa6sA-Af69B9bgkSK5ohlTeQ46iPYMmpOV_4GnQ6sqbIU5bwlM9fYHU93h3trG2dNb_sdEsbizPYyi9AE-sxR0wDyqHnrrlieOiarLWOnB6gFGNTdt0jMa3YS_2gGpbjuA"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-surface-container-lowest border border-outline-variant text-on-surface p-3 rounded-2xl rounded-tl-sm shadow-[0_2px_8px_rgba(30,41,59,0.04)]">
+<p class="font-body-md text-body-md text-sm">Hello! Thanks for booking the Rajmachi night trek. Let me know if you have any questions about the gear list we sent over.</p>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant ml-1">10:30 AM</span>
+</div>
+</div>
+<!-- Message (User) -->
+<div class="flex gap-3 max-w-[80%] ml-auto justify-end">
+<div class="flex flex-col gap-1 items-end">
+<div class="bg-primary text-on-primary p-3 rounded-2xl rounded-tr-sm shadow-[0_4px_12px_rgba(1,45,29,0.15)]">
+<p class="font-body-md text-body-md text-sm">Hi! Yes, I was wondering about the backpack size. I have a 40L pack, will that be sufficient for a one-night trek?</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="font-label-sm text-label-sm text-outline-variant">10:35 AM</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="done_all">done_all</span>
+</div>
+</div>
+</div>
+<!-- Message (User - Attachment) -->
+<div class="flex gap-3 max-w-[80%] ml-auto justify-end">
+<div class="flex flex-col gap-1 items-end">
+<div class="bg-primary text-on-primary p-2 rounded-2xl rounded-tr-sm shadow-[0_4px_12px_rgba(1,45,29,0.15)]">
+<div class="w-48 h-48 rounded-xl overflow-hidden mb-2 border border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A high-quality, close-up photograph of a modern, rugged 40L hiking backpack in dark olive green and grey, resting on a wooden floor in a well-lit modern apartment. The lighting is soft and natural, emphasizing the premium quality of the outdoor gear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFCmUiBZRj9Ozqb-VhsoMJqoWCUGC49FKc9HPc1BefqvQmDqPHKauMYVVqKA1w3H9OwMALRCtZDqpMI4DIZSGk3YO1fpmQgL1OR2JjEEq0f2ZqH5RzNqgc6aRlN2bnOflxCwAHD5eI_Fj5Gz70V021kM1YsrEU-jbeiskBnmdPUk-ij8NWkFCFZ55OWVwUPpmJ2E-zPgNrykufoEadlD_m0AOc9Y83DUJsr6cSc3pVa0aH2fWt8bAjxt-Pol2zWmbBZv9HBaTqzoc"/>
+</div>
+<p class="font-body-md text-body-md text-sm px-1 pb-1">This is the one I have.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="font-label-sm text-label-sm text-outline-variant">10:38 AM</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="done_all">done_all</span>
+</div>
+</div>
+</div>
+<!-- Message (Operator) -->
+<div class="flex gap-3 max-w-[80%]">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant flex-shrink-0 mt-1">
+<img class="w-full h-full object-cover" data-alt="A professional logo for an outdoor expedition company named Sahyadri Rangers. The logo features a stylized mountain peak in deep forest green against a clean white background. High resolution, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpWvk_70Zj1l0jm2WCocBPfR3BEH0QYwrTnaMdpRISJsHCvcQv8k7EROB9KcbKFhOTbkDzIzN4U71xiRac-u0mGY4RyJlOkhohEV9YNKHdcGdayhSYzaKTsPqWXIwuI3u3GajVDHUSpNV0M_Wt4DvV-oMGQS88Y-rW1Ib1cb5eEZdq5Bex4dt7jWxhdS7OYpAWBSns2QmXVjb2v-MTssBj_zbZPWns8zGveEncsJ_CdLugqvDEoMc7ZupW984huO3XG02potefKO8"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="bg-surface-container-lowest border border-outline-variant text-on-surface p-3 rounded-2xl rounded-tl-sm shadow-[0_2px_8px_rgba(30,41,59,0.04)]">
+<p class="font-body-md text-body-md text-sm">Yes, the 40L pack should be perfect. Just ensure you leave enough room for the packed dinner we provide at the base village. Don't forget a good quality headlamp!</p>
+</div>
+<span class="font-label-sm text-label-sm text-outline-variant ml-1">10:42 AM</span>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant flex-shrink-0 z-10 shadow-[0_-2px_10px_rgba(30,41,59,0.02)]">
+<div class="max-w-4xl mx-auto flex items-end gap-3 bg-surface-off-white border border-outline-variant rounded-2xl p-2 focus-within:ring-1 focus-within:ring-secondary focus-within:border-secondary transition-all">
+<button class="p-2 text-outline hover:text-primary transition-colors flex-shrink-0 rounded-full hover:bg-surface-container-low mb-1">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<button class="p-2 text-outline hover:text-primary transition-colors flex-shrink-0 rounded-full hover:bg-surface-container-low mb-1">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</button>
+<textarea class="flex-1 max-h-32 min-h-[44px] bg-transparent border-none text-body-md font-body-md text-on-surface placeholder:text-outline focus:ring-0 resize-none py-3 outline-none" placeholder="Type a message..." rows="1"></textarea>
+<button class="p-3 bg-primary text-on-primary hover:bg-primary-container transition-colors rounded-xl flex-shrink-0 mb-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+</button>
+</div>
+<div class="max-w-4xl mx-auto mt-2 text-center">
+<span class="font-label-sm text-label-sm text-outline-variant">Messages are end-to-end encrypted.</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

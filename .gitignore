@@ -1,0 +1,30 @@
+node_modules/
+.next/
+out/
+.env
+.env.local
+.env*.local
+*.log
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Docker
+postgres_data/
+redis_data/
+
+# Secrets
+backend/.env

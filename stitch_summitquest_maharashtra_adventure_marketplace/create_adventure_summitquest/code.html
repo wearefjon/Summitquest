@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create Adventure - Basic Information | SummitQuest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-surface": "#0d1c2e",
+                            "accent-gold": "#FFBF69",
+                            "surface-dim": "#ccdbf3",
+                            "surface-off-white": "#F8F9FA",
+                            "surface-variant": "#d5e3fc",
+                            "surface-bright": "#f8f9ff",
+                            "surface-container": "#e6eeff",
+                            "primary-fixed-dim": "#a5d0b9",
+                            "primary-container": "#1b4332",
+                            "tertiary-fixed-dim": "#ffb86b",
+                            "inverse-on-surface": "#eaf1ff",
+                            "on-background": "#0d1c2e",
+                            "on-secondary-fixed-variant": "#0e5138",
+                            "outline": "#717973",
+                            "text-dark": "#1E293B",
+                            "on-error-container": "#93000a",
+                            "secondary-container": "#aeeecb",
+                            "tertiary": "#3b2000",
+                            "on-primary-container": "#86af99",
+                            "surface-container-highest": "#d5e3fc",
+                            "tertiary-fixed": "#ffdcbc",
+                            "on-secondary": "#ffffff",
+                            "surface-container-high": "#dce9ff",
+                            "on-surface-variant": "#414844",
+                            "primary": "#012d1d",
+                            "error": "#ba1a1a",
+                            "inverse-surface": "#233144",
+                            "surface": "#f8f9ff",
+                            "brand-coral": "#FF5A5F",
+                            "on-tertiary-container": "#ed9101",
+                            "on-primary": "#ffffff",
+                            "surface-container-low": "#eff4ff",
+                            "secondary-fixed-dim": "#95d4b3",
+                            "inverse-primary": "#a5d0b9",
+                            "primary-fixed": "#c1ecd4",
+                            "secondary-fixed": "#b1f0ce",
+                            "on-primary-fixed-variant": "#274e3d",
+                            "on-tertiary": "#ffffff",
+                            "outline-variant": "#c1c8c2",
+                            "on-secondary-fixed": "#002114",
+                            "on-secondary-container": "#316e52",
+                            "surface-tint": "#3f6653",
+                            "on-primary-fixed": "#002114",
+                            "on-tertiary-fixed": "#2c1700",
+                            "tertiary-container": "#593300",
+                            "on-tertiary-fixed-variant": "#683d00",
+                            "error-container": "#ffdad6",
+                            "secondary": "#2c694e",
+                            "background": "#f8f9ff",
+                            "surface-container-lowest": "#ffffff",
+                            "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "margin-mobile": "16px",
+                            "margin-desktop": "40px",
+                            "gutter": "24px",
+                            "container-max": "1280px",
+                            "base": "8px"
+                    },
+                    "fontFamily": {
+                            "label-md": [
+                                    "Inter"
+                            ],
+                            "body-md": [
+                                    "Inter"
+                            ],
+                            "display-lg": [
+                                    "Montserrat"
+                            ],
+                            "body-lg": [
+                                    "Inter"
+                            ],
+                            "label-sm": [
+                                    "Inter"
+                            ],
+                            "headline-sm": [
+                                    "Montserrat"
+                            ],
+                            "headline-md": [
+                                    "Montserrat"
+                            ],
+                            "display-lg-mobile": [
+                                    "Montserrat"
+                            ]
+                    },
+                    "fontSize": {
+                            "label-md": [
+                                    "14px",
+                                    {
+                                            "lineHeight": "20px",
+                                            "letterSpacing": "0.01em",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "body-md": [
+                                    "16px",
+                                    {
+                                            "lineHeight": "24px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "display-lg": [
+                                    "48px",
+                                    {
+                                            "lineHeight": "56px",
+                                            "letterSpacing": "-0.02em",
+                                            "fontWeight": "700"
+                                    }
+                            ],
+                            "body-lg": [
+                                    "18px",
+                                    {
+                                            "lineHeight": "28px",
+                                            "fontWeight": "400"
+                                    }
+                            ],
+                            "label-sm": [
+                                    "12px",
+                                    {
+                                            "lineHeight": "16px",
+                                            "letterSpacing": "0.04em",
+                                            "fontWeight": "500"
+                                    }
+                            ],
+                            "headline-sm": [
+                                    "24px",
+                                    {
+                                            "lineHeight": "32px",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "headline-md": [
+                                    "32px",
+                                    {
+                                            "lineHeight": "40px",
+                                            "fontWeight": "600"
+                                    }
+                            ],
+                            "display-lg-mobile": [
+                                    "36px",
+                                    {
+                                            "lineHeight": "44px",
+                                            "letterSpacing": "-0.01em",
+                                            "fontWeight": "700"
+                                    }
+                            ]
+                    }
+            },
+                },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .ambient-shadow {
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+        }
+
+        .ambient-shadow-hover:hover {
+            box-shadow: 0 16px 40px rgba(30, 41, 59, 0.12);
+        }
+
+        .radio-card:checked + div {
+            border-color: #012d1d;
+            background-color: #e6eeff;
+        }
+
+        .radio-card:checked + div .icon-container {
+            color: #012d1d;
+        }
+        
+        /* Custom scrollbar for textareas */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c8c2;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #717973;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex">
+<!-- Side Navigation -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface shadow-md p-4 gap-2 z-40 border-r border-outline-variant/30">
+<!-- Brand Header -->
+<div class="mb-8 px-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-brand-coral" style="font-variation-settings: 'FILL' 1; font-size: 32px;">terrain</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">SummitQuest</span>
+</div>
+<!-- User Profile Area -->
+<div class="mb-8 px-4 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container/20">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a rugged Indian male adventure guide in his 30s. He has a warm, confident smile, a trimmed beard, and is wearing a high-quality forest green outdoor jacket. The background is slightly blurred, suggesting a sunny, mountainous landscape. Lighting is natural, bright, and professional, conveying trust and experience in a premium adventure setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6yKis_C7Yw7Hg0kMm1G2yDaUJ2AaN9a_49Ar_z5E0dHPzysCzapDstu2R_ec896wIx2uEzcKOq-umtKoP8befEWCrbrGhFdhdz_CIznmV5jb7XZliomFX4iff4O-HyqWSL6yTmAVVjTV-eet-iXKzdxYXkKTjj2By0pdvKeR_gNilqklc5GTRvfiQyucgodDqQKEwH8IqHfBvCJTFRDzZxbhF0i9zsBCoCxaxx0G-TKsK4mpG6CSHRR16TGQCqHQ7_0Ty0wujlxw"/>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-primary">Sumit Deshmukh</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Explorer Tier</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/50 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary-container text-on-secondary-container font-bold font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+                Bookings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/50 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Earnings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/50 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-variant/50 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+<!-- CTA & Footer Links -->
+<div class="mt-auto flex flex-col gap-4">
+<button class="w-full py-3 px-4 bg-brand-coral text-white rounded-xl font-label-md text-label-md font-bold hover:bg-orange-600 transition-colors shadow-sm">
+                Upgrade to Pro
+            </button>
+<div class="border-t border-outline-variant/30 pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 rounded-xl text-on-surface-variant hover:bg-surface-variant/50 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-xl text-on-surface-variant hover:bg-surface-variant/50 transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 relative min-h-screen pb-24 md:pb-0">
+<!-- Top App Bar (Mobile Only) -->
+<header class="md:hidden glass-panel sticky top-0 z-30 px-margin-mobile py-4 flex items-center justify-between border-b border-outline-variant/20">
+<button class="p-2 -ml-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Create Adventure</span>
+<button class="p-2 -mr-2 text-primary">
+<span class="material-symbols-outlined">close</span>
+</button>
+</header>
+<!-- Page Header & Stepper -->
+<div class="bg-surface-off-white border-b border-outline-variant/20 pt-8 pb-6 px-margin-mobile md:px-margin-desktop sticky top-0 md:top-0 z-20">
+<div class="max-w-3xl mx-auto">
+<div class="flex items-center gap-4 mb-6">
+<button class="w-10 h-10 rounded-full bg-white border border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined group-hover:-translate-x-1 transition-transform">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary font-bold">New Adventure</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Provide the core details to start building your new offering.</p>
+</div>
+</div>
+<!-- Progress Stepper -->
+<div class="flex items-center justify-between relative">
+<!-- Track line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant/30 -z-10 -translate-y-1/2"></div>
+<!-- Active Track -->
+<div class="absolute top-1/2 left-0 w-1/3 h-[2px] bg-primary -z-10 -translate-y-1/2 transition-all duration-500"></div>
+<!-- Step 1 (Active) -->
+<div class="flex flex-col items-center gap-2 relative bg-surface-off-white px-2">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-label-md text-label-md shadow-sm">
+                            1
+                        </div>
+<span class="font-label-sm text-label-sm text-primary font-bold hidden sm:block">Basic Info</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2 relative bg-surface-off-white px-2">
+<div class="w-8 h-8 rounded-full bg-white border-2 border-outline-variant text-outline flex items-center justify-center font-label-md text-label-md">
+                            2
+                        </div>
+<span class="font-label-sm text-label-sm text-outline hidden sm:block">Itinerary</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2 relative bg-surface-off-white px-2">
+<div class="w-8 h-8 rounded-full bg-white border-2 border-outline-variant text-outline flex items-center justify-center font-label-md text-label-md">
+                            3
+                        </div>
+<span class="font-label-sm text-label-sm text-outline hidden sm:block">Pricing</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-2 relative bg-surface-off-white px-2">
+<div class="w-8 h-8 rounded-full bg-white border-2 border-outline-variant text-outline flex items-center justify-center font-label-md text-label-md">
+                            4
+                        </div>
+<span class="font-label-sm text-label-sm text-outline hidden sm:block">Media</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Canvas -->
+<div class="p-margin-mobile md:p-margin-desktop max-w-3xl mx-auto">
+<div class="bg-white rounded-[24px] ambient-shadow p-6 md:p-8 mb-8 border border-outline-variant/20">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-6">Step 1: Basic Information</h2>
+<form class="flex flex-col gap-8">
+<!-- Title Input -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-primary" for="adventure-title">Adventure Title <span class="text-brand-coral">*</span></label>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Make it catchy and descriptive. Include the location if possible.</p>
+<input class="w-full bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary transition-shadow" id="adventure-title" placeholder="e.g. Sunrise Trek to Rajmachi Fort" type="text"/>
+</div>
+<!-- Category Selection (Cards) -->
+<div class="flex flex-col gap-3">
+<label class="font-label-md text-label-md text-primary">Category <span class="text-brand-coral">*</span></label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<!-- Option 1 -->
+<label class="cursor-pointer group relative">
+<input checked="" class="peer sr-only radio-card" name="category" type="radio" value="trekking"/>
+<div class="h-full border-2 border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:bg-surface-off-white peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-primary">
+<div class="icon-container text-outline-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">hiking</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-center">Trekking</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="cursor-pointer group relative">
+<input class="peer sr-only radio-card" name="category" type="radio" value="camping"/>
+<div class="h-full border-2 border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:bg-surface-off-white peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-primary">
+<div class="icon-container text-outline-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">camping</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-center">Camping</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="cursor-pointer group relative">
+<input class="peer sr-only radio-card" name="category" type="radio" value="water_sports"/>
+<div class="h-full border-2 border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:bg-surface-off-white peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-primary">
+<div class="icon-container text-outline-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">kayaking</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-center">Water Sports</span>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="cursor-pointer group relative">
+<input class="peer sr-only radio-card" name="category" type="radio" value="wildlife"/>
+<div class="h-full border-2 border-outline-variant/30 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 transition-all hover:bg-surface-off-white peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-primary">
+<div class="icon-container text-outline-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">forest</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-center">Wildlife</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Difficulty & Duration Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Difficulty Dropdown -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-primary" for="difficulty">Difficulty Level <span class="text-brand-coral">*</span></label>
+<div class="relative">
+<select class="appearance-none w-full bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary pr-10" id="difficulty">
+<option disabled="" selected="" value="">Select level...</option>
+<option value="easy">Easy (Beginner Friendly)</option>
+<option value="moderate">Moderate (Some experience needed)</option>
+<option value="hard">Hard (Good fitness required)</option>
+<option value="expert">Expert (Technical skills required)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Duration Input -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-primary" for="duration">Duration <span class="text-brand-coral">*</span></label>
+<div class="flex gap-2">
+<input class="w-24 bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary text-center" id="duration" min="1" placeholder="e.g. 2" type="number"/>
+<select class="flex-1 bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
+<option value="hours">Hours</option>
+<option selected="" value="days">Days</option>
+<option value="weeks">Weeks</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Short Description -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-primary" for="short-desc">Short Summary <span class="text-brand-coral">*</span></label>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">A brief overview of the experience (max 150 characters).</p>
+<textarea class="w-full bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary resize-none" id="short-desc" placeholder="Briefly describe what makes this adventure special..." rows="3"></textarea>
+<div class="text-right font-label-sm text-label-sm text-outline mt-1">0 / 150</div>
+</div>
+</form>
+</div>
+<!-- Action Bar (Floating on mobile, static on desktop) -->
+<div class="fixed bottom-0 left-0 w-full md:w-auto md:static bg-white md:bg-transparent border-t border-outline-variant/20 md:border-none p-4 md:p-0 flex justify-end gap-4 z-30 ambient-shadow md:shadow-none">
+<button class="px-6 py-3 rounded-2xl border-2 border-primary text-primary font-label-md text-label-md font-bold hover:bg-surface-off-white transition-colors" type="button">
+                    Save Draft
+                </button>
+<button class="px-8 py-3 rounded-2xl bg-primary text-white font-label-md text-label-md font-bold hover:bg-on-primary-fixed-variant transition-colors ambient-shadow flex items-center gap-2 group" type="button">
+                    Save &amp; Continue
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</body></html>

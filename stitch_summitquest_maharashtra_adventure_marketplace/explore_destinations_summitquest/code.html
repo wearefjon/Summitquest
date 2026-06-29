@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Destinations - SummitQuest</title>
+<!-- Google Fonts: Montserrat & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#e6eeff",
+                        "tertiary-fixed": "#ffdcbc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#2c1700",
+                        "secondary-fixed": "#b1f0ce",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface": "#0d1c2e",
+                        "tertiary": "#3b2000",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-fixed": "#002114",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "primary-container": "#1b4332",
+                        "surface-variant": "#d5e3fc",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary-container": "#ed9101",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-container": "#593300",
+                        "on-background": "#0d1c2e",
+                        "surface-off-white": "#F8F9FA",
+                        "outline-variant": "#c1c8c2",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-dim": "#ccdbf3",
+                        "surface-container-highest": "#d5e3fc",
+                        "brand-coral": "#FF5A5F",
+                        "primary": "#012d1d",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#316e52",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#2c694e",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "outline": "#717973",
+                        "surface": "#f8f9ff",
+                        "on-surface-variant": "#414844",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#aeeecb",
+                        "inverse-surface": "#233144",
+                        "text-dark": "#1E293B",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "accent-gold": "#FFBF69"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "24px": "24px",
+                        "16px": "16px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .ambient-shadow { box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08); }
+        .ambient-shadow-hover:hover { box-shadow: 0 20px 48px rgba(30, 41, 59, 0.12); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-primary/80 backdrop-blur-md docked full-width top-0 border-b border-black/5 dark:border-white/5 shadow-sm fixed top-0 left-0 w-full z-50">
+<div class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto w-full">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary scale-95 active:scale-90 transition-transform flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">landscape</span>
+                SummitQuest
+            </a>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<!-- Active Item: Destinations -->
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 transition-colors" href="#">
+                    Destinations
+                </a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Activities
+                </a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Professional Guides
+                </a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">
+                    Safety
+                </a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<button class="hidden md:block font-label-md text-label-md text-primary hover:text-secondary transition-colors">Login</button>
+<button class="bg-primary hover:bg-secondary text-white font-label-md text-label-md py-2 px-6 rounded-16px transition-colors scale-95 active:scale-90 shadow-sm">
+                    Register
+                </button>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-outline-variant cursor-pointer hidden md:block">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of an outdoor guide or adventurer, well-lit against a neutral background. The aesthetic is clean, modern, and trustworthy, aligning with a premium adventure tourism brand's light-mode design system. The person has a warm, confident expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFlc662r-koYKfLNKZAn5_jAHap-dyvpgPvwvEu84XPK2JmPRJE6jduRukgKSARsOsoScJL-pufIdvowCx4Gw3-zL5uZASl18101FZhjWcv4YTXC9OMbPMGBPn6HNjro8yZpmUASjtHBQfs15iBX88Aa6Jl-7xCFmh0f-imeYKsg-0SsQStxrAuOE2BEp8ZUvG4CriQE00OfIx86e9sMUIBcT26M16YCDz28QuwSq8jaa0EQ23_d5Cy2x8CmpVh5mouN_7P6_geJY"/>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full flex flex-col gap-12">
+<!-- Header & Filters -->
+<section class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<h1 class="font-display-lg-mobile md:font-display-lg text-primary text-display-lg-mobile md:text-display-lg">Explore Regions</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Discover the diverse landscapes of Maharashtra, from rugged peaks to pristine shores, curated for the modern explorer.</p>
+</div>
+<!-- Environment Filters -->
+<div class="flex flex-wrap items-center gap-3 mt-4">
+<button class="px-5 py-2.5 rounded-full bg-primary text-white font-label-md text-label-md flex items-center gap-2 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[18px]">travel_explore</span>
+                    All Environments
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md flex items-center gap-2 hover:bg-primary hover:text-white transition-all active:scale-95 border border-transparent">
+<span class="material-symbols-outlined text-[18px]">beach_access</span>
+                    Beach
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-surface text-on-surface-variant font-label-md text-label-md flex items-center gap-2 hover:bg-surface-variant transition-all active:scale-95 border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">landscape</span>
+                    Mountain
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-surface text-on-surface-variant font-label-md text-label-md flex items-center gap-2 hover:bg-surface-variant transition-all active:scale-95 border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">forest</span>
+                    Forest
+                </button>
+<button class="px-5 py-2.5 rounded-full bg-surface text-on-surface-variant font-label-md text-label-md flex items-center gap-2 hover:bg-surface-variant transition-all active:scale-95 border border-outline-variant">
+<span class="material-symbols-outlined text-[18px]">account_balance</span>
+                    Heritage
+                </button>
+</div>
+</section>
+<!-- Bento Grid Gallery -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Sahyadri Ranges (Featured / Large Span) -->
+<article class="md:col-span-8 group relative rounded-24px overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 h-[480px] md:h-[600px] cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A breathtaking, wide-angle landscape photograph of the Sahyadri mountain range during golden hour. Lush green valleys contrast with steep, rugged cliffs under a clear, vibrant sky. The image has a premium, high-resolution aesthetic with soft, diffused sunlight, perfect for a high-end adventure travel website's hero card. The mood is awe-inspiring and majestic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_wXKfCG87ZqwauuXNO0sOhwwIgdLZUWeoX8hd5wpW7CzdsUtHA69vrv8XxUHheXpvZ8Wp3utsEE-tPk6M-gPKv5T72YznoL4aaY6uRCNQueQkfRbfJRiJuhRE0on1pYXMS5QUG0gETZSnh_Ohtx4D1Y4INse9GtiEjlg2mFR8pN8jXEdsAX9enh4PQUIoQN0i04qksqvyus9Cp61PUJRpFU_RKTfUc7CrkgH0hsbsLe5p112MA-YmarYKfxXj-WxvfeyAmCAhOuY')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+<div class="absolute inset-x-0 bottom-0 p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-surface-off-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Mountains</span>
+<span class="text-white/80 font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Western Ghats
+                        </span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-white mb-2">Sahyadri Ranges</h2>
+<p class="font-body-md text-body-md text-white/90 max-w-lg">Trek through historic forts, hidden waterfalls, and challenging pinnacles in one of the world's eight hottest hotspots of biological diversity.</p>
+</div>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-3 mt-2 border-t border-white/20 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">hiking</span>
+<span class="font-label-md text-label-md text-white">42 Active Treks</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-brand-coral" style="font-variation-settings: 'FILL' 1;">camping</span>
+<span class="font-label-md text-label-md text-white">Cliff Camping</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">fort</span>
+<span class="font-label-md text-label-md text-white">Fort Explorations</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Konkan Coast (Tall Span) -->
+<article class="md:col-span-4 group relative rounded-24px overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 h-[480px] md:h-[600px] cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="An aerial, high-quality photograph of the Konkan coastline. A pristine, secluded sandy beach meets clear turquoise waters, bordered by dense tropical palm trees and rocky outcrops. The lighting is bright and summery, evoking a sense of tranquil discovery and premium coastal tourism. The style is modern, minimalist, and vibrant." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBahdeagJ6oYGP-T_HcF3WbQc2ckqYXLAPgCUTVvQwboIX6e0mfxEm4DO5LoyqOWdSw1ToWt-jzevBRqLO_82PJoxIXZKAPW8z-OuQwfJEPuwX00v_hwYqrcFXblJQIh8Q8CdzZvyYf92DNCfjtNtqemQQ9X0ow4fcVxHpruJJ7V_xw-HaK6bxayd40HL7n_K0qefw8Ys62j-usKPQeH871eIOdsLqOoE8EHVAchDvIIp8DdMVkJMbhcMqepXyaJYx6tD2-mJUPck4')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+<div class="absolute inset-x-0 bottom-0 p-8 flex flex-col gap-4">
+<div class="flex items-center gap-3 mb-2">
+<span class="bg-surface-off-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Coastal</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-white mb-2">Konkan Coast</h2>
+<p class="font-body-md text-body-md text-white/90">Untouched beaches, marine sanctuaries, and historic sea forts stretching along the Arabian Sea.</p>
+</div>
+<div class="flex flex-col gap-3 mt-2 border-t border-white/20 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">scuba_diving</span>
+<span class="font-label-md text-label-md text-white">Scuba &amp; Snorkeling</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">sailing</span>
+<span class="font-label-md text-label-md text-white">18 Coastal Routes</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Vidarbha Forests -->
+<article class="md:col-span-6 group relative rounded-24px overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 h-[400px] cursor-pointer border border-outline-variant/30">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A dramatic, high-resolution shot deep within a dense, sun-dappled Indian forest. Sunlight streams through thick canopy foliage, illuminating a misty trail. The color palette features rich earthy tones, deep greens, and golden light rays. The aesthetic feels untamed yet accessible, perfect for a high-end wildlife safari and adventure context." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGTLpgZ4NovFgA9QF79wxkRwO-1-QwTjIp1lGP8GmDI-Zm2UX_1nPbSks3Zn1KXnDi9Q7V6TTqQ-fqn1TSoeKKqK9ytMPAZZEKZ1RA75mm4gx29_w11M1-tbcbjRQ_2FgSO4Qf6WRGYKSWfoS3FU4_-0Dq20Zd37IP1aXh4uyz2OXVBbHFP477FkzG2ESMpygq3jwKnD6CHAQY1asDl_px8-8DM75Hl2UCRh5Y6vcaM_eTyyorzstzV2WvTkStOSCYvM0ZT4iPdDU')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
+<div class="absolute inset-x-0 bottom-0 p-8 flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="bg-surface-off-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Forest &amp; Wildlife</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-white">Vidarbha Forests</h2>
+<p class="font-body-md text-body-md text-white/80 line-clamp-2">Immerse yourself in India's tiger capital, exploring dense jungles and vast lakes through guided safaris.</p>
+<div class="flex items-center gap-6 mt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed">pets</span>
+<span class="font-label-md text-label-md text-white">Tiger Safaris</span>
+</div>
+<div class="flex items-center gap-2 text-white/80">
+<span class="font-label-sm text-label-sm">• 5 Sanctuaries</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Deccan Plateau Heritage -->
+<article class="md:col-span-6 group relative rounded-24px overflow-hidden ambient-shadow ambient-shadow-hover transition-all duration-300 h-[400px] cursor-pointer border border-outline-variant/30">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A stunning architectural photograph of ancient rock-cut caves carved into a basalt cliff face. The stone textures are incredibly detailed, highlighted by warm, directional sunlight. The atmosphere is historic and grand, conveying a sense of profound heritage within a rugged landscape. The image fits a premium, culturally rich travel brand aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQ_4c7eoZPtwGDJY_SgMvL5x3T5gPNDe3lgZN1C3LIuVqvC1QofN35w4N3u-wX6NA0m_zeO3atuz0nuV1YYuOPr-UgEuM8V25TQuV45j6_nVne1LVN6rAIU5wz-66Q1ugONsoVRjYA6Vr7wnjT7XpqifK58YagNl2yeTPVWVskacG_Pjm7On5RViFJNNmuAWoueCh_cKM6bNSPtq7wMkvrf1pYHZmgWm-Oq2zXYdJ6o0r9nAvtrHLVZLWXyk9XucgUMGvs6EkmO8s')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary-container/95 via-tertiary-container/40 to-transparent"></div>
+<div class="absolute inset-x-0 bottom-0 p-8 flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<span class="bg-surface-off-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Heritage Trails</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-white">Deccan Plateau</h2>
+<p class="font-body-md text-body-md text-white/80 line-clamp-2">Traverse volcanic plateaus to discover UNESCO World Heritage sites, ancient caves, and expansive crater lakes.</p>
+<div class="flex items-center gap-6 mt-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed">history_edu</span>
+<span class="font-label-md text-label-md text-white">Cave Explorations</span>
+</div>
+<div class="flex items-center gap-2 text-white/80">
+<span class="font-label-sm text-label-sm">• 12 Historical Routes</span>
+</div>
+</div>
+</div>
+</article>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-off-white dark:bg-primary full-width bottom-0 border-t border-outline-variant">
+<div class="w-full py-16 px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4 col-span-1 md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">landscape</span>
+                    SummitQuest
+                </div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mt-2">
+                    Curating premium adventure experiences across Maharashtra's most stunning landscapes.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider mb-2">Explore</h4>
+<a class="font-label-sm text-label-sm text-primary font-bold opacity-80 hover:opacity-100 hover:text-secondary transition-colors" href="#">Destinations</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant opacity-80 hover:opacity-100 hover:text-secondary transition-colors" href="#">Activities</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant opacity-80 hover:opacity-100 hover:text-secondary transition-colors" href="#">Partner Program</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider mb-2">Support</h4>
+<a class="font-label-sm text-label-sm text-on-surface-variant opacity-80 hover:opacity-100 hover:text-secondary transition-colors" href="#">Safety Protocols</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant opacity-80 hover:opacity-100 hover:text-secondary transition-colors" href="#">Help Center</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant opacity-80 hover:opacity-100 hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+</div>
+<!-- Newsletter / Contact -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider mb-2">Stay Updated</h4>
+<div class="flex gap-2">
+<input class="w-full bg-white border border-outline-variant rounded-lg px-4 py-2 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-secondary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Copyright -->
+<div class="border-t border-black/5 dark:border-white/5 py-6 mt-8">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center md:text-left">
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 SummitQuest Maharashtra. Adventure Responsibly.</p>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Financial Management - Operator Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#a5d0b9",
+                        "on-primary-container": "#86af99",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "outline-variant": "#c1c8c2",
+                        "on-surface": "#0d1c2e",
+                        "on-primary-fixed": "#002114",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary": "#2c694e",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed": "#ffdcbc",
+                        "tertiary": "#3b2000",
+                        "inverse-surface": "#233144",
+                        "text-dark": "#1E293B",
+                        "outline": "#717973",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ed9101",
+                        "surface-tint": "#3f6653",
+                        "on-secondary-fixed": "#002114",
+                        "surface-dim": "#ccdbf3",
+                        "surface-container": "#e6eeff",
+                        "surface-container-high": "#dce9ff",
+                        "tertiary-container": "#593300",
+                        "surface-bright": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-container-low": "#eff4ff",
+                        "brand-coral": "#FF5A5F",
+                        "primary-container": "#1b4332",
+                        "secondary-fixed": "#b1f0ce",
+                        "primary": "#012d1d",
+                        "secondary-container": "#aeeecb",
+                        "on-background": "#0d1c2e",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "on-secondary": "#ffffff",
+                        "accent-gold": "#FFBF69",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#c1ecd4",
+                        "background": "#f8f9ff",
+                        "on-secondary-container": "#316e52",
+                        "surface-variant": "#d5e3fc",
+                        "surface-container-highest": "#d5e3fc",
+                        "surface-off-white": "#F8F9FA",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Montserrat"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ambient-shadow {
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+        }
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 48px rgba(30, 41, 59, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased flex">
+<!-- Side Navigation Shell (Hidden on Mobile) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-low dark:bg-surface-container-lowest shadow-lg shadow-md z-40 py-base gap-2">
+<div class="px-6 py-4 border-b border-outline-variant/30 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist logo design for an adventure operator portal featuring abstract mountain peaks in forest green on an off-white background, clean modern vector art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClaGorJm2dLvkWPvn9XYCKFEPg1d1JcTGWOCIAQ02xq7fXRMEchWaEFhczUNNmmh6n3Q3l_tEedWflcJ8iaorIjmeFwMxnBD9UXl4WDwPkEQeiDCHuOMAwjJcuuvKdDBytpg9pqVoNBkvQ-Ta1k5cUqMsvkrVeymhCoJo3iPGDcVDz7t0xBScQo9HE-OeU-t-5rfikY3js_gyaUf7-VHQ5lodYNaLawqzUBJm-seFQR-wulfzVntg7BPaFYmWzUqZrtofzDkPDIYc"/>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Operator Portal</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Adventure Partner</p>
+</div>
+</div>
+<div class="px-4 py-2">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md rounded-lg py-3 hover:bg-primary-container transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                List New Activity
+            </button>
+</div>
+<ul class="flex flex-col gap-1 px-2 mt-4 flex-grow overflow-y-auto">
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="bg-secondary-container text-on-secondary-container rounded-xl flex items-center gap-3 px-4 py-3 cursor-pointer transition-transform duration-200 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                    Financials
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                    Bookings
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">backpack</span>
+                    Inventory
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">star</span>
+                    Reviews
+                </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto px-2 pb-4">
+<ul class="flex flex-col gap-1 border-t border-outline-variant/30 pt-4">
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                        Help Center
+                    </a>
+</li>
+<li>
+<a class="text-on-surface-variant flex items-center gap-3 px-4 py-3 hover:bg-surface-container-high transition-all cursor-pointer rounded-xl font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">logout</span>
+                        Log Out
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 min-h-screen pb-20 md:pb-12">
+<!-- Mobile Header (Visible only on Mobile) -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile py-4 bg-surface/80 backdrop-blur-md sticky top-0 z-30 shadow-sm border-b border-black/5">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Financials</h1>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<!-- Page Header -->
+<div class="mb-8 md:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Financial Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage your earnings, payouts, and tax documents.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 rounded-lg border-2 border-primary text-primary font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors">Export Report</button>
+</div>
+</div>
+<!-- Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-12">
+<!-- Total Revenue -->
+<div class="bg-surface-off-white rounded-xl p-6 ambient-shadow border border-outline-variant/20 flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Revenue (YTD)</span>
+<span class="material-symbols-outlined text-secondary">trending_up</span>
+</div>
+<div>
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">₹12,45,000</div>
+<div class="font-label-sm text-label-sm text-secondary mt-1">+14% vs last year</div>
+</div>
+</div>
+<!-- Available for Payout -->
+<div class="bg-primary text-on-primary rounded-xl p-6 ambient-shadow flex flex-col justify-between h-40 relative overflow-hidden card-hover transition-transform duration-300">
+<div class="absolute -right-12 -top-12 w-40 h-40 bg-primary-container rounded-full opacity-50 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="font-label-md text-label-md text-on-primary/80">Available for Payout</span>
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="relative z-10">
+<div class="font-display-lg text-display-lg-mobile md:text-display-lg">₹85,500</div>
+<button class="mt-2 font-label-sm text-label-sm text-on-primary bg-on-primary/20 hover:bg-on-primary/30 px-3 py-1 rounded-full transition-colors flex items-center gap-1 w-fit">
+                            Withdraw Funds <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Processing -->
+<div class="bg-surface-off-white rounded-xl p-6 ambient-shadow border border-outline-variant/20 flex flex-col justify-between h-40">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Processing Funds</span>
+<span class="material-symbols-outlined text-on-tertiary-container">hourglass_empty</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface">₹24,000</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Expected within 2-3 business days</div>
+</div>
+</div>
+</div>
+<!-- Layout for Main Ledger and Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main Ledger Area (Spans 2 columns on large screens) -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Tabs -->
+<div class="flex gap-6 border-b border-outline-variant/30 px-2">
+<button class="pb-3 border-b-2 border-secondary text-secondary font-label-md text-label-md">Settled Earnings</button>
+<button class="pb-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Upcoming Payouts</button>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-off-white rounded-xl ambient-shadow border border-outline-variant/20 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low border-b border-outline-variant/30">
+<tr>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Description</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Amount</th>
+<th class="py-4 px-6 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-4 px-6 font-body-md text-body-md">Oct 24, 2024</td>
+<td class="py-4 px-6">
+<div class="font-label-md text-label-md">Kalsubai Night Trek</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Booking #49281</div>
+</td>
+<td class="py-4 px-6 font-label-md text-label-md">₹14,500</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container">
+                                                Paid
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors">
+<td class="py-4 px-6 font-body-md text-body-md">Oct 21, 2024</td>
+<td class="py-4 px-6">
+<div class="font-label-md text-label-md">Harishchandragad Camping</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Booking #49265</div>
+</td>
+<td class="py-4 px-6 font-label-md text-label-md">₹8,200</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container">
+                                                Paid
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors bg-surface-container/30">
+<td class="py-4 px-6 font-body-md text-body-md">Oct 26, 2024</td>
+<td class="py-4 px-6">
+<div class="font-label-md text-label-md">Rajmachi Monsoon Trek</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Booking #49310</div>
+</td>
+<td class="py-4 px-6 font-label-md text-label-md">₹12,000</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-container text-on-tertiary-container">
+                                                Processing
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors bg-surface-container/30">
+<td class="py-4 px-6 font-body-md text-body-md">Oct 28, 2024</td>
+<td class="py-4 px-6">
+<div class="font-label-md text-label-md">Sandhan Valley Descent</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Booking #49322</div>
+</td>
+<td class="py-4 px-6 font-label-md text-label-md">₹24,000</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm border border-outline-variant text-on-surface-variant">
+                                                Pending
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 border-t border-outline-variant/30 bg-surface-container-low flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Showing 1 to 4 of 48 entries</span>
+<div class="flex gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-variant text-on-surface-variant disabled:opacity-50"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-2 rounded-lg hover:bg-surface-variant text-on-surface-variant"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar for Documents & Insights -->
+<div class="space-y-6">
+<!-- Tax Documents -->
+<div class="bg-surface-off-white rounded-xl p-6 ambient-shadow border border-outline-variant/20">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">description</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Tax Documents</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Download your annual tax summaries and TDS certificates.</p>
+<ul class="space-y-3">
+<li class="flex items-center justify-between p-3 rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">picture_as_pdf</span>
+<div>
+<div class="font-label-md text-label-md">FY 2023-24 Summary</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Generated Apr 15, 2024</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">download</span>
+</li>
+<li class="flex items-center justify-between p-3 rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">picture_as_pdf</span>
+<div>
+<div class="font-label-md text-label-md">Q2 TDS Certificate</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Generated Oct 10, 2024</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors">download</span>
+</li>
+</ul>
+<button class="w-full mt-4 font-label-md text-label-md text-secondary hover:text-primary transition-colors text-center">View All Documents</button>
+</div>
+<!-- Payment Settings Brief -->
+<div class="bg-surface-container rounded-xl p-6 ambient-shadow border border-outline-variant/10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Payout Account</h3>
+</div>
+<div class="flex items-center gap-4 bg-surface-off-white p-4 rounded-lg">
+<div class="w-12 h-8 bg-surface-variant rounded flex items-center justify-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance</span>
+</div>
+<div>
+<div class="font-label-md text-label-md">HDFC Bank ****4592</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Current Account</div>
+</div>
+</div>
+<button class="w-full mt-4 px-4 py-2 border border-outline text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-variant transition-colors">Manage Payment Methods</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

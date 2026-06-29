@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SummitQuest - Admin Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#e6eeff",
+                        "tertiary-fixed": "#ffdcbc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#2c1700",
+                        "secondary-fixed": "#b1f0ce",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface": "#0d1c2e",
+                        "tertiary": "#3b2000",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-fixed": "#002114",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "primary-container": "#1b4332",
+                        "surface-variant": "#d5e3fc",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary-container": "#ed9101",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-container": "#593300",
+                        "on-background": "#0d1c2e",
+                        "surface-off-white": "#F8F9FA",
+                        "outline-variant": "#c1c8c2",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-dim": "#ccdbf3",
+                        "surface-container-highest": "#d5e3fc",
+                        "brand-coral": "#FF5A5F",
+                        "primary": "#012d1d",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#316e52",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#2c694e",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "outline": "#717973",
+                        "surface": "#f8f9ff",
+                        "on-surface-variant": "#414844",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#aeeecb",
+                        "inverse-surface": "#233144",
+                        "text-dark": "#1E293B",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "accent-gold": "#FFBF69"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "premium": "1.5rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0d1c2e;
+        }
+        .ambient-shadow {
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+        }
+        .premium-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .premium-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 48px rgba(30, 41, 59, 0.12);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden bg-background font-body-md text-body-md">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full p-4 gap-2 bg-surface shadow-md h-screen w-64 fixed left-0 top-0 z-40">
+<!-- Header -->
+<div class="flex items-center gap-4 mb-8 p-2">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="User avatar" class="object-cover w-full h-full" data-alt="A professional headshot of a diverse team leader in a corporate setting. The lighting is bright and even, highlighting a friendly expression. The background is a slightly blurred modern office space with subtle greenery. The overall tone is approachable yet authoritative, fitting a premium digital platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4OXuaIXoXiuQL_GD69qpg9xvSAOjN_Dx7WnLSbv9IJSDWYMAaL_b7ksYptyJIvN_665Ykua41U17W-934evwH0G7_afa2-RqiyM6fI-Iei6vB4IB0DvXyjkBqS1cvw92kEFrw__UwbkHsHE2BEcg_hYb4xYW7PBH8_DfaPXd_VfvW-VcLHVuVJDu5eWA8L_jBGv_LaWNowSwxC09CKt72urliAyfrKUgDTgP1He0cyFIski9FiY2QNb0S8NpkmvtQ0xAqLi195IU"/>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Sumit Deshmukh</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">Explorer Tier</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-1 flex-1">
+<a class="bg-secondary-container text-on-secondary-container rounded-xl font-bold font-label-md text-label-md p-3 flex items-center gap-3 translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+                Users
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">work</span>
+                Operators
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+                Bookings
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Payments
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+                Analytics
+            </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+<!-- CTA & Footer -->
+<div class="mt-auto flex flex-col gap-4">
+<button class="bg-primary text-on-primary rounded-xl p-3 font-label-md text-label-md hover:bg-secondary transition-colors text-center w-full shadow-sm">
+                Upgrade to Pro
+            </button>
+<div class="border-t border-outline-variant pt-4 flex flex-col gap-1">
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help
+                </a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl font-label-md text-label-md p-3 flex items-center gap-3 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 h-full overflow-y-auto bg-surface-off-white p-margin-mobile md:p-margin-desktop">
+<!-- Header -->
+<header class="mb-8 flex justify-between items-center">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Overview</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Platform Performance &amp; Operations</p>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="flex items-center gap-2 bg-surface px-4 py-2 rounded-lg border border-outline-variant font-label-md text-label-md text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">download</span>
+                    Export Report
+                </button>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 rounded-lg bg-surface border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary w-64 font-body-md text-body-md" placeholder="Search data..." type="text"/>
+</div>
+</div>
+</header>
+<!-- KPI Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-12">
+<!-- KPI 1 -->
+<div class="premium-card ambient-shadow p-6 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Revenue</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">₹4.2M</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-sm text-label-sm">+12.5% from last month</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="premium-card ambient-shadow p-6 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">New Operators</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">142</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-sm text-label-sm">+8.2% from last month</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="premium-card ambient-shadow p-6 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Bookings</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">8,450</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined">event_available</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span class="font-label-sm text-label-sm">+15.3% from last month</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="premium-card ambient-shadow p-6 flex flex-col justify-between h-40">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Users</p>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1">24.1K</h3>
+</div>
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined">group</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">trending_flat</span>
+<span class="font-label-sm text-label-sm">Steady growth</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout for Complex Data -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-12">
+<!-- Geographical Heatmap (Takes up 2 columns) -->
+<div class="premium-card ambient-shadow lg:col-span-2 p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Geographical Booking Heatmap</h3>
+<button class="text-primary hover:text-secondary font-label-md text-label-md">View Full Map</button>
+</div>
+<div class="relative w-full h-80 bg-surface rounded-xl overflow-hidden flex-1 border border-outline-variant">
+<img alt="Map of Maharashtra" class="object-cover w-full h-full" data-alt="A highly detailed, stylized map of Maharashtra, India, rendered in a modern data-visualization aesthetic. The map uses a sophisticated color palette of deep greens and bright coral to indicate heat mapping. The background is a clean, minimal off-white, allowing the data points to pop. Soft, diffused shadows give the map a slight 3D layered effect, fitting a premium dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi6ZCCvRnanOXxT_KIZSpfW_OY50sVoE3ylP9JZwR5zluRDR0XSHsIsCslrDTvHzvUOZVs1GIoNre1zw71AUAYdcYsls4AeCybUHsA36bYTVGZd2XXXUtaBKF8id_VFlL7cMSzNMZLGITh8EeQBfddEihidWsf6sm7meK25floiqheFF2a7-UTdUb-RQBs1qMawqqRtd7xgdjT0vs9J-CAdG1IoBqfvD50SSJgSwd6LrRXPCRtw-wwbCyu8MgO2AqAVYIKRylBAGw"/>
+<!-- Overlay Glass Panel for Map Stats -->
+<div class="absolute bottom-4 left-4 right-4 glass-panel p-4 rounded-xl flex justify-around">
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Top Region</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">Pune</p>
+</div>
+<div class="w-px h-full bg-outline-variant/30"></div>
+<div class="text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fastest Growing</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">Nashik</p>
+</div>
+</div>
+</div>
+</div>
+<!-- System Health -->
+<div class="premium-card ambient-shadow p-6 flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6">System Health</h3>
+<div class="flex flex-col gap-6 flex-1">
+<!-- Status Item -->
+<div class="flex items-start gap-4">
+<div class="mt-1 w-3 h-3 rounded-full bg-secondary shadow-[0_0_8px_rgba(44,105,78,0.5)]"></div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-md text-label-md text-on-surface">API Gateway</p>
+<p class="font-label-sm text-label-sm text-secondary">99.99% Uptime</p>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary w-[99%] h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Status Item -->
+<div class="flex items-start gap-4">
+<div class="mt-1 w-3 h-3 rounded-full bg-secondary shadow-[0_0_8px_rgba(44,105,78,0.5)]"></div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-md text-label-md text-on-surface">Database Cluster</p>
+<p class="font-label-sm text-label-sm text-secondary">Optimal</p>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary w-full h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Status Item (Warning) -->
+<div class="flex items-start gap-4">
+<div class="mt-1 w-3 h-3 rounded-full bg-accent-gold shadow-[0_0_8px_rgba(255,191,105,0.5)]"></div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<p class="font-label-md text-label-md text-on-surface">Payment Gateway</p>
+<p class="font-label-sm text-label-sm text-tertiary-container">Slight Delay (45ms)</p>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full overflow-hidden">
+<div class="bg-accent-gold w-[85%] h-full rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant">
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center">Last checked: 2 mins ago</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Activity Timeline -->
+<section class="premium-card ambient-shadow p-6 mb-12">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Platform Activity</h3>
+<button class="text-primary hover:text-secondary font-label-md text-label-md">View All Logs</button>
+</div>
+<div class="relative pl-6 border-l-2 border-surface-variant flex flex-col gap-8">
+<!-- Timeline Item 1 -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-surface border-4 border-primary"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<p class="font-label-md text-label-md text-on-surface">New Operator Onboarded: <span class="font-bold">Sahyadri Trekkers</span></p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Completed KYC verification and published 3 new itineraries.</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface px-3 py-1 rounded-full whitespace-nowrap">10 mins ago</span>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-surface border-4 border-secondary"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Large Booking Volume Detected</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Spike in bookings for "Kalsubai Night Trek" (50+ spots filled in 1 hour).</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface px-3 py-1 rounded-full whitespace-nowrap">45 mins ago</span>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative">
+<div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-surface border-4 border-error"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Failed Payment Alert</p>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Multiple transaction failures reported from gateway 'GatewayB'. Auto-failover initiated.</p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface px-3 py-1 rounded-full whitespace-nowrap">2 hours ago</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

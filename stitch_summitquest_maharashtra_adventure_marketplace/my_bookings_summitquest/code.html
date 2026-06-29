@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Management - SummitQuest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-container": "#86af99",
+                        "on-primary": "#ffffff",
+                        "brand-coral": "#FF5A5F",
+                        "secondary-fixed": "#b1f0ce",
+                        "surface-off-white": "#F8F9FA",
+                        "on-background": "#0d1c2e",
+                        "secondary": "#2c694e",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed": "#ffdcbc",
+                        "background": "#f8f9ff",
+                        "primary-fixed": "#c1ecd4",
+                        "text-dark": "#1E293B",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#002114",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary-fixed": "#002114",
+                        "primary-container": "#1b4332",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-container": "#316e52",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "tertiary-container": "#593300",
+                        "outline-variant": "#c1c8c2",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "primary": "#012d1d",
+                        "accent-gold": "#FFBF69",
+                        "surface-dim": "#ccdbf3",
+                        "on-surface": "#0d1c2e",
+                        "on-error": "#ffffff",
+                        "outline": "#717973",
+                        "surface-variant": "#d5e3fc",
+                        "on-tertiary-container": "#ed9101",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e6eeff",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "inverse-surface": "#233144",
+                        "surface-container-highest": "#d5e3fc",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary": "#3b2000",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#3f6653",
+                        "secondary-container": "#aeeecb",
+                        "surface": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .premium-shadow {
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+        }
+        .card-hover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 48px rgba(30, 41, 59, 0.12);
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface min-h-screen font-body-md antialiased overflow-x-hidden pt-24 pb-16">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-black/5 dark:border-white/5 shadow-sm">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">
+            SummitQuest
+        </div>
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 transition-transform" href="#">Destinations</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 transition-transform" href="#">Activities</a>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 scale-95 active:scale-90 transition-transform" href="#">Professional Guides</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 transition-transform" href="#">Safety</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-label-md text-label-md text-primary hover:text-secondary transition-colors scale-95 active:scale-90 transition-transform">Login</button>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-[16px] hover:bg-secondary transition-colors scale-95 active:scale-90 transition-transform">Register</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Page Header -->
+<section class="mb-12 pt-8">
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Booking Management</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage your upcoming adventures, review past expeditions, and access important documents all in one place.</p>
+</section>
+<!-- Status Filter Tabs -->
+<div class="flex gap-4 mb-8 border-b border-outline-variant/30 pb-2 overflow-x-auto no-scrollbar">
+<button class="font-label-md text-label-md text-primary border-b-2 border-primary pb-2 px-2 whitespace-nowrap">Active Bookings</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary pb-2 px-2 whitespace-nowrap transition-colors">Past Trips</button>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary pb-2 px-2 whitespace-nowrap transition-colors">Cancelled</button>
+</div>
+<!-- Bookings Grid (Bento Style Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Active Booking 1 (Featured/Large) -->
+<article class="lg:col-span-8 bg-surface-off-white rounded-[24px] premium-shadow border border-outline-variant/20 overflow-hidden relative group card-hover transition-all duration-300">
+<div class="h-64 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A sweeping, cinematic view of a misty mountain range in Maharashtra during dawn. The scene is illuminated by soft, golden-hour light cutting through the fog, highlighting rugged peaks and lush green valleys. The aesthetic is premium outdoor adventure, moody yet inviting, with rich greens and warm sunrise oranges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHvZAvSqQOy_h50gr3KDYE1jMBOrOJKUoqOSuRI_KY4MDpaRdP47oHLgsbIOE5mS0PGx7oqBa6sGhBs3p4DFaxneczDf6Erew-xaeaHurqvyXgVMTK8u5RJPUpnurJX0qMns8b4S811NrSMf9TxU4GSj1l9nLFPivAj417R39GD9pPwKA8Rc4v6IMBVw8sLoXHlLN7MCY6Tq3rDwWXji-c8Crs2SCjXg0wccwoTDQ5RLFvv5cn_5y7o0E10yaySqe26JRIzjn-wiU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 glass-panel">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+                        Confirmed
+                    </div>
+</div>
+<div class="p-6 md:p-8 relative bg-surface-off-white mt-[-20px] rounded-t-[24px]">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-6">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Trek • 3 Days</p>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-2">Harishchandragad Peak Expedition</h2>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-md text-body-md">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_month">calendar_month</span>
+                                    Oct 15 - 17, 2024
+                                </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+                                    2 Guests
+                                </div>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Booking Ref</p>
+<p class="font-label-md text-label-md text-primary bg-surface-container-low px-3 py-1 rounded-lg border border-outline-variant/20">SQ-HCG-8921</p>
+</div>
+</div>
+<div class="flex flex-wrap gap-3 pt-6 border-t border-outline-variant/20">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-[16px] hover:bg-secondary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+                            Modify Booking
+                        </button>
+<button class="bg-transparent text-secondary border-[1.5px] border-secondary font-label-md text-label-md px-6 py-3 rounded-[16px] hover:bg-secondary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat">chat</span>
+                            Contact Guide
+                        </button>
+<button class="bg-transparent text-on-surface-variant font-label-md text-label-md px-4 py-3 rounded-[16px] hover:bg-surface-variant/50 transition-colors flex items-center gap-2 ml-auto">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+                            Invoice
+                        </button>
+</div>
+</div>
+</article>
+<!-- Guide Contact Quick Card (Side) -->
+<aside class="lg:col-span-4 flex flex-col gap-gutter">
+<div class="bg-surface-off-white rounded-[24px] premium-shadow border border-outline-variant/20 p-6">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-4 uppercase tracking-wider">Your Guide</h3>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A close-up portrait of a professional outdoor guide. He has a friendly, rugged appearance, wearing a premium high-performance fleece jacket. The lighting is bright and natural, reflecting a clean, trustworthy, and expert persona suitable for a high-end adventure tourism platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClwF2GtotkLvCTrn9ouPdKLlMhd8hXHy_32y9OECgf9v7aWLE9e0o01Q282YEtrI2S-ByuKeqtLS6drBkyexH8r3P9gmNSnhHc4YSQv27IUu9ZT5EeWS5zt0H7kRU1beeoGcW1iFED5M-rF9WueL8zopPYC877Q__WVC-44F-3IOHYh4MyRtSODSU19y18pjqAW8hDCiaOhXJTagCZjMzFZcl55H0_FA7qqIdUCej3-p0Eq8-5b-TY2Rb6RF-rUgUCQB_xV5l_z-4"/>
+</div>
+<div>
+<p class="font-headline-sm text-[18px] leading-snug text-primary">Arjun Desai</p>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-accent-gold text-[16px]" data-icon="star" data-weight="fill">star</span>
+                                4.9 (120+ trips)
+                            </p>
+</div>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4">Arjun will be leading your Harishchandragad expedition. Feel free to reach out with any specific gear questions.</p>
+<button class="w-full bg-surface-container-low text-primary border border-outline-variant/30 font-label-md text-label-md px-4 py-3 rounded-[16px] hover:bg-surface-variant/50 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+                        Send Message
+                    </button>
+</div>
+<!-- Weather Widget -->
+<div class="bg-primary text-on-primary rounded-[24px] premium-shadow p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+<span class="material-symbols-outlined text-[120px]" data-icon="partly_cloudy_day" data-weight="fill">partly_cloudy_day</span>
+</div>
+<h3 class="font-label-md text-label-md text-primary-fixed-dim mb-4 uppercase tracking-wider relative z-10">Destination Forecast</h3>
+<div class="flex items-baseline gap-2 mb-1 relative z-10">
+<span class="font-display-lg-mobile text-display-lg-mobile">24°</span>
+<span class="font-body-lg text-body-lg text-primary-fixed">C</span>
+</div>
+<p class="font-body-md text-body-md text-primary-fixed mb-4 relative z-10">Partly cloudy, slight chance of rain. Ideal trekking conditions.</p>
+<a class="font-label-sm text-label-sm text-secondary-fixed hover:text-white transition-colors underline relative z-10" href="#">View Detailed Gear List</a>
+</div>
+</aside>
+<!-- Upcoming Booking 2 (List Style Card) -->
+<article class="lg:col-span-12 bg-surface-off-white rounded-[24px] premium-shadow border border-outline-variant/20 overflow-hidden flex flex-col md:flex-row card-hover transition-all duration-300 mt-4">
+<div class="md:w-1/3 h-48 md:h-auto relative">
+<img class="w-full h-full object-cover" data-alt="A serene, high-quality photograph of a tranquil lake surrounded by dense forest in Maharashtra, viewed from a slightly elevated angle. The water is calm, reflecting the clear blue sky. The lighting is bright daylight, creating a fresh, clean, and premium minimalist aesthetic suitable for a high-end booking platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpWGtgYCx1zo2hXpmdh0ahNDvCXMjsC_dFJG8_dx2qvmOPZXf8EbPJ7CtPNhaHkDxyvdtRT9PdyZuUzYWoyWxEvu-mna4k7D5sKgv6soWUeKjfMm-lfqcbAxzPVdQVNnmh8_bzCamiLoILJTtMeMlIbQqnIpI01RlHN8Ozz0X5StO-QEFkY9hX9gRoEpcRqt7_xxX8zcLwkpCrhXTflmW5xJtktgfa6QtdVFqWBa6OUultT5wOZUk3c5KUce5MwA6SWK4VLtOdl6I"/>
+<div class="absolute top-4 left-4 bg-surface/90 text-on-surface px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-accent-gold"></span>
+                        Action Required
+                    </div>
+</div>
+<div class="p-6 md:w-2/3 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Camping • 1 Night</p>
+<h3 class="font-headline-sm text-[20px] text-primary">Pawna Lake Lakeside Retreat</h3>
+</div>
+<span class="bg-surface-variant text-on-surface-variant px-3 py-1 rounded-full font-label-sm text-label-sm border border-outline-variant/20">
+                                SQ-PWN-1044
+                            </span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-md text-body-md mb-4">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_month">calendar_month</span>
+                                Nov 02 - 03, 2024
+                            </div>
+</div>
+</div>
+<div class="bg-tertiary-fixed/30 border border-tertiary-fixed-dim/50 rounded-[12px] p-4 mb-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-on-tertiary-container mt-0.5" data-icon="info">info</span>
+<div>
+<p class="font-label-md text-label-md text-on-tertiary-container">Complete Guest Details</p>
+<p class="font-body-md text-[14px] text-on-surface-variant">Please provide ID details for the second guest before arrival.</p>
+</div>
+</div>
+<div class="flex gap-3 mt-auto">
+<button class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2.5 rounded-[16px] hover:bg-secondary transition-colors">
+                            Update Details
+                        </button>
+<button class="bg-transparent text-secondary border-[1.5px] border-secondary font-label-md text-label-md px-5 py-2.5 rounded-[16px] hover:bg-secondary/5 transition-colors">
+                            Manage
+                        </button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto bg-surface-off-white dark:bg-primary border-t border-outline-variant mt-24">
+<div class="col-span-1 md:col-span-4 mb-8">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-primary">SummitQuest</span>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Destinations</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Activities</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Safety Protocols</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Partner Program</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant/30 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 SummitQuest Maharashtra. Adventure Responsibly.</p>
+</div>
+</footer>
+</body></html>

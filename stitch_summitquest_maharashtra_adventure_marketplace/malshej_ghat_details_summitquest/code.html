@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Malshej Ghat - SummitQuest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#0d1c2e",
+                      "accent-gold": "#FFBF69",
+                      "surface-dim": "#ccdbf3",
+                      "surface-off-white": "#F8F9FA",
+                      "surface-variant": "#d5e3fc",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container": "#e6eeff",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "primary-container": "#1b4332",
+                      "tertiary-fixed-dim": "#ffb86b",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-background": "#0d1c2e",
+                      "on-secondary-fixed-variant": "#0e5138",
+                      "outline": "#717973",
+                      "text-dark": "#1E293B",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#aeeecb",
+                      "tertiary": "#3b2000",
+                      "on-primary-container": "#86af99",
+                      "surface-container-highest": "#d5e3fc",
+                      "tertiary-fixed": "#ffdcbc",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#dce9ff",
+                      "on-surface-variant": "#414844",
+                      "primary": "#012d1d",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#233144",
+                      "surface": "#f8f9ff",
+                      "brand-coral": "#FF5A5F",
+                      "on-tertiary-container": "#ed9101",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#eff4ff",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "inverse-primary": "#a5d0b9",
+                      "primary-fixed": "#c1ecd4",
+                      "secondary-fixed": "#b1f0ce",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c1c8c2",
+                      "on-secondary-fixed": "#002114",
+                      "on-secondary-container": "#316e52",
+                      "surface-tint": "#3f6653",
+                      "on-primary-fixed": "#002114",
+                      "on-tertiary-fixed": "#2c1700",
+                      "tertiary-container": "#593300",
+                      "on-tertiary-fixed-variant": "#683d00",
+                      "error-container": "#ffdad6",
+                      "secondary": "#2c694e",
+                      "background": "#f8f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.04em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased">
+<!-- TopNavBar -->
+<nav class="bg-white/80 dark:bg-primary/80 backdrop-blur-md shadow-sm border-b border-black/5 dark:border-white/5 fixed top-0 left-0 w-full z-50">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary" href="#">SummitQuest</a>
+<div class="hidden md:flex gap-8">
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Destinations</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Activities</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Professional Guides</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#">Safety</a>
+</div>
+<div class="flex gap-4">
+<button class="font-label-md text-label-md text-primary dark:text-on-primary bg-transparent border-[1.5px] border-primary px-4 py-2 rounded-xl scale-95 active:scale-90 transition-transform">Login</button>
+<button class="font-label-md text-label-md text-on-primary bg-primary px-4 py-2 rounded-xl scale-95 active:scale-90 transition-transform">Register</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="relative h-[819px] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A breathtaking, panoramic photograph of Malshej Ghat in Maharashtra during the monsoon season. Majestic, rugged cliffs rise dramatically from lush, vibrant green valleys. Numerous silver waterfalls cascade down the dark basalt rock faces. Heavy, low-hanging mist and clouds weave through the peaks, creating an ethereal and moody atmosphere. The lighting is soft and diffused, emphasizing the rich greens of the flora and the dark grey of the wet rock. Premium landscape photography style, suitable for a high-end travel website hero image." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOcEif92c0R4ta7ILL3Agrs2nTLegCEWEjHZdc9-spy-lfmWlNtFbFKgaOHBjG2noPAZ-5YrTroZjD4yvTK-eAu0UrKCGRS2nVCgi2bFbZeBhLxHAb7jKH6CbAVIbOqdPZy1Vq0XYflp4W-cww0guDbN6dNywWQNBfVbjlpFubRoGU_mdQNPUjo_FVwWVzngolk3R55FVDwfhJQPdAk0vVt0UNTmFQqya_BFHpHA747xTqGPfJGbQ_pCoot409Q_tnW4KKQ0FoyOw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop text-white max-w-container-max mx-auto mt-20">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-accent-gold mb-4 block">Maharashtra, India</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6">Malshej Ghat</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-90 mb-8">A rugged paradise of cascading waterfalls, ancient forts, and vibrant birdlife, perched high in the Western Ghats.</p>
+</div>
+</section>
+<!-- Container for content -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left Column: Details -->
+<div class="md:col-span-8 flex flex-col gap-16">
+<!-- Overview -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Overview</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Nestled in the lofty rugged hills of the Western Ghats, Malshej Ghat is a renowned mountain pass in Maharashtra. Particularly spectacular during the monsoon months, the region transforms into a vibrant canvas of deep greens, adorned with countless waterfalls and enveloped in mystical mist. It's a haven for trekkers, nature lovers, and bird watchers, most famously known for the pink flamingos that visit during late summer.
+                    </p>
+</section>
+<!-- Best Time to Visit (Seasonal Widget) -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Best Time to Visit</h2>
+<div class="bg-white rounded-[24px] p-6 shadow-[0_12px_32px_rgba(30,41,59,0.08)] border border-[#E2E8F0]">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<!-- Monsoon -->
+<div class="flex flex-col items-center p-4 bg-surface-container-low rounded-xl border-2 border-secondary-container">
+<span class="material-symbols-outlined text-4xl text-secondary mb-2" data-icon="rainy">rainy</span>
+<h3 class="font-label-md text-label-md text-primary mb-1">Monsoon</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2">Jul - Sep</span>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm">Peak Season</span>
+</div>
+<!-- Winter -->
+<div class="flex flex-col items-center p-4 bg-surface-off-white rounded-xl">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2" data-icon="ac_unit">ac_unit</span>
+<h3 class="font-label-md text-label-md text-primary mb-1">Winter</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2">Oct - Feb</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Trekking</span>
+</div>
+<!-- Summer -->
+<div class="flex flex-col items-center p-4 bg-surface-off-white rounded-xl">
+<span class="material-symbols-outlined text-4xl text-accent-gold mb-2" data-icon="sunny">sunny</span>
+<h3 class="font-label-md text-label-md text-primary mb-1">Summer</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-2">Mar - Jun</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Flamingos</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Activities (Bento Grid) -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Top Activities</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Activity 1 -->
+<div class="relative h-64 rounded-[24px] overflow-hidden group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A dynamic, low-angle shot of trekkers ascending a steep, rocky trail near Harishchandragad fort in Malshej Ghat. The trekkers are wearing modern, colorful outdoor gear, contrasting with the dark basalt rock. The sky above is a dramatic mix of blue and white monsoon clouds. The image conveys a sense of adventure, physical effort, and the raw beauty of the rugged landscape. High-resolution, crisp lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDciJSKMa9JomciTQynxDwk7Mqh3-Nd3-3X4jShTGQhddFMKeVufbyDjllBiq-KvDs8ygX5BHMcCJtQ-4ZcI4GV4v45vOQGeEkV8Kjl52C21pFxiXZ333IEAYJM0FH-NSSQ8Q_6y-9BMsg5PyHWzyRM73o2PNGARoaJ6Z8PpT7i9Rfq7Ndatw_WdfTzFS-MXLCc8NDjsuUVsHmopgzXdS8MfxwzDlQJm4kQe1jjTPCiaiprlhLqbfBHs8VPk996BNBLSCOak82pZsk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="font-headline-sm text-headline-sm text-white mb-2">Fort Trekking</h3>
+<p class="font-body-sm text-body-sm text-white/80">Explore ancient ruins like Harishchandragad.</p>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="relative h-64 rounded-[24px] overflow-hidden group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene, telephoto image of a flock of pink flamingos wading in the shallow waters of Pimpalgaon Joga Dam near Malshej Ghat. The water reflects the soft, golden light of early morning. The background features blurred, lush green hills. The focus is sharp on the elegant birds, highlighting their vibrant plumage against the calm, cool-toned water. Nature documentary style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8293y3Dc9v_yKKjJUp9hvZqeX9wrB7J6MT-zSLWlH1TcwDgw8MXwwMw94ZrN6g2s3nQPcx1oMNouXj2AvlUmTIuEnsj4o2gDupkqfgw6WPyIK1pV9Akqs0uO3AjQVnY5wvWuFbJsC_ZP7tn35liTiS6qqq6qQE9D74sCff0L42SDw_omWCm7KYcrm60g_hb9zm_rRPnlLoB2yk5bybsKRueTqBjTRTzPzoMMQ5HVr1ymqGnslyV-FKiEmKzApwfuYDgC_eAzOSI0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="font-headline-sm text-headline-sm text-white mb-2">Bird Watching</h3>
+<p class="font-body-sm text-body-sm text-white/80">Spot migrating flamingos and alpine swifts.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h2 class="font-headline-md text-headline-md text-primary">Gallery</h2>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">View All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<img class="w-full h-48 object-cover rounded-[16px]" data-alt="A close-up shot of a powerful waterfall crashing against dark rocks in Malshej Ghat. The water is blurred slightly to show motion, creating a silky white texture against the stark grey stone and vibrant green moss. The image is taken from a low angle, emphasizing the force of nature. High contrast, moody monsoon lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRHVB1Wfj_Ze-06OZhBLKF5HiiQ9Dykjz3QtOV8PScSJGTux7onGlMtJihYu0s_ByFx1M3QIby4hjVL_r6OfWwQTDB_bSfIiUaqemK7fmAt8NGwfG5Cz3QWcOFvf6tP31hqNF4jjzv6GW959aCId79ETffm9NHZRN0zqJ64OA7wLdMD8m-dA8-L6HzcjBpc06o9rDlklPwReKB5SCNL3H_j_tEG-vtSps3Uk0tqrlfL3q7ruSu1LbA5BA4bRR8C_K-EHVFKzdLod0"/>
+<img class="w-full h-48 object-cover rounded-[16px]" data-alt="A wide landscape view of the winding mountain road cutting through Malshej Ghat. The dark asphalt snake through vibrant green, mist-covered valleys. Heavy clouds loom overhead, casting dramatic shadows on the hillsides. A sense of journey and isolation in a vast, beautiful wilderness. Cinematic travel photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsS8StYt6hXaZFl2iTU6vqJ4Ke0CyvwGLuWj4_8GEZ5lK0dYQNNgxwOc2qUufbVeIXKKOx3HIPw5QJs9pYZHPq-o0Beft5pmdCrGMBArxwFm_VCx3ddv51KwZJOMPAnVhaLPq8jMBVgkxEhpIRsI6yvc7bywO0cdN_hBNFXq0h0U6vXv24Oqdz5hRSkR50j4I9D5md7wQqUv0u9naI3YsG1llaAXN68JYVrV-JjtcbiDWroMQaiNfg3Jprx4a-jPIOUBoKJAmkce0"/>
+<img class="w-full h-48 object-cover rounded-[16px] md:block hidden" data-alt="A detailed shot of the unique flora found in Malshej Ghat during the monsoon. Tiny, vibrant wildflowers blooming out of crevices in the dark basalt rock. Water droplets cling to the petals and leaves, reflecting the soft, overcast light. Macro photography focusing on the delicate details of life thriving in a harsh environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1gSQMM2nxbBzUCAoGDYQB7k_CUhWyFf35kh7D-WhZTMO8aMKdYPAN49bWEsIHiql84cgsKtVQlFa9zGbV-X8GtZmfqft_YJBawfSp5Tv-pOG05IWCDrlnfugxnB6oU8lYfngLPqBODOjsB8xE_JGLwIJtfi-sQ2Vngx9WVP41gtn_ntmBnOr4DB4XgCs6HxgKxWhifbj4VK6wmRhuLcJziWeRXvpJs2P5VxaQHeIPB4KjlWYug9Wa7IDLHn0pgOnbIjYulpZfuXI"/>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar Widgets -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Booking/Info Widget (Sticky) -->
+<div class="bg-white rounded-[24px] p-6 shadow-[0_12px_32px_rgba(30,41,59,0.08)] border border-[#E2E8F0] sticky top-[100px]">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Plan Your Trip</h3>
+<div class="flex flex-col gap-4 mb-6">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="location_on">location_on</span>
+<div>
+<span class="font-label-md text-label-md text-primary block">Distance from Pune</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Approx. 120 km (3 hours)</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="directions_car">directions_car</span>
+<div>
+<span class="font-label-md text-label-md text-primary block">How to Reach</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Best accessed by road via Kalyan or Pune. State transport buses available.</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1" data-icon="terrain">terrain</span>
+<div>
+<span class="font-label-md text-label-md text-primary block">Elevation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">700 meters above sea level.</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-brand-coral hover:bg-brand-coral/90 text-white font-label-md text-label-md py-3 rounded-xl transition-colors">Find Accommodations</button>
+</div>
+<!-- Local Guides -->
+<div class="bg-surface-off-white rounded-[24px] p-6 border border-outline-variant/30">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Expert Local Guides</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 bg-white p-3 rounded-xl shadow-sm border border-outline-variant/20">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a rugged, experienced local trekking guide from Maharashtra. He has a warm, confident smile and weathered features. He is wearing a professional outdoor jacket in earthy tones. The background is slightly blurred, showing a misty mountain trail. Natural, flattering daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwQkPJAn38qS-OhM40ERpoIyxevWAljNSd1mTPCG-Tr-7Je07BJEErloovsC8mMOC3hLxsNkJq_a9Mavj7TZMMFZyaqXi8U3D58EJgb4BhvcSMSHW_IGZDKcTVT5tZZTsWjPwtn_f0ntNAxZJWaBytAt__zkXCXqOUtFxuLdDgeZlXAs1knUK48xLGYtgHCJT5Y_dNsWICN3CR3Yezd-DAmmNMTmDfSUYewSnL4up5gZRfbzg3kt0zB_-ubPw1LWmFkdcV7G2DATU"/>
+</div>
+<div class="flex-1">
+<span class="font-label-md text-label-md text-primary block">Ramesh Patil</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trekking &amp; History</span>
+</div>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-off-white dark:bg-primary border-t border-outline-variant w-full py-16 px-margin-mobile md:px-margin-desktop mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+<div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-primary mb-4 block">SummitQuest</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 SummitQuest Maharashtra. Adventure Responsibly.</p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Destinations</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Activities</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Safety Protocols</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Partner Program</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

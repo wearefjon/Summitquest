@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Confirmation - SummitQuest Maharashtra</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#a5d0b9",
+                      "on-primary-container": "#86af99",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#683d00",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "on-secondary-fixed-variant": "#0e5138",
+                      "outline-variant": "#c1c8c2",
+                      "on-surface": "#0d1c2e",
+                      "on-primary-fixed": "#002114",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "secondary": "#2c694e",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#414844",
+                      "tertiary-fixed": "#ffdcbc",
+                      "tertiary": "#3b2000",
+                      "inverse-surface": "#233144",
+                      "text-dark": "#1E293B",
+                      "outline": "#717973",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#ed9101",
+                      "surface-tint": "#3f6653",
+                      "on-secondary-fixed": "#002114",
+                      "surface-dim": "#ccdbf3",
+                      "surface-container": "#e6eeff",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary-container": "#593300",
+                      "surface-bright": "#f8f9ff",
+                      "surface": "#f8f9ff",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#2c1700",
+                      "surface-container-low": "#eff4ff",
+                      "brand-coral": "#FF5A5F",
+                      "primary-container": "#1b4332",
+                      "secondary-fixed": "#b1f0ce",
+                      "primary": "#012d1d",
+                      "secondary-container": "#aeeecb",
+                      "on-background": "#0d1c2e",
+                      "tertiary-fixed-dim": "#ffb86b",
+                      "on-secondary": "#ffffff",
+                      "accent-gold": "#FFBF69",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-error-container": "#93000a",
+                      "primary-fixed": "#c1ecd4",
+                      "background": "#f8f9ff",
+                      "on-secondary-container": "#316e52",
+                      "surface-variant": "#d5e3fc",
+                      "surface-container-highest": "#d5e3fc",
+                      "surface-off-white": "#F8F9FA",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "container-max": "1280px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.04em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(13, 28, 46, 0.9) 0%, rgba(13, 28, 46, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-accent-gold selection:text-tertiary-fixed min-h-screen flex flex-col">
+<!-- Top Navigation - Suppressed as per instructions for transactional/confirmation pages -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative h-[614px] min-h-[500px] w-full flex items-end justify-center pb-16 px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full z-0" data-alt="A breathtaking, cinematic wide-angle shot of the rugged Harishchandragad fort in Maharashtra at sunrise. The golden morning light casts dramatic shadows across the ancient stone walls and steep cliffs. The sky is a gradient of soft pinks and vibrant oranges, setting a celebratory and awe-inspiring mood. The image should feel premium, high-resolution, and perfectly suited for an adventure booking confirmation." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCoHlsWZlc9YacTXIxDnyoFCEr0k7se2TpIMEF1C8D1RZHITtmP4b2jgn7hTjUy099zOo8juckaaQ4GYGikHFzBPGufUdJD0VZDfZ0gQei9Gdo6L2GmSdw5dqqHLPqIIVGoS_YdmVsAMcHz-r8Oqv2MBDgkcTUTzwgUut8xzWr_hCdSucWUPE5whzYZ4wWg2-9I-PoQGrhlZ_Rlg497HE1JXhrGlt8fxSmvhrnmQXVqdIjmcZ-K4bNHoozpKpwQt5pHH3xOGM6Nn5Q')"></div>
+<div class="absolute inset-0 hero-gradient z-10"></div>
+<div class="relative z-20 text-center text-on-primary max-w-container-max w-full">
+<div class="inline-flex items-center gap-2 bg-accent-gold/20 backdrop-blur-md border border-accent-gold/30 px-4 py-2 rounded-full mb-6">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md text-accent-gold uppercase tracking-widest">Booking Confirmed</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-4 text-balance shadow-sm">You're going to Harishchandragad!</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl mx-auto">Your spot is secured for the ultimate Sahyadri adventure. Get ready to conquer the Konkan Kada.</p>
+</div>
+</section>
+<!-- Main Content Layout (Bento Grid Style) -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 -mt-24 relative z-30">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Countdown & Actions (8 cols) -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Countdown Card -->
+<div class="glass-panel rounded-xl shadow-lg border border-black/5 p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary mb-2">The Adventure Begins In</h2>
+<p class="text-on-surface-variant font-body-md">Oct 24, 2024 • 06:00 AM IST</p>
+</div>
+<div class="flex gap-4 text-center">
+<div class="bg-surface-container-low rounded-lg p-4 min-w-[80px]">
+<span class="block font-headline-md text-headline-md text-secondary">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Days</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 min-w-[80px]">
+<span class="block font-headline-md text-headline-md text-secondary">08</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Hours</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-4 min-w-[80px]">
+<span class="block font-headline-md text-headline-md text-secondary">45</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mins</span>
+</div>
+</div>
+</div>
+<!-- Next Steps Bento Box -->
+<div class="bg-surface-off-white rounded-xl shadow-sm border border-black/5 p-8">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+                            Your Pre-Trek Checklist
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Gear Checklist -->
+<div class="bg-surface rounded-lg p-6 border border-black/5">
+<h4 class="font-label-md text-label-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">backpack</span> Mandatory Gear
+                                </h4>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<input class="mt-1 rounded text-secondary focus:ring-secondary/50 border-outline-variant" type="checkbox"/>
+<span class="text-on-surface-variant">Sturdy Trekking Shoes (Ankle Support)</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 rounded text-secondary focus:ring-secondary/50 border-outline-variant" type="checkbox"/>
+<span class="text-on-surface-variant">3L Hydration Pack/Water Bottles</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 rounded text-secondary focus:ring-secondary/50 border-outline-variant" type="checkbox"/>
+<span class="text-on-surface-variant">Rain Poncho / Windcheater</span>
+</li>
+<li class="flex items-start gap-3">
+<input class="mt-1 rounded text-secondary focus:ring-secondary/50 border-outline-variant" type="checkbox"/>
+<span class="text-on-surface-variant">Personal First-Aid Kit</span>
+</li>
+</ul>
+</div>
+<!-- Document Status -->
+<div class="bg-surface rounded-lg p-6 border border-black/5 flex flex-col justify-between">
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">description</span> Required Documents
+                                    </h4>
+<div class="flex items-center gap-4 p-3 bg-error-container/20 rounded-md border border-error-container mb-4">
+<span class="material-symbols-outlined text-error">error</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Liability Waiver</p>
+<p class="font-label-sm text-label-sm text-error">Pending Upload</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-surface-container border border-primary-container text-primary-container font-label-md text-label-md py-3 rounded-lg hover:bg-primary-container hover:text-on-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">upload_file</span> Upload Waiver
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Details & Actions (4 cols) -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Booking Summary -->
+<div class="bg-surface-off-white rounded-xl shadow-sm border border-black/5 p-6">
+<div class="flex justify-between items-start mb-6 pb-6 border-b border-black/5">
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Booking ID</p>
+<p class="font-label-md text-label-md text-primary">#SQ-MH-8892</p>
+</div>
+<img class="w-16 h-16 rounded-md object-cover border border-outline-variant/30" data-alt="A small, stylized, high-contrast QR code generated in a modern, clean aesthetic, designed for a premium mobile booking interface. The background is white and the code elements are deep forest green." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARUJf7HXCyXFKxxZjT9_BvfyTZNPU5HCDFbO0d2liDbJw7fmQxl-3xN73WOnjsKvcsyLoEoqPRNACMTS1VvsQNjUrKxuBy6kFrDhtqTqaNtTeEcbsTQVZV2MHPwnMFenMHMYMb2UyWn2wIkUPZ5TrjSNA7t28s2WBs1n-3LZjCkTAMRj9j1a6F9AI-7P9yZU2ryXb7Ico-SsmpzFdAyeHSQM81t5ROctW9NHSxgJKT7vXk6D3WO1hcVqX3-x_qlUFS4A2BrXEAwGg"/>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">group</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Participants</p>
+<p class="font-label-md text-label-md text-on-surface">2 Adults</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">location_on</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Meeting Point</p>
+<p class="font-label-md text-label-md text-on-surface">Pachnai Village Base Camp</p>
+</div>
+</div>
+</div>
+<!-- Primary Actions -->
+<div class="space-y-3">
+<button class="w-full bg-accent-gold text-tertiary font-label-md text-label-md py-4 rounded-xl hover:bg-[#ffb042] transition-colors flex items-center justify-center gap-2 font-bold shadow-sm">
+<span class="material-symbols-outlined">calendar_add_on</span> Add to Calendar
+                            </button>
+<button class="w-full bg-transparent border-[1.5px] border-secondary text-secondary font-label-md text-label-md py-4 rounded-xl hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">share</span> Share Details
+                            </button>
+</div>
+</div>
+<!-- Guide Profile Mini -->
+<div class="bg-surface-off-white rounded-xl shadow-sm border border-black/5 p-6 flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover border-2 border-surface-container" data-alt="A professional headshot of a rugged, friendly Indian trek guide wearing a branded outdoor vest, standing against a blurred background of green mountains. He has a warm smile and conveys authority and safety." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR6ZWBpnONbgSO6R_l6qGtEeKhqmgbN2dpm6RMqpAWX6omemiiNTnAin1EHshazZPAKqQrv-0_uPTb3AD6cn2n3yn5JByUYYojImB3qn9Spy-RYUNdnomboqwr5QKVaZV74Br-BhXcqXlDB1eOtVmqs9NHfRau7-7uYPkNAEcT8HvH1UtDy6RtfHdxtkUFzhb6F4xBv84qBzXMigZzEB_W1UpBT14su7h0L3obA-Q4M9AnKbJ36sWOLEO9aRSndBEZ129EKt1IQOg"/>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Your Expedition Lead</p>
+<p class="font-label-md text-label-md text-primary">Rohan Deshmukh</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-surface-container-highest text-on-primary dark:text-on-surface w-full mt-auto bg-primary dark:bg-surface-container-highest flat">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-black text-on-primary block mb-4">SummitQuest Maharashtra</span>
+<p class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant mb-6">Elevating adventure in the Sahyadris.</p>
+</div>
+<div class="md:col-span-3 flex flex-wrap gap-6 md:justify-end items-start">
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant hover:text-accent-gold transition-colors cursor-pointer" href="#">Safety Protocols</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant hover:text-accent-gold transition-colors cursor-pointer" href="#">Liability Waiver</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant hover:text-accent-gold transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant hover:text-accent-gold transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant hover:text-accent-gold transition-colors cursor-pointer" href="#">Sustainability Pledge</a>
+<a class="font-body-md text-body-md text-on-primary/80 dark:text-on-surface-variant hover:text-accent-gold transition-colors cursor-pointer" href="#">Contact Support</a>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-on-primary/20 text-center font-body-md text-body-md text-on-primary/60">
+                © 2024 SummitQuest Maharashtra. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

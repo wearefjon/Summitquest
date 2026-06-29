@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User &amp; Operator Management - SummitQuest Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-container": "#86af99",
+                        "on-primary": "#ffffff",
+                        "brand-coral": "#FF5A5F",
+                        "secondary-fixed": "#b1f0ce",
+                        "surface-off-white": "#F8F9FA",
+                        "on-background": "#0d1c2e",
+                        "secondary": "#2c694e",
+                        "on-surface-variant": "#414844",
+                        "tertiary-fixed": "#ffdcbc",
+                        "background": "#f8f9ff",
+                        "primary-fixed": "#c1ecd4",
+                        "text-dark": "#1E293B",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#002114",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary-fixed": "#002114",
+                        "primary-container": "#1b4332",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-container": "#316e52",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "tertiary-container": "#593300",
+                        "outline-variant": "#c1c8c2",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-fixed": "#2c1700",
+                        "primary": "#012d1d",
+                        "accent-gold": "#FFBF69",
+                        "surface-dim": "#ccdbf3",
+                        "on-surface": "#0d1c2e",
+                        "on-error": "#ffffff",
+                        "outline": "#717973",
+                        "surface-variant": "#d5e3fc",
+                        "on-tertiary-container": "#ed9101",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e6eeff",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "inverse-surface": "#233144",
+                        "surface-container-highest": "#d5e3fc",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#a5d0b9",
+                        "tertiary": "#3b2000",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#3f6653",
+                        "secondary-container": "#aeeecb",
+                        "surface": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- SideNavBar (from JSON) -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-inverse-surface flex flex-col p-4 gap-2 bg-surface-container-low dark:bg-inverse-surface shadow-md z-40 hidden md:flex">
+<!-- Brand Header -->
+<div class="px-4 py-6 mb-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-inverse-primary text-[32px] icon-fill" data-icon="landscape">landscape</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">SummitQuest</span>
+</div>
+<!-- User Profile Area -->
+<div class="flex items-center gap-3 px-4 py-3 mb-6 bg-surface-variant/30 rounded-xl">
+<div class="w-10 h-10 rounded-full bg-primary/10 overflow-hidden flex-shrink-0">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="A close-up, professional portrait photograph of a confident male executive in his 30s. He is wearing a crisp white shirt and a subtle dark blazer. The lighting is soft and natural, emphasizing a trustworthy and approachable demeanor. The background is a slightly blurred, modern, bright office environment, matching the high-end, clean aesthetic of a premium administrative dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArhUisEFYJSMPIpZb7Zxu8TWXIK-MQBoKcUizYOJskR3_DR9XYgiyg6BXgWiu2qClLNIUWAMhS_-8zXE_cuF8JI8mbiHxGjYzNSEemGTwBPEzfp1qCD3UONyGImm-qqkSv7MoC3PeJFBfUDIB7qsj32W1ABZIdZFunNtJX1fkPCflyLBCor6-YnOEpJ-uZg1cyhojFsspO_-IJuYtIA9WsAfwn09LFShDPIwdTPuAJ1l9SQNNm56Pr2JNhfOIDrE8qEOXAdJeiDzA"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<div class="font-label-md text-label-md text-on-surface truncate">Sumit Deshmukh</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">Explorer Tier</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Active State Navigation -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-bold transition-all group" href="#">
+<span class="material-symbols-outlined icon-fill group-hover:scale-110 transition-transform" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Users &amp; Operators</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="monitoring">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl hover:bg-surface-container-high dark:hover:bg-primary-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<!-- Footer Links -->
+<div class="mt-auto pt-4 border-t border-outline-variant/30 flex flex-col gap-1">
+<button class="w-full py-3 mb-4 bg-accent-gold text-on-tertiary-fixed font-label-md text-label-md rounded-xl font-bold shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">Upgrade to Pro</button>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 w-full min-h-screen pb-24 md:pb-8 flex flex-col">
+<!-- TopAppBar (Mobile Only - Simplified from JSON for Admin Context) -->
+<header class="md:hidden bg-white/80 dark:bg-primary/80 backdrop-blur-md sticky top-0 z-30 border-b border-black/5 dark:border-white/5 shadow-sm px-margin-mobile py-4 flex justify-between items-center w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[24px] icon-fill" data-icon="landscape">landscape</span>
+<span class="font-headline-sm text-[20px] font-bold text-primary">SummitQuest</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-variant/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- Page Header -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 md:py-10">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 max-w-container-max mx-auto">
+<div>
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">User &amp; Operator Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Oversee all registered accounts, verify operators, and manage platform access.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2.5 rounded-xl border-1.5 border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors flex items-center gap-2 bg-transparent border">
+<span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+                        Export CSV
+                    </button>
+<button class="px-4 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="person_add">person_add</span>
+                        Add Account
+                    </button>
+</div>
+</div>
+</div>
+<!-- Canvas Container -->
+<div class="flex-1 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<!-- Controls Toolbar (Glassmorphism Panel) -->
+<div class="bg-surface-off-white rounded-2xl p-4 md:p-6 shadow-[0_12px_32px_rgba(30,41,59,0.04)] mb-8 border border-outline-variant/20 relative z-10">
+<div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+<!-- Search -->
+<div class="w-full lg:w-96 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-white rounded-xl border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary text-body-md font-body-md placeholder:text-outline transition-all shadow-sm" placeholder="Search by name, email, or ID..." type="text"/>
+</div>
+<!-- Filters & Bulk Actions -->
+<div class="w-full lg:w-auto flex flex-wrap items-center gap-3">
+<!-- Role Filter -->
+<div class="relative group">
+<button class="px-4 py-3 bg-white border border-outline-variant/40 rounded-xl flex items-center gap-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant/30 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant" data-icon="filter_list">filter_list</span>
+                                Role: All
+                                <span class="material-symbols-outlined text-[20px] text-on-surface-variant ml-1" data-icon="expand_more">expand_more</span>
+</button>
+<!-- Dropdown (Hidden by default, hover to show for demo) -->
+<div class="absolute top-full mt-2 right-0 w-48 bg-white rounded-xl shadow-lg border border-outline-variant/20 py-2 hidden group-hover:block z-20">
+<a class="block px-4 py-2 font-body-md text-body-md text-on-surface hover:bg-surface-container-low" href="#">All Roles</a>
+<a class="block px-4 py-2 font-body-md text-body-md text-on-surface hover:bg-surface-container-low" href="#">Explorers (Users)</a>
+<a class="block px-4 py-2 font-body-md text-body-md text-on-surface hover:bg-surface-container-low" href="#">Operators (Guides)</a>
+<a class="block px-4 py-2 font-body-md text-body-md text-on-surface hover:bg-surface-container-low" href="#">Admins</a>
+</div>
+</div>
+<!-- Status Filter -->
+<div class="relative group">
+<button class="px-4 py-3 bg-white border border-outline-variant/40 rounded-xl flex items-center gap-2 font-label-md text-label-md text-on-surface hover:bg-surface-variant/30 transition-colors shadow-sm">
+                                Status: Active
+                                <span class="material-symbols-outlined text-[20px] text-on-surface-variant ml-1" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<div class="w-px h-8 bg-outline-variant/40 hidden md:block mx-2"></div>
+<!-- Bulk Actions -->
+<button class="px-4 py-3 bg-surface border border-outline-variant/40 rounded-xl flex items-center gap-2 font-label-md text-label-md text-outline hover:text-on-surface hover:bg-surface-variant/30 transition-colors shadow-sm disabled:opacity-50" disabled="">
+                            Bulk Actions
+                            <span class="material-symbols-outlined text-[20px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-white rounded-2xl shadow-[0_12px_32px_rgba(30,41,59,0.08)] border border-outline-variant/20 overflow-hidden relative">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-off-white border-b border-outline-variant/30">
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant w-12">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">User</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">Role</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">Status &amp; Verification</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold">Activity Metrics</th>
+<th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1: Active Operator -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex-shrink-0">
+<img alt="Ravi Kumar" class="w-full h-full object-cover" data-alt="A close-up portrait of a rugged outdoor guide wearing a sun hat and a technical fleece. The lighting is warm golden hour sunlight, highlighting a friendly, weathered face. The background is a soft blur of a lush, mountainous landscape in Maharashtra. The aesthetic is authentic, high-quality adventure photography suitable for a premium platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxihAJZRbMwKEByQz8VqDpyogZNi7Z_ibKSyp9zN8PDJk8tQjCR5uz4ohg58UBixoIidz1s-fHcuH1lrK7WCNx5246OgpKSXOQR0k0k5M70iklw-RWmNKAXa1G_Icpd807fd9oVvtB4WjGRruXHd-0Ze_k4q0BMI3sOgwvPnBmP2QXT99XvkOBdbl_g-8eBDl6xB2J8VmkeDPgpDZeXWwqZK-p51mBBvLVqA3IIrFvgbU1PXqHGL-GNn3oM9hjxkCFHfp_G2EXsbI"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">Ravi Kumar</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">ravi.k@sahyadri-treks.in</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-[11px] font-bold uppercase tracking-wide">
+                                        Operator
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-md text-[13px] text-on-surface">Active</span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px] icon-fill" data-icon="verified">verified</span>
+<span class="font-label-sm text-label-sm">KYC Level 3 (Pro)</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<div class="font-body-md text-[13px] text-on-surface"><span class="font-semibold">142</span> Guided Treks</div>
+<div class="font-body-md text-[13px] text-on-surface-variant">Last active: 2h ago</div>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="p-2 rounded-lg text-outline hover:text-primary hover:bg-primary/5 transition-colors" title="Edit User">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Standard User -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex-shrink-0 flex items-center justify-center bg-tertiary-container text-on-tertiary-container font-headline-sm">
+                                            A
+                                        </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">Anjali Desai</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">anjali.d92@gmail.com</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-[11px] font-bold uppercase tracking-wide">
+                                        Explorer
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="font-label-md text-[13px] text-on-surface">Active</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="mail">mail</span>
+<span class="font-label-sm text-label-sm">Email Verified</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<div class="font-body-md text-[13px] text-on-surface"><span class="font-semibold">12</span> Bookings</div>
+<div class="font-body-md text-[13px] text-on-surface-variant">Last active: 1d ago</div>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="p-2 rounded-lg text-outline hover:text-primary hover:bg-primary/5 transition-colors" title="Edit User">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Pending Verification -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-4 px-6">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex-shrink-0">
+<img alt="Priya Sharma" class="w-full h-full object-cover" data-alt="A portrait of a young Indian woman wearing climbing gear, smiling softly. The lighting is bright and airy, suggesting early morning. The background is slightly out of focus rock face. The style is modern, high-contrast, professional lifestyle photography suited for a premium adventure app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd0927yTHGWmfY_KrEKMUqDi8XqyTRp-HD6eOlVLaX2H6H3mFMwKI9p6yZDQCnuhobyWSe5Fs7GbdAd4M1bbxr2WQmyBAOZUOaFXZ82y9t2yivWgkTdG6w6Y26qVMe4metzGbJwjqnr6f8rTfU8pDmFhLrnrhbZAKbRI4gcXxcho-NRUmI-1pQzqMWyHLkxlLaJmG6qmGWd7dl3-S5WzcCCFsFPefHqYZfG2pQbBzZuu-TAn5nLWIoWsGhQwP51s58zb-WontogVE"/>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer">Priya Sharma</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">priya.climbs@wildmaharashtra.com</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-[11px] font-bold uppercase tracking-wide">
+                                        Operator
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-accent-gold"></div>
+<span class="font-label-md text-[13px] text-on-surface">Under Review</span>
+</div>
+<div class="flex items-center gap-1 text-on-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="pending_actions">pending_actions</span>
+<span class="font-label-sm text-label-sm">KYC Pending Docs</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<div class="font-body-md text-[13px] text-on-surface"><span class="font-semibold">0</span> Guided Treks</div>
+<div class="font-body-md text-[13px] text-on-surface-variant">Registered: 2d ago</div>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-variant text-on-surface font-label-sm text-label-sm hover:bg-outline-variant/40 transition-colors mr-2">
+                                        Review Docs
+                                    </button>
+<button class="p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Suspended User -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group bg-error-container/10">
+<td class="py-4 px-6">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden flex-shrink-0 flex items-center justify-center bg-outline-variant text-on-surface font-headline-sm">
+                                            V
+                                        </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors cursor-pointer text-outline">Vikram Singh</div>
+<div class="font-label-sm text-label-sm text-outline">vikram.x@unverified.net</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm text-[11px] font-bold uppercase tracking-wide">
+                                        Explorer
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="font-label-md text-[13px] text-error font-medium">Suspended</span>
+</div>
+<div class="flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[16px]" data-icon="gavel">gavel</span>
+<span class="font-label-sm text-label-sm">Policy Violation</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col gap-1">
+<div class="font-body-md text-[13px] text-outline"><span class="font-semibold">3</span> Cancelled Bookings</div>
+<div class="font-body-md text-[13px] text-outline">Suspended: 1w ago</div>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="p-2 rounded-lg text-outline hover:text-primary hover:bg-primary/5 transition-colors" title="Edit User">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+</button>
+<button class="p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-variant transition-colors" title="More options">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 border-t border-outline-variant/30 flex items-center justify-between bg-surface-off-white/50">
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+                        Showing <span class="font-semibold text-on-surface">1</span> to <span class="font-semibold text-on-surface">10</span> of <span class="font-semibold text-on-surface">1,248</span> entries
+                    </div>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-lg border border-outline-variant/40 text-outline hover:bg-surface-variant/30 disabled:opacity-50 disabled:cursor-not-allowed transition-colors" disabled="">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center font-bold">1</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 font-label-sm text-label-sm flex items-center justify-center transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 font-label-sm text-label-sm flex items-center justify-center transition-colors">3</button>
+<span class="w-8 h-8 flex items-center justify-center text-outline">...</span>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-variant/30 font-label-sm text-label-sm flex items-center justify-center transition-colors">125</button>
+<button class="p-2 rounded-lg border border-outline-variant/40 text-on-surface hover:bg-surface-variant/30 transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

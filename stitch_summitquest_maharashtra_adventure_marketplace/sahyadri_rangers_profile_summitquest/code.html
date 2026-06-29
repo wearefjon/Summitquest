@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sahyadri Rangers - SummitQuest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#0d1c2e",
+                      "accent-gold": "#FFBF69",
+                      "surface-dim": "#ccdbf3",
+                      "surface-off-white": "#F8F9FA",
+                      "surface-variant": "#d5e3fc",
+                      "surface-bright": "#f8f9ff",
+                      "surface-container": "#e6eeff",
+                      "primary-fixed-dim": "#a5d0b9",
+                      "primary-container": "#1b4332",
+                      "tertiary-fixed-dim": "#ffb86b",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-background": "#0d1c2e",
+                      "on-secondary-fixed-variant": "#0e5138",
+                      "outline": "#717973",
+                      "text-dark": "#1E293B",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#aeeecb",
+                      "tertiary": "#3b2000",
+                      "on-primary-container": "#86af99",
+                      "surface-container-highest": "#d5e3fc",
+                      "tertiary-fixed": "#ffdcbc",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#dce9ff",
+                      "on-surface-variant": "#414844",
+                      "primary": "#012d1d",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#233144",
+                      "surface": "#f8f9ff",
+                      "brand-coral": "#FF5A5F",
+                      "on-tertiary-container": "#ed9101",
+                      "on-primary": "#ffffff",
+                      "surface-container-low": "#eff4ff",
+                      "secondary-fixed-dim": "#95d4b3",
+                      "inverse-primary": "#a5d0b9",
+                      "primary-fixed": "#c1ecd4",
+                      "secondary-fixed": "#b1f0ce",
+                      "on-primary-fixed-variant": "#274e3d",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c1c8c2",
+                      "on-secondary-fixed": "#002114",
+                      "on-secondary-container": "#316e52",
+                      "surface-tint": "#3f6653",
+                      "on-primary-fixed": "#002114",
+                      "on-tertiary-fixed": "#2c1700",
+                      "tertiary-container": "#593300",
+                      "on-tertiary-fixed-variant": "#683d00",
+                      "error-container": "#ffdad6",
+                      "secondary": "#2c694e",
+                      "background": "#f8f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.04em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-sm": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto bg-white/80 dark:bg-primary/80 backdrop-blur-md border-b border-black/5 dark:border-white/5 shadow-sm">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-inverse-primary">SummitQuest</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 transition-transform" href="#">Destinations</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 transition-transform" href="#">Activities</a>
+<a class="font-label-md text-label-md text-primary dark:text-inverse-primary border-b-2 border-primary pb-1 scale-95 active:scale-90 transition-transform" href="#">Professional Guides</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors scale-95 active:scale-90 transition-transform" href="#">Safety</a>
+</div>
+<div class="flex gap-4 items-center">
+<button class="font-label-md text-label-md text-primary dark:text-on-primary">Login</button>
+<button class="font-label-md text-label-md bg-primary text-on-primary px-4 py-2 rounded-lg">Register</button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-10 space-y-16">
+<!-- Hero Profile Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter items-start">
+<div class="col-span-1 bg-surface-off-white rounded-xl p-8 border border-outline-variant/30 flex flex-col items-center text-center shadow-sm">
+<img class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-white shadow-md" data-alt="High-quality portrait of a rugged outdoor guide team logo or representative in natural lighting, wearing professional hiking gear, with a backdrop of Sahyadri mountains. Authoritative yet approachable mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOpchsDOq8lgvIvx-ojWxfhKS4L26WTVds3bc8UHHceYw1ks4x8AjS0cnkKC0E7kFaveZRDHxGTOzX2mv0YYkqwh3jtbvssQAKHOQ3nJ4NurCTEiT_7c61bks8fyDxXk0T3jbHDraa-WqYirtoR4WcGqScrwDB9G96UVatNtcXSax4KHOPLIbJ-f4BmzUqSA_jXYW5tWNQWZE30ZfEPd1bTAzaO0wNsi50u9fHBtQ1baOegnQloGGcBZnXRi0yHxu9q-GKzd_Cs5M"/>
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Sahyadri Rangers</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Certified Alpine Professionals</p>
+<div class="flex items-center gap-2 mb-8 bg-surface-container-low px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-accent-gold" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9 (124 Reviews)</span>
+</div>
+<button class="w-full bg-brand-coral hover:bg-brand-coral/90 text-on-primary font-label-md text-label-md py-3 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined">mail</span>
+                    Contact Operator
+                </button>
+</div>
+<div class="col-span-1 md:col-span-2 space-y-8">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary border-b border-outline-variant/30 pb-2 mb-4">Brand Story</h2>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                        Forged in the rugged terrain of the Western Ghats, Sahyadri Rangers brings over a decade of high-altitude experience to every expedition. Our mission is to bridge the gap between untamed wilderness and accessible adventure, ensuring every explorer experiences the profound beauty of Maharashtra's peaks with uncompromising safety and expert guidance. We don't just lead trails; we curate transformative outdoor experiences.
+                    </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-bright p-4 rounded-xl border border-outline-variant/20 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2 text-3xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">UIAA Certified</span>
+</div>
+<div class="bg-surface-bright p-4 rounded-xl border border-outline-variant/20 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2 text-3xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">WFR Responders</span>
+</div>
+<div class="bg-surface-bright p-4 rounded-xl border border-outline-variant/20 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2 text-3xl" style="font-variation-settings: 'FILL' 1;">hiking</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">500+ Expeditions</span>
+</div>
+<div class="bg-surface-bright p-4 rounded-xl border border-outline-variant/20 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-secondary mb-2 text-3xl" style="font-variation-settings: 'FILL' 1;">shield_with_heart</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">A+ Safety Rating</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Adventures Grid -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<h2 class="font-headline-sm text-headline-sm text-primary">Offered Adventures</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="group bg-surface-lowest rounded-[24px] border border-outline-variant/30 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+<div class="h-48 relative overflow-hidden">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="Dramatic landscape photography of Harishchandragad fort at sunrise. Golden hour lighting highlighting the rugged cliff face. Mist in the valleys. Premium travel photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzmQWV7GmVWgFmWWRdo5jUsYLNvIv04pyPVFQrYx9z3Wzt0j9jjJhCAV7_ClGtJI2-OTDBxi8qIqkmMGAO-UkmzmkCcpvFrJ5p6dG314H7rzOjCEIvH3BS0an7afiDLayFL1Rgk4j0PAT3KWAoSg7LxQeXTNOXrEUQNu_13RXoFfGTeNO40WJbiFCRsIUn8NOSbbxA17MKQFqgjHBfhld-Rym7z-WBOVsrI85Awqyc75uG6DBHdu11T5rQiswpw4EPF1iurGS4QLA')"></div>
+<div class="absolute top-4 left-4 bg-surface-off-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface">Hard</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Harishchandragad Trek</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Conquer the mighty Konkankada cliff with expert belay systems and seasoned guides.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-label-sm text-label-sm">2 Days</span>
+</div>
+<span class="font-label-md text-label-md text-primary">₹2,499</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-lowest rounded-[24px] border border-outline-variant/30 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+<div class="h-48 relative overflow-hidden">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="Lush green dense forest trail in the Bhimashankar wildlife sanctuary during monsoon. Raindrops on leaves, rich saturated greens, mysterious and inviting mood. High contrast nature photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASSdTJ7t0e_Tp8lM0qYIvDvsuE3j9WFxgIqBOpodM7_PUqVgiJXCCtX12-X2WvZMiIUHCsmWIvCWSagtijpLAsXbVxVWNEWlUE1BcjVbjkytn9x73sumEaMvwtB9Gn_-fRkSgv3xiouEFM87Qpv-IRh0gHjzXGFmlxOfSzLBnq-7F6g1NRqZS2vGWyiKLBfIn1XNDifxmxjmBwgVxjF7a3pO755RUl6fZLPQB2OgYEtqUVUHjsCJt-ubXL36JW4hzd6fSRttZ3hcw')"></div>
+<div class="absolute top-4 left-4 bg-surface-off-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface">Moderate</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Bhimashankar Jungle Trek</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Navigate dense canopies and ancient trails in the heart of the sanctuary.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-label-sm text-label-sm">1 Day</span>
+</div>
+<span class="font-label-md text-label-md text-primary">₹1,299</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-lowest rounded-[24px] border border-outline-variant/30 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
+<div class="h-48 relative overflow-hidden">
+<div class="bg-cover bg-center w-full h-full group-hover:scale-105 transition-transform duration-500" data-alt="Stunning aerial view of Kalsubai peak, the highest point in Maharashtra, with hikers reaching the summit. Clear blue sky, rocky terrain, sense of achievement and scale. Professional drone shot." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAPUofJBqCGINnCW2kpkX9gM_cZ9siXzcvKPVA5yGoqKrjBOIu5V12UCBuV5i5pKfOeDT-bu0Jbfd37pLyc_oP-LJwBRTN6U6Yx6iPCKSu41Hx0NHjBkpOt5qQn86Bv-ViljYgZ7UnA5C75iF75kgISI37Ii-D6278CcRHRo7ejVfIpkp6ppKPfGDxy1yMsiUIEC5dVgZU0YPjRAE9JxISoWPcqq9-Q0eI5592Ec_VU_5XCwMtdFzoYpWZBCcaMx7eI6vfOqoBGKSQ')"></div>
+<div class="absolute top-4 left-4 bg-surface-off-white/90 backdrop-blur-sm px-3 py-1 rounded-full border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface">Hard</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Kalsubai Summit</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-2">Stand at the highest point of Maharashtra with our secure roped-ascent protocols.</p>
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-label-sm text-label-sm">1 Day</span>
+</div>
+<span class="font-label-md text-label-md text-primary">₹1,499</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto bg-surface-off-white dark:bg-primary border-t border-outline-variant mt-20">
+<div class="col-span-1 md:col-span-4 mb-8">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-primary">SummitQuest</div>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Destinations</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Activities</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Safety Protocols</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Partner Program</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Help Center</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant/50">
+<p class="font-body-md text-body-md text-on-surface-variant text-center">© 2024 SummitQuest Maharashtra. Adventure Responsibly.</p>
+</div>
+</footer>
+</body></html>

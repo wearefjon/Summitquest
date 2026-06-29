@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Operator Dashboard - SummitQuest</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#e6eeff",
+                        "tertiary-fixed": "#ffdcbc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#2c1700",
+                        "secondary-fixed": "#b1f0ce",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface": "#0d1c2e",
+                        "tertiary": "#3b2000",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "on-primary-container": "#86af99",
+                        "on-secondary-fixed": "#002114",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed-variant": "#0e5138",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#002114",
+                        "primary-container": "#1b4332",
+                        "surface-variant": "#d5e3fc",
+                        "inverse-primary": "#a5d0b9",
+                        "surface-tint": "#3f6653",
+                        "on-tertiary-container": "#ed9101",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "tertiary-container": "#593300",
+                        "on-background": "#0d1c2e",
+                        "surface-off-white": "#F8F9FA",
+                        "outline-variant": "#c1c8c2",
+                        "primary-fixed": "#c1ecd4",
+                        "surface-dim": "#ccdbf3",
+                        "surface-container-highest": "#d5e3fc",
+                        "brand-coral": "#FF5A5F",
+                        "primary": "#012d1d",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#316e52",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#2c694e",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed-dim": "#ffb86b",
+                        "outline": "#717973",
+                        "surface": "#f8f9ff",
+                        "on-surface-variant": "#414844",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#aeeecb",
+                        "inverse-surface": "#233144",
+                        "text-dark": "#1E293B",
+                        "secondary-fixed-dim": "#95d4b3",
+                        "accent-gold": "#FFBF69"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-sm": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        [data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        .ambient-shadow {
+            box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="bg-surface dark:bg-inverse-surface shadow-md h-screen w-64 fixed left-0 top-0 flex flex-col p-4 gap-2 z-50 border-r border-outline-variant/20 hidden md:flex">
+<!-- Header -->
+<div class="mb-8 mt-4 px-2">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary mb-6">SummitQuest</h1>
+<div class="flex items-center gap-3">
+<img alt="User avatar" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of an adventure guide wearing outdoor gear, smiling warmly. The lighting is bright and natural, suggesting an outdoor environment, but clean enough for a corporate profile. Light mode aesthetic, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0wxGoP_UgK31wLsqIs4UESCNPwRHGJ-4iVD0xtMdJ__hoDBKh9asoBmGrDwPGb8p5I3OO0nk-ROchiaGyBNGRdC950WMrda2szpsvOIeOSRHJdvoNB9YS-RPJrQOU2NniJN1IJ33mRWYuZXMetVNKTEiahahkKfANaEXA_k0weuOopuMDEvltU7NnkcFULe4mwnEXou5sT7HRLSroq4RvEn8kwamKQt-z8_SkQxIR21ePNtQQf4cdLBPQO1cNmBdJeTlFU1mJB4"/>
+<div>
+<div class="font-label-md text-label-md text-primary dark:text-inverse-primary">Sumit Deshmukh</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Explorer Tier</div>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-2">
+<!-- Active: Dashboard -->
+<a class="bg-secondary-container text-on-secondary-container rounded-xl font-bold flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Bookings</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Earnings</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<!-- Upgrade CTA -->
+<div class="mt-auto mb-4 p-4 bg-surface-container-low rounded-xl border border-outline-variant/30">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-3">Unlock advanced analytics and premium placement.</p>
+<button class="w-full bg-brand-coral text-white font-label-md text-label-md py-2 rounded-lg hover:opacity-90 transition-opacity">Upgrade to Pro</button>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-col gap-1 border-t border-outline-variant/20 pt-4">
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help</span>
+</a>
+<a class="text-on-surface-variant hover:bg-surface-variant/50 rounded-xl flex items-center gap-3 p-3 transition-all hover:bg-surface-container-high translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-0 md:ml-64 h-full overflow-y-auto bg-surface-off-white">
+<!-- Top Mobile Header (only visible on mobile) -->
+<div class="md:hidden bg-surface shadow-sm p-4 flex justify-between items-center sticky top-0 z-40 glass-panel">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">SummitQuest</h1>
+<button class="text-on-surface-variant p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+<div class="p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto space-y-gutter pb-32">
+<!-- Page Header -->
+<header class="mb-8 mt-4 md:mt-0 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-primary mb-2">Morning, Sahyadri Adventures!</h2>
+<p class="font-body-lg text-on-surface-variant">Here's what's happening with your tours today.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border-[1.5px] border-secondary text-secondary rounded-[16px] font-label-md text-label-md hover:bg-secondary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span> Report
+                    </button>
+<button class="px-4 py-2 bg-secondary text-white rounded-[16px] font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span> New Tour
+                    </button>
+</div>
+</header>
+<!-- Key Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Earnings Chart Card -->
+<div class="md:col-span-2 bg-white rounded-[24px] p-6 ambient-shadow border border-outline-variant/20 hover:scale-[1.01] transition-transform duration-300">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-primary">Earnings Over Time</h3>
+<select class="bg-surface-off-white border-none rounded-[16px] font-label-sm text-label-sm text-on-surface-variant px-4 py-2 focus:ring-secondary focus:ring-1 cursor-pointer">
+<option>Last 30 Days</option>
+<option>This Year</option>
+</select>
+</div>
+<div class="h-64 w-full relative">
+<!-- Placeholder for Chart -->
+<canvas id="earningsChart"></canvas>
+</div>
+</div>
+<!-- Quick Stats Column -->
+<div class="flex flex-col gap-gutter">
+<!-- Stat 1 -->
+<div class="bg-white rounded-[24px] p-6 ambient-shadow border border-outline-variant/20 flex-1 hover:scale-[1.02] transition-transform duration-300 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-2 text-on-surface-variant">
+<span class="material-symbols-outlined bg-secondary-container text-on-secondary-container p-2 rounded-full" data-icon="account_balance_wallet" data-weight="fill">account_balance_wallet</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Total Revenue</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary mt-2">₹1,42,500</div>
+<div class="font-label-sm text-label-sm text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> +12% from last month
+                        </div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-white rounded-[24px] p-6 ambient-shadow border border-outline-variant/20 flex-1 hover:scale-[1.02] transition-transform duration-300 flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-2 text-on-surface-variant">
+<span class="material-symbols-outlined bg-tertiary-fixed text-on-tertiary-fixed p-2 rounded-full" data-icon="group" data-weight="fill">group</span>
+<span class="font-label-md text-label-md uppercase tracking-wider">Total Guests</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary mt-2">342</div>
+<div class="font-label-sm text-label-sm text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> +8% from last month
+                        </div>
+</div>
+</div>
+</div>
+<!-- Complex Layout Area: Tables & Reviews -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mt-8">
+<!-- Active Bookings Table (Takes 2 columns) -->
+<div class="lg:col-span-2 bg-white rounded-[24px] p-6 ambient-shadow border border-outline-variant/20 overflow-hidden flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-primary">Active Bookings</h3>
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">View All</a>
+</div>
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30">
+<th class="pb-3 font-label-md text-label-md text-on-surface-variant font-medium">Guest</th>
+<th class="pb-3 font-label-md text-label-md text-on-surface-variant font-medium">Adventure</th>
+<th class="pb-3 font-label-md text-label-md text-on-surface-variant font-medium">Date</th>
+<th class="pb-3 font-label-md text-label-md text-on-surface-variant font-medium">Status</th>
+<th class="pb-3 font-label-md text-label-md text-on-surface-variant font-medium text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-primary">
+<tr class="border-b border-outline-variant/10 hover:bg-surface-off-white transition-colors">
+<td class="py-4">
+<div class="font-semibold">Rohan Sharma</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2 Guests</div>
+</td>
+<td class="py-4">Harishchandragad Trek</td>
+<td class="py-4">Oct 24, 2024</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container">
+                                            Confirmed
+                                        </span>
+</td>
+<td class="py-4 text-right font-medium">₹3,000</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-off-white transition-colors">
+<td class="py-4">
+<div class="font-semibold">Priya Patel</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">4 Guests</div>
+</td>
+<td class="py-4">Kalsubai Night Trek</td>
+<td class="py-4">Oct 26, 2024</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary-fixed text-tertiary-container">
+                                            Pending
+                                        </span>
+</td>
+<td class="py-4 text-right font-medium">₹4,800</td>
+</tr>
+<tr class="border-b border-outline-variant/10 hover:bg-surface-off-white transition-colors">
+<td class="py-4">
+<div class="font-semibold">Amit Singh</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">1 Guest</div>
+</td>
+<td class="py-4">Rajmachi Camping</td>
+<td class="py-4">Oct 20, 2024</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-variant text-on-surface-variant">
+                                            Completed
+                                        </span>
+</td>
+<td class="py-4 text-right font-medium">₹1,500</td>
+</tr>
+<tr class="hover:bg-surface-off-white transition-colors">
+<td class="py-4">
+<div class="font-semibold">Neha Gupta</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">3 Guests</div>
+</td>
+<td class="py-4">Harishchandragad Trek</td>
+<td class="py-4">Oct 28, 2024</td>
+<td class="py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container">
+                                            Confirmed
+                                        </span>
+</td>
+<td class="py-4 text-right font-medium">₹4,500</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- New Reviews Feed (Takes 1 column) -->
+<div class="bg-white rounded-[24px] p-6 ambient-shadow border border-outline-variant/20 flex flex-col h-[500px]">
+<div class="flex justify-between items-center mb-6 shrink-0">
+<h3 class="font-headline-sm text-headline-sm text-primary">New Reviews</h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-2 space-y-4 custom-scrollbar">
+<!-- Review Item 1 -->
+<div class="p-4 rounded-[16px] bg-surface-off-white border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-primary flex items-center justify-center font-bold text-sm">RS</div>
+<div>
+<div class="font-label-md text-label-md text-primary">Rahul S.</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Kalsubai Trek</div>
+</div>
+</div>
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-3">"Incredible experience! The guide was extremely knowledgeable and ensured everyone's safety. The sunrise view from the peak was breathtaking. Highly recommend."</p>
+</div>
+<!-- Review Item 2 -->
+<div class="p-4 rounded-[16px] bg-surface-off-white border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-primary flex items-center justify-center font-bold text-sm">MP</div>
+<div>
+<div class="font-label-md text-label-md text-primary">Meera P.</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Rajmachi Camping</div>
+</div>
+</div>
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-3">"Great camping setup. The food was delicious and authentic local cuisine. Only wish the tents were slightly larger, but overall a fantastic weekend getaway."</p>
+</div>
+<!-- Review Item 3 -->
+<div class="p-4 rounded-[16px] bg-surface-off-white border border-outline-variant/10">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-primary flex items-center justify-center font-bold text-sm">VJ</div>
+<div>
+<div class="font-label-md text-label-md text-primary">Vikram J.</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Harishchandragad</div>
+</div>
+</div>
+<div class="flex text-accent-gold">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant line-clamp-3">"Professional team. Felt safe throughout the rocky patches. The history explained by the guide added so much value to the trek."</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Performing Adventures (Cards) -->
+<div class="mt-8">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Top Performing Adventures</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-white rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/20 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(30,41,59,0.12)] transition-all duration-300 group cursor-pointer">
+<div class="h-40 w-full relative overflow-hidden">
+<img alt="Harishchandragad Trek" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A sweeping, dramatic wide shot of Harishchandragad fort in Maharashtra at golden hour. The rugged cliff face, known as Konkan Kada, drops sharply. Warm, golden sunlight hits the ancient stone, creating deep shadows and highlighting the texture of the rock. A clear, vibrant blue sky above. Premium travel photography style, sharp focus, high dynamic range." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Zl-M21JbD1egogLIQ_LZtAutm89WzJKfBvUAxgvhz_lcOI5Emy8PnPe8mgW2ULdyp-Z4RliYShvvaxbGi9dMW4d8FDQytz262cLnptu8uiNWJxPF9twyMKTKmCUUgJHbRPNmfzXWr25Tfm14ZBEW1X1t_feSTkS9430SXKENucqHRO5-A0bnBcWSb33NYG3jB66nfz6jBQ9wUWTs1wmUBnctXVqIIGp_t53BzTJgQklQiiih8m-aVQNHK9KT5xjtCSWZ5qha78k"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full font-label-sm text-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-accent-gold" data-icon="star" data-weight="fill">star</span> 4.9
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-[18px] leading-tight text-primary font-bold">Harishchandragad Trek</h4>
+</div>
+<div class="flex items-center justify-between mt-4 border-t border-outline-variant/20 pt-4">
+<div class="font-label-sm text-label-sm text-on-surface-variant">120 Bookings (YTD)</div>
+<div class="font-label-md text-label-md text-secondary font-bold">₹1.8L Rev</div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/20 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(30,41,59,0.12)] transition-all duration-300 group cursor-pointer">
+<div class="h-40 w-full relative overflow-hidden">
+<img alt="Kalsubai Night Trek" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A majestic view of Mount Kalsubai, the highest peak in Maharashtra, taken during a clear dawn. The sky is a gradient of soft pinks and blues. A rugged hiking trail winds up the mountain, with small, silhouetted figures of trekkers in the distance. Lush green vegetation dots the rocky terrain. Crisp, high-end outdoor photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz_RvIIhKPLAt1do_65YNYetCp0j9Mg2eyN7rRW-5SSdloHjWXv3uvZRtjquBFo0gAI56lUde2XAzku27HJtc1WR83RaMlgajr5l67ok-3Gg75uDfEcC4iNd-GQG1AILzMkyP1wLP3A_qInZhVb9hzvM3r3Tlvx11qsSjiouxjLxoRzeUz6FMocJ48FRCP25U8RbjFNzndbdNTan-axfGxa6NZmrJZO4O5ngr2vDLH8AidNUdRIgQgt4MCRbvWILTSla1U20u0Wmc"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full font-label-sm text-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-accent-gold" data-icon="star" data-weight="fill">star</span> 4.8
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-[18px] leading-tight text-primary font-bold">Kalsubai Night Trek</h4>
+</div>
+<div class="flex items-center justify-between mt-4 border-t border-outline-variant/20 pt-4">
+<div class="font-label-sm text-label-sm text-on-surface-variant">95 Bookings (YTD)</div>
+<div class="font-label-md text-label-md text-secondary font-bold">₹1.1L Rev</div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-[24px] overflow-hidden ambient-shadow border border-outline-variant/20 hover:scale-[1.02] hover:shadow-[0_20px_40px_rgba(30,41,59,0.12)] transition-all duration-300 group cursor-pointer">
+<div class="h-40 w-full relative overflow-hidden">
+<img alt="Rajmachi Camping" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A serene, atmospheric shot of Rajmachi fort area during monsoon season. Thick, moody mist rolls over the dense, vibrantly green Sahyadri mountains. A small, glowing campsite with yellow tents is visible in the foreground, providing a warm contrast to the cool, misty surroundings. Professional travel lifestyle photography, deep depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCvfN52TkQU38kjr4xqrltdW6azLOZQiJOixqfIAznuS8CN-9id-xRFBi90UxTpHB-e7lghuxMQVwRh1Gj80k2Wy-DUsK3Qirb2ohwRT9k9FXFdWydPl1W9keSBrxnUaHi0Gxns7Vm-0o16IuwPqhPRUpxB0IN2R-4CibecgsO37ERZjSsTm1NQpIqmixvDNavn6-kUm61Jupfa-Vp562ELA1-B3Otf5fs9DTkuyPH4-oXccB3KrBCfApKuW78us7PVz3oUN37hmo"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full font-label-sm text-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-accent-gold" data-icon="star" data-weight="fill">star</span> 4.6
+                            </div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-sm text-[18px] leading-tight text-primary font-bold">Rajmachi Camping</h4>
+</div>
+<div class="flex items-center justify-between mt-4 border-t border-outline-variant/20 pt-4">
+<div class="font-label-sm text-label-sm text-on-surface-variant">80 Bookings (YTD)</div>
+<div class="font-label-md text-label-md text-secondary font-bold">₹1.2L Rev</div>
+</div>
+</div>
+</div>
+<!-- Card 4: Add New placeholder -->
+<div class="bg-surface-container-low rounded-[24px] border-2 border-dashed border-outline-variant/50 hover:bg-surface-variant/30 hover:border-secondary transition-all duration-300 cursor-pointer flex flex-col items-center justify-center min-h-[260px] text-on-surface-variant hover:text-secondary group">
+<div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="add">add</span>
+</div>
+<span class="font-label-md text-label-md font-bold">Create New Package</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<style>
+        /* Custom scrollbar for reviews feed to keep it clean */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar:hover::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+        }
+    </style>
+<script>
+        // Initialize Chart.js for Earnings Over Time
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('earningsChart').getContext('2d');
+            
+            // Subtle gradient for chart area
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, 'rgba(44, 105, 78, 0.2)'); // secondary color low opacity
+            gradient.addColorStop(1, 'rgba(44, 105, 78, 0)');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Revenue (₹)',
+                        data: [65000, 59000, 80000, 81000, 56000, 95000, 142500],
+                        borderColor: '#2c694e', // secondary color
+                        backgroundColor: gradient,
+                        borderWidth: 3,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#2c694e',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        tension: 0.4 // Smooth curves
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(13, 28, 46, 0.9)', // on-surface
+                            titleFont: { family: 'Inter', size: 12 },
+                            bodyFont: { family: 'Inter', size: 14, weight: 'bold' },
+                            padding: 12,
+                            cornerRadius: 8,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                font: { family: 'Inter', size: 12 },
+                                color: '#717973' // outline
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(193, 200, 194, 0.2)', // outline-variant with opacity
+                                drawBorder: false,
+                                borderDash: [5, 5]
+                            },
+                            ticks: {
+                                font: { family: 'Inter', size: 12 },
+                                color: '#717973',
+                                callback: function(value) {
+                                    return '₹' + (value/1000) + 'k';
+                                }
+                            },
+                            beginAtZero: true
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+        });
+    </script>
+</body></html>
