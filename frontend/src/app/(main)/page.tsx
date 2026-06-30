@@ -5,8 +5,10 @@ import { Search, MapPin, Calendar, Map, ArrowRight, ShieldCheck, HeartHandshake,
 import { TrendingDestinations } from "@/components/home/TrendingDestinations";
 import { motion } from "framer-motion";
 
+import type { Variants } from "framer-motion";
+
 export default function Home() {
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -16,7 +18,7 @@ export default function Home() {
     }
   };
 
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
