@@ -11,7 +11,7 @@ from app.schemas.dashboard import CustomerDashboardResponse, OperatorDashboardRe
 from app.dependencies import get_current_user
 from app.models.user import User
 
-router = APIRouter()
+router = APIRouter(prefix="/dashboard", tags=["dashboard"])
 
 @router.get("/customer", response_model=CustomerDashboardResponse)
 async def get_customer_dashboard(

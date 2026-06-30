@@ -12,7 +12,7 @@ from app.models.adventure import Adventure
 from app.models.booking import Booking
 from app.services.email import send_booking_confirmation
 
-router = APIRouter()
+router = APIRouter(prefix="/payments", tags=["payments"])
 
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")

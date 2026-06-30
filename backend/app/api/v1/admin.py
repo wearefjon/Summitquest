@@ -10,7 +10,7 @@ from app.models.operator import Operator
 from app.models.adventure import Adventure
 from app.models.booking import Booking
 
-router = APIRouter()
+router = APIRouter(prefix="/admin", tags=["admin"])
 DbSession = Annotated[AsyncSession, Depends(get_db)]
 CurrentUser = Annotated[User, Depends(get_current_user)]
 
