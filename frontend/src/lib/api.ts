@@ -124,3 +124,55 @@ export async function fetchAdventureBySlug(slug: string): Promise<Adventure> {
   
   return response.json();
 }
+
+import axios from 'axios';
+import { useAuth } from './store/useAuth';
+
+export const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+});
+
+apiClient.interceptors.request.use((config) => {
+  const token = useAuth.getState().token;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+export const authApi = {
+  login: async (data: any) => {
+    const res = await apiClient.post('/auth/login', data);
+    return res.data;
+  },
+  register: async (data: any) => {
+    const res = await apiClient.post('/auth/register', data);
+    return res.data;
+  }
+};
+
+export const bookingApi = {
+  createBooking: async (data: { adventure_id: string; booking_date: string; guests: number }) => {
+    const res = await apiClient.post('/bookings', data);
+    return res.data;
+  },
+  getMyBookings: async () => {
+    const res = await apiClient.get('/bookings/me');
+    return res.data;
+  },
+  confirmBooking: async (bookingId: string) => {
+    const res = await apiClient.post(`/bookings/${bookingId}/confirm`);
+    return res.data;
+  }
+};
+
+export const dashboardApi = {
+  getCustomerDashboard: async () => {
+    const res = await apiClient.get('/dashboard/customer');
+    return res.data;
+  },
+  getOperatorDashboard: async () => {
+    const res = await apiClient.get('/dashboard/operator');
+    return res.data;
+  }
+};

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   keywords: ["adventure", "Maharashtra", "trekking", "rafting", "booking", "Lonavala", "Kolad"],
 };
 
+import { Navbar } from "@/components/layout/Navbar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+          </div>
+        </QueryProvider>
       </body>
     </html>
   );

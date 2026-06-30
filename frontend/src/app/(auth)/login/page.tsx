@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { api, ApiError } from "@/lib/api";
+import { authApi } from "@/lib/api";
+import { useAuth } from "@/lib/store/useAuth";
 import { APP_NAME } from "@/lib/constants";
 
 const loginSchema = z.object({
@@ -17,6 +18,8 @@ type LoginForm = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
   const router = useRouter();
+  const setAuth = useAuth((state) => state.setAuth);
+  
   const {
     register,
     handleSubmit,
@@ -26,12 +29,14 @@ export default function LoginPage() {
 
   async function onSubmit(data: LoginForm) {
     try {
-      const response = await api.post("/auth/login", data);
-      localStorage.setItem("access_token", response.data.access_token);
-      localStorage.setItem("refresh_token", response.data.refresh_token);
-      router.push("/");
-    } catch (err) {
-      const message = err instanceof ApiError ? err.message : "Login failed";
+      const response = await authApi.login(data);
+      setAuth(response.user, response.access_token);
+      
+      const searchParams = new URLSearchParams(window.location.search);
+      const redirect = searchParams.get('redirect') || "/";
+      router.push(redirect);
+    } catch (err: any) {
+      const message = err.response?.data?.detail || "Invalid email or password";
       setError("root", { message });
     }
   }

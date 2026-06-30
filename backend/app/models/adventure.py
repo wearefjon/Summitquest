@@ -28,6 +28,7 @@ class Adventure(Base):
     # Relationships
     operator = relationship("Operator", back_populates="adventures")
     # destination = relationship("Destination", back_populates="adventures")
+    bookings = relationship("Booking", back_populates="adventure")
     
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), onupdate=func.now(), nullable=True)

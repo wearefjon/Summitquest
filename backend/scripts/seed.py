@@ -28,6 +28,8 @@ async def seed_data():
         import app.models.destination
         import app.models.adventure
         import app.models.operator
+        import app.models.user
+        import app.models.booking
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
         print("Database tables ensured.")

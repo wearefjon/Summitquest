@@ -6,7 +6,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Suspense } from "react";
-import { api, ApiError } from "@/lib/api";
+import { authApi } from "@/lib/api";
+import { useAuth } from "@/lib/store/useAuth";
 import { APP_NAME } from "@/lib/constants";
 
 const registerSchema = z
@@ -28,6 +29,8 @@ type RegisterForm = z.infer<typeof registerSchema>;
 function RegisterForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const setAuth = useAuth((state) => state.setAuth);
+  
   const defaultRole = searchParams.get("role") === "operator" ? "operator" : "customer";
 
   const {
@@ -42,18 +45,18 @@ function RegisterForm() {
 
   async function onSubmit(data: RegisterForm) {
     try {
-      const response = await api.post("/auth/register", {
+      const response = await authApi.register({
         email: data.email,
         password: data.password,
         full_name: data.full_name,
         phone: data.phone || undefined,
         role: data.role,
       });
-      localStorage.setItem("access_token", response.data.access_token);
-      localStorage.setItem("refresh_token", response.data.refresh_token);
+      
+      setAuth(response.user, response.access_token);
       router.push(data.role === "operator" ? "/operator/dashboard" : "/");
-    } catch (err) {
-      const message = err instanceof ApiError ? err.message : "Registration failed";
+    } catch (err: any) {
+      const message = err.response?.data?.detail || "Registration failed";
       setError("root", { message });
     }
   }
