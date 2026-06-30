@@ -22,6 +22,10 @@ export default function OperatorDashboard() {
       router.push("/customer");
       return;
     }
+    if (user.status === "pending") {
+      router.push("/operator/pending");
+      return;
+    }
 
     async function load() {
       try {

@@ -55,6 +55,19 @@ async def get_current_user(
                 role=role
             )
             user = await user_repo.create(new_user)
+            
+            # If they are an operator, we must also create their Operator profile
+            if role == UserRole.OPERATOR:
+                from app.models.operator import Operator
+                new_operator = Operator(
+                    id=str(user.id),
+                    name=full_name,
+                    description="New operator profile",
+                    is_verified=False
+                )
+                db.add(new_operator)
+                await db.commit()
+                
         except Exception as exc:
             raise AuthenticationError("Failed to initialize user session") from exc
 

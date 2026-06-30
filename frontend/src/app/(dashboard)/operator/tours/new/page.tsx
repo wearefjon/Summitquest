@@ -31,6 +31,10 @@ export default function CreateAdventurePage() {
       router.push("/login");
       return;
     }
+    if (user.status === "pending") {
+      router.push("/operator/pending");
+      return;
+    }
     async function load() {
       try {
         const dests = await fetchDestinations();

@@ -62,15 +62,32 @@ async def get_operators(db: DbSession, admin: AdminUser):
     operators = result.scalars().all()
     return operators
 
+from app.services.email import send_operator_approval_email
+import uuid
+
 @router.put("/operators/{operator_id}/verify")
 async def verify_operator(operator_id: str, db: DbSession, admin: AdminUser):
     result = await db.execute(select(Operator).where(Operator.id == operator_id))
     operator = result.scalar_one_or_none()
     if not operator:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Operator not found")
+        
+    # We also need the user record
+    user_result = await db.execute(select(User).where(User.id == uuid.UUID(operator_id)))
+    user = user_result.scalar_one_or_none()
+    
+    if not user:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User account for operator not found")
     
     operator.is_verified = not operator.is_verified
+    user.status = UserStatus.ACTIVE if operator.is_verified else UserStatus.PENDING
+    
     await db.commit()
+    
+    if operator.is_verified:
+        # Trigger Resend approval email
+        await send_operator_approval_email(user.email, user.full_name)
+        
     return operator
 
 @router.get("/adventures")

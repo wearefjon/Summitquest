@@ -51,8 +51,7 @@ async def get_adventure_by_slug(slug: str, db: AsyncSession = Depends(get_db)):
 
 from app.schemas.adventure import AdventureCreate
 from app.dependencies import get_current_user
-from app.models.user import User
-import uuid
+from app.models.user import User, UserStatus
 
 @router.post("", response_model=AdventureResponse, status_code=status.HTTP_201_CREATED)
 async def create_adventure(
@@ -62,6 +61,9 @@ async def create_adventure(
 ):
     if current_user.role != "operator":
         raise HTTPException(status_code=403, detail="Not authorized")
+        
+    if current_user.status != UserStatus.ACTIVE:
+        raise HTTPException(status_code=403, detail="Your operator account is pending approval.")
         
     db_adventure = Adventure(
         id=str(uuid.uuid4()),

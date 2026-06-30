@@ -40,14 +40,14 @@ export function Footer() {
           <h4 className="font-label-md text-label-md font-bold mb-4">Company</h4>
           <ul className="space-y-3">
             <li>
-              <Link href="/partners" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-primary-fixed transition-colors opacity-80 hover:opacity-100">
-                Partner Program
-              </Link>
+              <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant opacity-50 cursor-not-allowed">
+                Partner Program (Coming Soon)
+              </span>
             </li>
             <li>
-              <Link href="/help" className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-secondary dark:hover:text-primary-fixed transition-colors opacity-80 hover:opacity-100">
-                Help Center
-              </Link>
+              <span className="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant opacity-50 cursor-not-allowed">
+                Help Center (Coming Soon)
+              </span>
             </li>
           </ul>
         </div>

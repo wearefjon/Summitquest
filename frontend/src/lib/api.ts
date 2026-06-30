@@ -149,6 +149,10 @@ export const authApi = {
   register: async (data: any) => {
     const res = await apiClient.post('/auth/register', data);
     return res.data;
+  },
+  getMe: async () => {
+    const res = await apiClient.get('/auth/me');
+    return res.data;
   }
 };
 
