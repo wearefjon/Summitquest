@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/lib/store/useAuth";
 import { fetchDestinations, Destination } from "@/lib/api";
+import { supabase } from "@/lib/supabase";
 
 export default function CreateAdventurePage() {
   const { user, loading: authLoading } = useAuth();
