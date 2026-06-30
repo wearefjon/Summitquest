@@ -54,7 +54,19 @@ export function ActivitiesPage() {
             <h2 className="font-headline-md text-on-surface mb-6">Weekend Escapes (1-2 Days)</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {weekendEscapes.map((adv) => (
-                <AdventureCard key={adv.id} adventure={adv} />
+                <AdventureCard 
+                  key={adv.id} 
+                  slug={adv.slug}
+                  title={adv.title}
+                  destination={"Maharashtra"}
+                  category={adv.activity_type}
+                  price={adv.price}
+                  rating={4.8}
+                  reviewCount={24}
+                  duration={`${adv.duration_days} Days`}
+                  difficulty={adv.difficulty}
+                  image={adv.image_url}
+                />
               ))}
             </div>
           </section>
@@ -65,7 +77,19 @@ export function ActivitiesPage() {
             <h2 className="font-headline-md text-on-surface mb-6">Grand Expeditions (3+ Days)</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {grandExpeditions.map((adv) => (
-                <AdventureCard key={adv.id} adventure={adv} />
+                <AdventureCard 
+                  key={adv.id} 
+                  slug={adv.slug}
+                  title={adv.title}
+                  destination={"Maharashtra"}
+                  category={adv.activity_type}
+                  price={adv.price}
+                  rating={4.9}
+                  reviewCount={36}
+                  duration={`${adv.duration_days} Days`}
+                  difficulty={adv.difficulty}
+                  image={adv.image_url}
+                />
               ))}
             </div>
           </section>

@@ -47,7 +47,19 @@ export function StaysPage() {
       <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stays.map((stay) => (
-            <AdventureCard key={stay.id} adventure={stay} />
+            <AdventureCard 
+              key={stay.id} 
+              slug={stay.slug}
+              title={stay.title}
+              destination={"Maharashtra"}
+              category={stay.activity_type}
+              price={stay.price}
+              rating={4.7}
+              reviewCount={15}
+              duration={`${stay.duration_days} Days`}
+              difficulty={stay.difficulty}
+              image={stay.image_url}
+            />
           ))}
         </div>
       </div>

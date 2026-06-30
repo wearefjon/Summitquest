@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useAuth } from "@/lib/store/useAuth";
 
-export default function BookingSuccessPage() {
+function BookingSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const bookingId = searchParams.get("id");
@@ -179,5 +179,13 @@ export default function BookingSuccessPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function BookingSuccessPage() {
+  return (
+    <Suspense fallback={<div className="flex-grow w-full h-screen flex items-center justify-center">Loading...</div>}>
+      <BookingSuccessContent />
+    </Suspense>
   );
 }
