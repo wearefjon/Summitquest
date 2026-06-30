@@ -57,7 +57,7 @@ export default function CreateAdventurePage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${useAuth.getState().token}`
+          Authorization: `Bearer ${(useAuth.getState() as any).token}`
         },
         body: JSON.stringify({
           title,
