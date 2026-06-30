@@ -42,6 +42,7 @@ export const metadata: Metadata = {
 };
 
 import { Navbar } from "@/components/layout/Navbar";
+import { AIChatWidget } from "@/components/chat/AIChatWidget";
 
 import { AuthProvider } from "@/components/providers/AuthProvider";
 
@@ -58,6 +59,7 @@ export default function RootLayout({
             <div className="flex min-h-screen flex-col">
               <Navbar />
               <main className="flex-1">{children}</main>
+              <AIChatWidget />
             </div>
           </AuthProvider>
         </QueryProvider>

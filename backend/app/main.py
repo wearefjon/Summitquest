@@ -14,6 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.api.v1.router import api_router
+from app.api.v1 import chat
 from app.config import get_settings
 from app.core.exceptions import SummitQuestException
 from app.database import engine
@@ -96,3 +97,4 @@ async def health_check() -> dict[str, Any]:
 
 
 app.include_router(api_router, prefix=settings.api_v1_prefix)
+app.include_router(chat.router, prefix=f"{settings.api_v1_prefix}/chat", tags=["Chat"])

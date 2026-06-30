@@ -44,6 +44,8 @@ class Settings(BaseSettings):
     smtp_password: str = ""
     email_from: str = "SummitQuest <bookings@summitquest.in>"
 
+    gemini_api_key: str = ""
+
     sentry_dsn: str = ""
 
     @property
