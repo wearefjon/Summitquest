@@ -21,6 +21,24 @@ export const metadata: Metadata = {
   description:
     "Discover and book verified trekking, rafting, camping, and outdoor adventures across Maharashtra.",
   keywords: ["adventure", "Maharashtra", "trekking", "rafting", "booking", "Lonavala", "Kolad"],
+  authors: [{ name: "SummitQuest Team" }],
+  openGraph: {
+    title: "SummitQuest — Maharashtra Adventure Marketplace",
+    description: "Discover and book verified trekking, rafting, camping, and outdoor adventures across Maharashtra.",
+    url: "https://summitquest.in",
+    siteName: "SummitQuest",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SummitQuest — Maharashtra Adventure Marketplace",
+    description: "Discover and book verified trekking, rafting, camping, and outdoor adventures across Maharashtra.",
+  },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg",
+  }
 };
 
 import { Navbar } from "@/components/layout/Navbar";
