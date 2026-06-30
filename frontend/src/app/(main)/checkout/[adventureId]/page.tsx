@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/store/useAuth";
 import { fetchAdventureBySlug, Adventure, paymentApi } from "@/lib/api";
 
-export default function CheckoutPage({ params }: { params: { adventureId: string } }) {
+export default function CheckoutPage({ params }: { params: Promise<{ adventureId: string }> }) {
+  const unwrappedParams = use(params);
   const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const [adventure, setAdventure] = useState<Adventure | null>(null);
@@ -23,7 +24,7 @@ export default function CheckoutPage({ params }: { params: { adventureId: string
   useEffect(() => {
     if (authLoading) return;
     if (!user) {
-      router.push(`/login?redirect=/checkout/${params.adventureId}`);
+      router.push(`/login?redirect=/checkout/${unwrappedParams.adventureId}`);
       return;
     }
 
@@ -37,7 +38,7 @@ export default function CheckoutPage({ params }: { params: { adventureId: string
 
     async function load() {
       try {
-        const data = await fetchAdventureBySlug(params.adventureId);
+        const data = await fetchAdventureBySlug(unwrappedParams.adventureId);
         setAdventure(data);
       } catch (err) {
         console.error(err);
@@ -46,7 +47,7 @@ export default function CheckoutPage({ params }: { params: { adventureId: string
       }
     }
     load();
-  }, [user, authLoading, router, params.adventureId]);
+  }, [user, authLoading, router, unwrappedParams.adventureId]);
 
   if (authLoading || loading || !adventure) {
     return <div className="flex min-h-[50vh] items-center justify-center">Loading secure checkout...</div>;
