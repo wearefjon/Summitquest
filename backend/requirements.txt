@@ -8,7 +8,7 @@ psycopg[binary]==3.2.3
 redis==5.1.1
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
-httpx==0.27.2
+httpx
 celery==5.4.0
 cloudinary==1.41.0
 razorpay==1.4.2
