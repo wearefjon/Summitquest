@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/store/useAuth";
-import { fetchAdventureBySlug, Adventure, bookingApi, paymentApi } from "@/lib/api";
+import { fetchAdventureBySlug, Adventure, paymentApi } from "@/lib/api";
 
 export default function CheckoutPage({ params }: { params: { adventureId: string } }) {
   const { user, loading: authLoading } = useAuth();

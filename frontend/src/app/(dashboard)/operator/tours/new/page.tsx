@@ -14,14 +14,14 @@ export default function CreateAdventurePage() {
   
   // Form State
   const [title, setTitle] = useState("");
-  const [activityType, setActivityType] = useState("trekking");
+  const [activityType] = useState("trekking");
   const [difficulty, setDifficulty] = useState("moderate");
   const [duration, setDuration] = useState("2");
   const [shortDesc, setShortDesc] = useState("");
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("1500");
   const [destinationId, setDestinationId] = useState("");
-  const [imageUrl, setImageUrl] = useState("https://images.unsplash.com/photo-1621217595537-8eec4c1f930c?q=80&w=1470&auto=format&fit=crop");
+  const [imageUrl] = useState("https://images.unsplash.com/photo-1621217595537-8eec4c1f930c?q=80&w=1470&auto=format&fit=crop");
   
   const [submitting, setSubmitting] = useState(false);
 

@@ -10,7 +10,7 @@ export default function BookingSuccessPage() {
   const searchParams = useSearchParams();
   const bookingId = searchParams.get("id");
   const { user, loading: authLoading } = useAuth();
-  const [countdown, setCountdown] = useState({ days: 14, hours: 8, mins: 45 });
+  const [countdown] = useState({ days: 14, hours: 8, mins: 45 });
 
   useEffect(() => {
     if (authLoading) return;
