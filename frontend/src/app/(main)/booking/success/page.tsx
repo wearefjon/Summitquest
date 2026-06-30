@@ -1,15 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/store/useAuth";
 
 export default function BookingSuccessPage() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const bookingId = searchParams.get("id");
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [countdown, setCountdown] = useState({ days: 14, hours: 8, mins: 45 });
+
+  useEffect(() => {
+    if (authLoading) return;
+    if (!user) {
+      router.push("/login");
+    }
+  }, [user, authLoading, router]);
+
+  if (authLoading || !user) {
+    return null;
+  }
 
   return (
     <main className="flex-grow">

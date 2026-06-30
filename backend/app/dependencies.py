@@ -26,16 +26,37 @@ async def get_current_user(
     except ValueError as exc:
         raise AuthenticationError("Invalid or expired token") from exc
 
-    if payload.get("type") != "access":
-        raise AuthenticationError("Invalid token type")
-
     user_id = payload.get("sub")
     if not user_id:
         raise AuthenticationError("Invalid token payload")
 
-    user = await UserRepository(db).get_by_id(UUID(user_id))
+    user_repo = UserRepository(db)
+    user = await user_repo.get_by_id(UUID(user_id))
+    
+    # Lazy creation: if user doesn't exist in our DB, create them
     if not user:
-        raise AuthenticationError("User not found")
+        email = payload.get("email") or ""
+        user_metadata = payload.get("user_metadata", {})
+        
+        # We can extract name from standard metadata fields
+        full_name = user_metadata.get("full_name") or user_metadata.get("name") or email.split("@")[0] or "User"
+        
+        # We map string roles from metadata to our enum
+        role_str = user_metadata.get("role", "customer")
+        role = UserRole.OPERATOR if role_str == "operator" else UserRole.CUSTOMER
+        
+        try:
+            # Create user with a dummy password since Supabase handles actual auth
+            new_user = User(
+                id=UUID(user_id),
+                email=email,
+                password_hash="supabase_auth",
+                full_name=full_name,
+                role=role
+            )
+            user = await user_repo.create(new_user)
+        except Exception as exc:
+            raise AuthenticationError("Failed to initialize user session") from exc
 
     return user
 

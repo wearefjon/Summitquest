@@ -1,9 +1,8 @@
 from fastapi import APIRouter
 
-from app.api.v1 import auth, destinations, adventures, operators, bookings, dashboard
+from app.api.v1 import destinations, adventures, operators, bookings, dashboard
 
 api_router = APIRouter()
-api_router.include_router(auth.router, prefix="/auth", tags=["auth"])
 api_router.include_router(destinations.router, prefix="/destinations", tags=["destinations"])
 api_router.include_router(adventures.router, prefix="/adventures", tags=["adventures"])
 api_router.include_router(operators.router)

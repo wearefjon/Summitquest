@@ -7,7 +7,7 @@ import { useAuth } from "@/lib/store/useAuth";
 import { fetchDestinations, Destination } from "@/lib/api";
 
 export default function CreateAdventurePage() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
 
   const [destinations, setDestinations] = useState<Destination[]>([]);
@@ -26,6 +26,7 @@ export default function CreateAdventurePage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    if (authLoading) return;
     if (!user || user.role !== "operator") {
       router.push("/login");
       return;
@@ -40,7 +41,7 @@ export default function CreateAdventurePage() {
       }
     }
     load();
-  }, [user, router]);
+  }, [user, authLoading, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

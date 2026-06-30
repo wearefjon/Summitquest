@@ -7,12 +7,14 @@ import { useAuth } from "@/lib/store/useAuth";
 import { dashboardApi } from "@/lib/api";
 
 export default function CustomerDashboard() {
-  const { user, logout } = useAuth();
+  const { user, loading: authLoading, logout } = useAuth();
   const router = useRouter();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (authLoading) return;
+    
     if (!user) {
       router.push("/login");
       return;
@@ -33,9 +35,9 @@ export default function CustomerDashboard() {
       }
     }
     load();
-  }, [user, router]);
+  }, [user, authLoading, router]);
 
-  if (loading || !user) {
+  if (authLoading || loading || !user) {
     return <div className="flex min-h-screen items-center justify-center">Loading dashboard...</div>;
   }
 

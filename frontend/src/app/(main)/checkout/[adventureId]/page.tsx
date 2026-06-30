@@ -6,7 +6,7 @@ import { useAuth } from "@/lib/store/useAuth";
 import { fetchAdventureBySlug, Adventure, bookingApi } from "@/lib/api";
 
 export default function CheckoutPage({ params }: { params: { adventureId: string } }) {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const [adventure, setAdventure] = useState<Adventure | null>(null);
   const [loading, setLoading] = useState(true);
@@ -21,6 +21,7 @@ export default function CheckoutPage({ params }: { params: { adventureId: string
   const [guests, setGuests] = useState(1);
 
   useEffect(() => {
+    if (authLoading) return;
     if (!user) {
       router.push(`/login?redirect=/checkout/${params.adventureId}`);
       return;
@@ -45,9 +46,9 @@ export default function CheckoutPage({ params }: { params: { adventureId: string
       }
     }
     load();
-  }, [user, router, params.adventureId]);
+  }, [user, authLoading, router, params.adventureId]);
 
-  if (loading || !adventure) {
+  if (authLoading || loading || !adventure) {
     return <div className="flex min-h-[50vh] items-center justify-center">Loading secure checkout...</div>;
   }
 

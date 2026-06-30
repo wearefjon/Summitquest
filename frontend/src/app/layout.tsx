@@ -25,6 +25,8 @@ export const metadata: Metadata = {
 
 import { Navbar } from "@/components/layout/Navbar";
 
+import { AuthProvider } from "@/components/providers/AuthProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,10 +36,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${montserrat.variable} font-sans`}>
         <QueryProvider>
-          <div className="flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-          </div>
+          <AuthProvider>
+            <div className="flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+            </div>
+          </AuthProvider>
         </QueryProvider>
       </body>
     </html>

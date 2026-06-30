@@ -126,14 +126,15 @@ export async function fetchAdventureBySlug(slug: string): Promise<Adventure> {
 }
 
 import axios from 'axios';
-import { useAuth } from './store/useAuth';
+import { supabase } from './supabase';
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
 });
 
-apiClient.interceptors.request.use((config) => {
-  const token = useAuth.getState().token;
+apiClient.interceptors.request.use(async (config) => {
+  const { data: { session } } = await supabase.auth.getSession();
+  const token = session?.access_token;
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

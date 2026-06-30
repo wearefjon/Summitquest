@@ -43,6 +43,12 @@ def create_refresh_token(subject: str | UUID) -> str:
 
 def decode_token(token: str) -> dict[str, Any]:
     try:
-        return jwt.decode(token, settings.secret_key, algorithms=[settings.jwt_algorithm])
+        # Supabase JWTs use the HS256 algorithm and the project's JWT_SECRET
+        return jwt.decode(
+            token, 
+            settings.secret_key, 
+            algorithms=["HS256"],
+            options={"verify_aud": False}
+        )
     except JWTError as exc:
         raise ValueError("Invalid token") from exc
