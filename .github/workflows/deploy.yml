@@ -1,0 +1,57 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-backend-aws:
+    name: Deploy Backend to AWS App Runner
+    runs-on: ubuntu-latest
+    
+    # Needs to be configured by the user via AWS CLI or App Runner GitHub integration.
+    # We are setting up the blueprint for the pipeline.
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: summitquest-backend
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          cd backend
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      # ECR push triggers App Runner automatically if continuous delivery is enabled on App Runner.
+
+  deploy-frontend-vercel:
+    name: Deploy Frontend to Vercel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+        
+      - name: Deploy to Vercel
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: vercel --prod --token $VERCEL_TOKEN

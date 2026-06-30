@@ -5,12 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/store/useAuth";
 import { dashboardApi } from "@/lib/api";
+import { useRecentlyViewed } from "@/lib/hooks/useRecentlyViewed";
 
 export default function CustomerDashboard() {
   const { user, loading: authLoading, logout } = useAuth();
   const router = useRouter();
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const { recentAdventures } = useRecentlyViewed();
 
   useEffect(() => {
     if (authLoading) return;
@@ -171,6 +173,28 @@ export default function CustomerDashboard() {
             </div>
           )}
         </section>
+
+        {/* Recently Viewed */}
+        {recentAdventures.length > 0 && (
+          <section className="mb-16">
+            <h3 className="font-headline-sm text-headline-sm text-on-surface mb-6">Recently Viewed</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {recentAdventures.map((adv) => (
+                <Link href={`/adventures/${adv.slug}`} key={adv.id} className="block group">
+                  <div className="bg-surface-container-lowest rounded-2xl overflow-hidden ambient-shadow border border-outline-variant/30 transition-transform transform hover:scale-[1.02]">
+                    <div className="relative h-48 w-full bg-surface-variant">
+                      <div className="bg-cover bg-center absolute inset-0" style={{ backgroundImage: `url('${adv.image_url}')` }} />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-headline-sm text-primary group-hover:text-secondary transition-colors">{adv.title}</h4>
+                      <p className="font-label-md text-on-surface-variant mt-1">Starting from ₹{adv.price.toLocaleString('en-IN')}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
       </main>
     </div>

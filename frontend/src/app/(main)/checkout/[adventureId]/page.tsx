@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/store/useAuth";
-import { fetchAdventureBySlug, Adventure, bookingApi } from "@/lib/api";
+import { fetchAdventureBySlug, Adventure, bookingApi, paymentApi } from "@/lib/api";
 
 export default function CheckoutPage({ params }: { params: { adventureId: string } }) {
   const { user, loading: authLoading } = useAuth();
@@ -63,16 +63,15 @@ export default function CheckoutPage({ params }: { params: { adventureId: string
     
     setSubmitting(true);
     try {
-      const booking = await bookingApi.createBooking({
-        adventure_id: adventure.id,
-        booking_date: new Date(date).toISOString(),
-        guests: guests
-      });
-      await bookingApi.confirmBooking(booking.id);
-      router.push(`/booking/success?id=${booking.id}`);
-    } catch (err) {
+      const session = await paymentApi.createCheckoutSession(adventure.id, guests);
+      if (session.url) {
+        window.location.href = session.url; // Redirect to Stripe Checkout
+      } else {
+        throw new Error("Failed to create checkout session");
+      }
+    } catch (err: any) {
       console.error(err);
-      alert("Failed to process booking");
+      alert(err.response?.data?.detail || "Failed to initiate payment");
     } finally {
       setSubmitting(false);
     }

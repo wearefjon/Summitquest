@@ -204,3 +204,10 @@ export const adminApi = {
     return res.data;
   }
 };
+
+export const paymentApi = {
+  createCheckoutSession: async (adventureId: string, travelers: number) => {
+    const res = await apiClient.post(`/payments/create-checkout-session?adventure_id=${adventureId}&travelers=${travelers}`);
+    return res.data;
+  }
+};

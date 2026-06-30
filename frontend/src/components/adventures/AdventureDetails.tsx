@@ -5,6 +5,8 @@ import { fetchAdventureBySlug } from "@/lib/api";
 import { useParams } from "next/navigation";
 import { Star, MapPin, Terrain, Share, Heart, Clock, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useRecentlyViewed } from "@/lib/hooks/useRecentlyViewed";
 
 export function AdventureDetails() {
   const params = useParams();
@@ -14,6 +16,14 @@ export function AdventureDetails() {
     queryKey: ["adventure", slug],
     queryFn: () => fetchAdventureBySlug(slug),
   });
+
+  const { addViewed } = useRecentlyViewed();
+
+  useEffect(() => {
+    if (adventure) {
+      addViewed(adventure);
+    }
+  }, [adventure]);
 
   if (isLoading) {
     return (
