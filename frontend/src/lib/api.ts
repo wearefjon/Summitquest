@@ -177,3 +177,30 @@ export const dashboardApi = {
     return res.data;
   }
 };
+
+export const adminApi = {
+  getStats: async () => {
+    const res = await apiClient.get('/admin/stats');
+    return res.data;
+  },
+  getUsers: async () => {
+    const res = await apiClient.get('/admin/users');
+    return res.data;
+  },
+  getOperators: async () => {
+    const res = await apiClient.get('/admin/operators');
+    return res.data;
+  },
+  verifyOperator: async (id: string) => {
+    const res = await apiClient.put(`/admin/operators/${id}/verify`);
+    return res.data;
+  },
+  getAdventures: async () => {
+    const res = await apiClient.get('/admin/adventures');
+    return res.data;
+  },
+  updateAdventureStatus: async (id: string, status: string) => {
+    const res = await apiClient.put(`/admin/adventures/${id}/status?new_status=${status}`);
+    return res.data;
+  }
+};

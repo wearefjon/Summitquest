@@ -19,6 +19,8 @@ class Operator(Base):
     rating: Mapped[float] = mapped_column(Float, default=0.0)
     review_count: Mapped[int] = mapped_column(Integer, default=0)
     
+    commission_rate: Mapped[float] = mapped_column(Float, default=0.1) # 10% platform fee by default
+    
     is_verified: Mapped[bool] = mapped_column(Boolean, default=False)
     member_since: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=func.now())
     

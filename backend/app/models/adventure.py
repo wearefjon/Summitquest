@@ -15,6 +15,8 @@ class Adventure(Base):
     short_description: Mapped[str] = mapped_column(String(500), nullable=False)
     description: Mapped[str] = mapped_column(Text, nullable=False)
     
+    status: Mapped[str] = mapped_column(String(50), default="published") # pending, published, rejected
+    
     activity_type: Mapped[str] = mapped_column(String(50), nullable=False) # Trekking, Camping, Water Sports, etc.
     difficulty: Mapped[str] = mapped_column(String(50), nullable=False) # Easy, Moderate, Hard, Extreme
     duration_days: Mapped[int] = mapped_column(Integer, nullable=False)
