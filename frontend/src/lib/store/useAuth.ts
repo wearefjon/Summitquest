@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { supabase } from '../supabase';
-import { User as SupabaseUser } from '@supabase/supabase-js';
 
 // We map Supabase user to our internal User structure
 interface User {

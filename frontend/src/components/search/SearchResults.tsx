@@ -3,7 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchAdventures } from "@/lib/api";
 import { useSearchParams } from "next/navigation";
-import { Map, Heart, Search } from "lucide-react";
+import { Heart, Search } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
