@@ -37,7 +37,7 @@ export default function LoginPage() {
       if (error) throw error;
       
       const searchParams = new URLSearchParams(window.location.search);
-      const redirect = searchParams.get('redirect') || "/";
+      const redirect = searchParams.get('redirect') || "/customer";
       router.push(redirect);
     } catch (err: any) {
       const message = err.message || "Invalid email or password";
@@ -49,7 +49,7 @@ export default function LoginPage() {
     try {
       setGoogleLoading(true);
       const searchParams = new URLSearchParams(window.location.search);
-      const redirect = searchParams.get('redirect') || "/";
+      const redirect = searchParams.get('redirect') || "/customer";
       
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
