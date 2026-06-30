@@ -1,9 +1,14 @@
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status, File, UploadFile, Form
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Optional
+import uuid
+import cloudinary
+import cloudinary.uploader
 
 from app.database import get_db
+from app.config import get_settings
+settings = get_settings()
 from app.models.adventure import Adventure
 from app.schemas.adventure import AdventureResponse
 
@@ -55,7 +60,16 @@ from app.models.user import User, UserStatus
 
 @router.post("", response_model=AdventureResponse, status_code=status.HTTP_201_CREATED)
 async def create_adventure(
-    adventure_in: AdventureCreate,
+    title: str = Form(...),
+    slug: str = Form(...),
+    activity_type: str = Form(...),
+    difficulty: str = Form(...),
+    duration_days: int = Form(...),
+    short_description: str = Form(...),
+    description: str = Form(...),
+    price: float = Form(...),
+    destination_id: str = Form(...),
+    file: UploadFile = File(...),
     current_user: User = Depends(get_current_user),
     db: AsyncSession = Depends(get_db)
 ):
@@ -65,18 +79,33 @@ async def create_adventure(
     if current_user.status != UserStatus.ACTIVE:
         raise HTTPException(status_code=403, detail="Your operator account is pending approval.")
         
+    if not settings.cloudinary_api_key:
+        raise HTTPException(status_code=500, detail="Cloudinary credentials are not configured on the backend.")
+
+    try:
+        cloudinary.config(
+            cloud_name=settings.cloudinary_cloud_name,
+            api_key=settings.cloudinary_api_key,
+            api_secret=settings.cloudinary_api_secret,
+            secure=True
+        )
+        upload_result = cloudinary.uploader.upload(file.file)
+        image_url = upload_result.get("secure_url")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to upload image: {str(e)}")
+        
     db_adventure = Adventure(
         id=str(uuid.uuid4()),
-        slug=adventure_in.slug,
-        title=adventure_in.title,
-        short_description=adventure_in.short_description,
-        description=adventure_in.description,
-        activity_type=adventure_in.activity_type,
-        difficulty=adventure_in.difficulty,
-        duration_days=adventure_in.duration_days,
-        price=adventure_in.price,
-        image_url=adventure_in.image_url,
-        destination_id=adventure_in.destination_id,
+        slug=slug,
+        title=title,
+        short_description=short_description,
+        description=description,
+        activity_type=activity_type,
+        difficulty=difficulty,
+        duration_days=duration_days,
+        price=price,
+        image_url=image_url,
+        destination_id=destination_id,
         operator_id=current_user.id
     )
     

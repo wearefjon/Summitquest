@@ -22,9 +22,23 @@ export default function CreateAdventurePage() {
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("1500");
   const [destinationId, setDestinationId] = useState("");
-  const [imageUrl] = useState("https://images.unsplash.com/photo-1621217595537-8eec4c1f930c?q=80&w=1470&auto=format&fit=crop");
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   
   const [submitting, setSubmitting] = useState(false);
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const file = e.dataTransfer.files[0];
+      setImageFile(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
+  };
 
   useEffect(() => {
     if (authLoading) return;
@@ -52,29 +66,31 @@ export default function CreateAdventurePage() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      // In a real app, you'd post to your backend.
-      // For now we'll just log and redirect
-      console.log("Creating adventure:", { title, activityType, difficulty, duration, shortDesc, desc, price, destinationId, imageUrl });
+      if (!imageFile) {
+        alert("Please upload an image for your adventure.");
+        setSubmitting(false);
+        return;
+      }
+      
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("slug", title.toLowerCase().replace(/[^a-z0-9]+/g, '-'));
+      formData.append("activity_type", activityType);
+      formData.append("difficulty", difficulty);
+      formData.append("duration_days", duration);
+      formData.append("short_description", shortDesc);
+      formData.append("description", desc);
+      formData.append("price", price);
+      formData.append("destination_id", destinationId);
+      formData.append("file", imageFile);
       
       const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
       const res = await fetch(`${API_URL}/api/v1/adventures`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
         },
-        body: JSON.stringify({
-          title,
-          slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-          activity_type: activityType,
-          difficulty,
-          duration_days: parseInt(duration),
-          short_description: shortDesc,
-          description: desc,
-          price: parseFloat(price),
-          destination_id: destinationId,
-          image_url: imageUrl
-        })
+        body: formData
       });
       
       if (!res.ok) throw new Error("Failed to create adventure");
@@ -188,6 +204,57 @@ export default function CreateAdventurePage() {
                 <div className="flex flex-col gap-2">
                   <label className="font-label-md text-label-md text-primary">Duration (Days) <span className="text-brand-coral">*</span></label>
                   <input required value={duration} onChange={e => setDuration(e.target.value)} className="w-full bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary" min="1" type="number"/>
+                </div>
+                
+                {/* Drag and Drop Image Upload */}
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium mb-1 opacity-80">Adventure Image</label>
+                  <div 
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}
+                    className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-outline-variant/50 border-dashed rounded-xl bg-surface-variant/30 hover:bg-surface-variant/50 transition-colors"
+                  >
+                    <div className="space-y-1 text-center">
+                      {imagePreview ? (
+                        <div className="flex flex-col items-center">
+                          <img src={imagePreview} alt="Preview" className="h-48 w-auto rounded-lg object-cover mb-4" />
+                          <button
+                            type="button"
+                            onClick={() => { setImageFile(null); setImagePreview(null); }}
+                            className="text-error font-body-sm hover:underline"
+                          >
+                            Remove Image
+                          </button>
+                        </div>
+                      ) : (
+                        <>
+                          <svg className="mx-auto h-12 w-12 text-primary opacity-50" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          <div className="flex text-sm text-on-surface-variant justify-center">
+                            <label htmlFor="file-upload" className="relative cursor-pointer bg-transparent rounded-md font-medium text-primary hover:text-primary-container focus-within:outline-none">
+                              <span>Upload a file</span>
+                              <input 
+                                id="file-upload" 
+                                name="file-upload" 
+                                type="file" 
+                                className="sr-only" 
+                                accept="image/*"
+                                onChange={(e) => {
+                                  if (e.target.files && e.target.files[0]) {
+                                    setImageFile(e.target.files[0]);
+                                    setImagePreview(URL.createObjectURL(e.target.files[0]));
+                                  }
+                                }}
+                              />
+                            </label>
+                            <p className="pl-1">or drag and drop</p>
+                          </div>
+                          <p className="text-xs opacity-70">PNG, JPG, GIF up to 10MB</p>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
 
