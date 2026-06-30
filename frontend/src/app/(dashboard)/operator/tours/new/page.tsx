@@ -55,13 +55,12 @@ export default function CreateAdventurePage() {
       // For now we'll just log and redirect
       console.log("Creating adventure:", { title, activityType, difficulty, duration, shortDesc, desc, price, destinationId, imageUrl });
       
-      // Let's assume we have an api method: api.createAdventure(...)
-      // Since it's not defined in api.ts yet, we'll just simulate it or call apiClient.post
-      const res = await fetch("http://localhost:8000/api/v1/adventures", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const res = await fetch(`${API_URL}/api/v1/adventures`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${(useAuth.getState() as any).token}`
+          Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`
         },
         body: JSON.stringify({
           title,
