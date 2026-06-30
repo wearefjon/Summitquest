@@ -48,3 +48,37 @@ async def get_adventure_by_slug(slug: str, db: AsyncSession = Depends(get_db)):
             detail=f"Adventure with slug '{slug}' not found"
         )
     return adventure
+
+from app.schemas.adventure import AdventureCreate
+from app.dependencies import get_current_user
+from app.models.user import User
+import uuid
+
+@router.post("", response_model=AdventureResponse, status_code=status.HTTP_201_CREATED)
+async def create_adventure(
+    adventure_in: AdventureCreate,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db)
+):
+    if current_user.role != "operator":
+        raise HTTPException(status_code=403, detail="Not authorized")
+        
+    db_adventure = Adventure(
+        id=str(uuid.uuid4()),
+        slug=adventure_in.slug,
+        title=adventure_in.title,
+        short_description=adventure_in.short_description,
+        description=adventure_in.description,
+        activity_type=adventure_in.activity_type,
+        difficulty=adventure_in.difficulty,
+        duration_days=adventure_in.duration_days,
+        price=adventure_in.price,
+        image_url=adventure_in.image_url,
+        destination_id=adventure_in.destination_id,
+        operator_id=current_user.id
+    )
+    
+    db.add(db_adventure)
+    await db.commit()
+    await db.refresh(db_adventure)
+    return db_adventure
