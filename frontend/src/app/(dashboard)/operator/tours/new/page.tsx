@@ -165,7 +165,7 @@ export default function CreateAdventurePage() {
                 <label className="font-label-md text-label-md text-primary">Destination <span className="text-brand-coral">*</span></label>
                 <select required value={destinationId} onChange={e => setDestinationId(e.target.value)} className="w-full bg-surface-off-white border-outline-variant/40 rounded-2xl px-4 py-3 font-body-md text-body-md focus:ring-2 focus:ring-primary focus:border-primary">
                   {destinations.map(d => (
-                    <option key={d.id} value={d.id}>{d.name}</option>
+                    <option key={d.id} value={d.id}>{d.title}</option>
                   ))}
                 </select>
               </div>
