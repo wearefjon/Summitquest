@@ -4,7 +4,7 @@ from sqlalchemy.future import select
 from sqlalchemy import func
 from typing import Any
 
-from app.db.session import get_db
+from app.database import get_db
 from app.models.booking import Booking, BookingStatus
 from app.models.adventure import Adventure
 from app.schemas.dashboard import CustomerDashboardResponse, OperatorDashboardResponse, OperatorAnalytics
