@@ -2,7 +2,9 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from typing import List
 import google.generativeai as genai
-from app.config import settings
+from app.config import get_settings
+
+settings = get_settings()
 
 router = APIRouter()
 
