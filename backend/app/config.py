@@ -36,10 +36,12 @@ class Settings(BaseSettings):
     razorpay_webhook_secret: str = ""
 
     cloudinary_cloud_name: str = ""
-    cloudinary_api_key: str = ""
     cloudinary_api_secret: str = ""
 
-    resend_api_key: str = ""
+    smtp_host: str = "smtp.gmail.com"
+    smtp_port: int = 587
+    smtp_username: str = ""
+    smtp_password: str = ""
     email_from: str = "SummitQuest <bookings@summitquest.in>"
 
     sentry_dsn: str = ""
