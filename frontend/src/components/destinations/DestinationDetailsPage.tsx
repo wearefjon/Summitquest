@@ -1,0 +1,107 @@
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
+import { fetchDestinationBySlug } from "@/lib/api";
+import { motion } from "framer-motion";
+import { useParams } from "next/navigation";
+
+export function DestinationDetailsPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  
+  const { data: destination, isLoading } = useQuery({
+    queryKey: ["destination", slug],
+    queryFn: () => fetchDestinationBySlug(slug),
+  });
+
+  if (isLoading || !destination) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="animate-pulse bg-surface-variant w-3/4 h-[400px] rounded-xl" />
+      </div>
+    );
+  }
+
+  return (
+    <motion.div 
+      layoutId={`card-container-${destination.slug}`}
+      className="w-full flex flex-col"
+    >
+      {/* Hero Image mapping from card */}
+      <motion.div 
+        layoutId={`card-image-${destination.slug}`}
+        className="relative w-full h-[60vh] min-h-[400px] bg-cover bg-center"
+        style={{ backgroundImage: `url('${destination.image_url}')` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/40 to-transparent" />
+        
+        <div className="absolute bottom-0 left-0 px-margin-mobile md:px-margin-desktop w-full z-10 max-w-container-max mx-auto translate-y-12">
+          <motion.div 
+            layoutId={`card-tag-${destination.slug}`}
+            className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-white border border-white/20 font-label-sm text-label-sm mb-4"
+          >
+            {destination.tag}
+          </motion.div>
+          
+          <motion.h1 
+            layoutId={`card-title-${destination.slug}`}
+            className="font-display-lg-mobile md:font-display-lg text-on-background mb-4"
+          >
+            {destination.title}
+          </motion.h1>
+          
+          <motion.p 
+            layoutId={`card-desc-${destination.slug}`}
+            className="font-body-lg text-on-surface-variant max-w-3xl"
+          >
+            {destination.short_description}
+          </motion.p>
+        </div>
+      </motion.div>
+
+      <div className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pt-24 pb-24 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="md:col-span-2">
+          <h2 className="font-headline-sm text-on-surface mb-6">About this Destination</h2>
+          <div className="font-body-md text-on-surface-variant space-y-6">
+            {destination.description.split('\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
+
+          {destination.tourist_centers && destination.tourist_centers.length > 0 && (
+            <div className="mt-12">
+              <h2 className="font-headline-sm text-on-surface mb-6">Top Points of Interest</h2>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {destination.tourist_centers.map((center, i) => (
+                  <li key={i} className="flex items-center gap-3 font-body-md text-on-surface-variant bg-surface-container-low p-4 rounded-xl border border-outline-variant/30">
+                    <div className="h-2 w-2 rounded-full bg-primary" />
+                    {center}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+        
+        <div className="md:col-span-1">
+          <div className="bg-surface-container-low p-8 rounded-24px border border-outline-variant/30 sticky top-32">
+            <h3 className="font-headline-sm mb-6 text-on-surface">Quick Facts</h3>
+            <ul className="space-y-4 font-body-md text-on-surface-variant">
+              <li className="flex flex-col border-b border-outline-variant/20 pb-4">
+                <span className="text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Best Time to Visit</span>
+                <span className="font-medium text-on-surface text-body-lg">Oct - Feb</span>
+              </li>
+              <li className="flex flex-col border-b border-outline-variant/20 pb-4">
+                <span className="text-label-sm text-on-surface-variant mb-1 uppercase tracking-wider">Activities</span>
+                <span className="font-medium text-on-surface text-body-lg">Trekking, Camping</span>
+              </li>
+            </ul>
+            <button className="w-full mt-8 bg-primary text-white py-4 rounded-full font-label-md text-label-md hover:bg-secondary transition-colors shadow-md hover:shadow-lg">
+              Explore Adventures
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}

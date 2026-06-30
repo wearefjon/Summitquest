@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Rebrandable Theme Colors */
+    --background: #f8f9ff;
+    --on-background: #0d1c2e;
+    --surface: #f8f9ff;
+    --on-surface: #0d1c2e;
+    --surface-variant: #d5e3fc;
+    --on-surface-variant: #414844;
+    --surface-off-white: #F8F9FA;
+    --surface-container: #e6eeff;
+    --surface-container-low: #eff4ff;
+    --surface-container-high: #dce9ff;
+    --surface-container-highest: #d5e3fc;
+    --surface-container-lowest: #ffffff;
+    --surface-bright: #f8f9ff;
+    --surface-dim: #ccdbf3;
+    --surface-tint: #3f6653;
+    
+    --inverse-surface: #233144;
+    --inverse-on-surface: #eaf1ff;
+    
+    --primary: #012d1d;
+    --on-primary: #ffffff;
+    --primary-container: #1b4332;
+    --on-primary-container: #86af99;
+    --inverse-primary: #a5d0b9;
+    --primary-fixed: #c1ecd4;
+    --primary-fixed-dim: #a5d0b9;
+    --on-primary-fixed: #002114;
+    --on-primary-fixed-variant: #274e3d;
+    
+    --secondary: #2c694e;
+    --on-secondary: #ffffff;
+    --secondary-container: #aeeecb;
+    --on-secondary-container: #316e52;
+    --secondary-fixed: #b1f0ce;
+    --secondary-fixed-dim: #95d4b3;
+    --on-secondary-fixed: #002114;
+    --on-secondary-fixed-variant: #0e5138;
+    
+    --tertiary: #3b2000;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #593300;
+    --on-tertiary-container: #ed9101;
+    --tertiary-fixed: #ffdcbc;
+    --tertiary-fixed-dim: #ffb86b;
+    --on-tertiary-fixed: #2c1700;
+    --on-tertiary-fixed-variant: #683d00;
+    
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #93000a;
+    
+    --outline: #717973;
+    --outline-variant: #c1c8c2;
+    
+    --brand-coral: #FF5A5F;
+    --accent-gold: #FFBF69;
+    --text-dark: #1E293B;
+
+    /* Base shadcn variables mapped to theme */
+    --foreground: var(--on-background);
+    --card: var(--surface);
+    --card-foreground: var(--on-surface);
+    --popover: var(--surface);
+    --popover-foreground: var(--on-surface);
+    --muted: var(--surface-variant);
+    --muted-foreground: var(--on-surface-variant);
+    --accent: var(--secondary-container);
+    --accent-foreground: var(--on-secondary-container);
+    --border: var(--outline-variant);
+    --input: var(--outline-variant);
+    --ring: var(--primary);
+    
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    /* Set up dark theme overrides if needed, using the same variables */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .ambient-shadow {
+    box-shadow: 0 12px 32px rgba(30, 41, 59, 0.08);
+  }
+  .ambient-shadow-hover:hover {
+    box-shadow: 0 20px 48px rgba(30, 41, 59, 0.12);
+  }
+}
