@@ -29,10 +29,10 @@ export function Navbar() {
   return (
     <div className="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-8 px-4 pointer-events-none">
       <header 
-        className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out border ${
+        className={`pointer-events-auto w-full max-w-6xl rounded-[24px] md:rounded-full transition-all duration-500 ease-out border ${
           scrolled 
-            ? "bg-primary/80 backdrop-blur-xl shadow-2xl border-white/20 py-3 px-6 md:px-8" 
-            : "bg-black/30 backdrop-blur-xl shadow-lg border-white/30 py-4 px-6 md:px-10"
+            ? "bg-primary/80 backdrop-blur-xl shadow-2xl border-white/20 py-3 px-4 md:px-8" 
+            : "bg-black/30 backdrop-blur-xl shadow-lg border-white/30 py-4 px-4 md:px-10"
         }`}
       >
         <div className="flex justify-between items-center w-full">

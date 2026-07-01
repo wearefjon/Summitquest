@@ -169,7 +169,7 @@ export function AdventureDetails() {
               </div>
             </div>
 
-            <Link href={`/checkout/${adventure.id}`} className="w-full block text-center bg-primary text-white py-4 rounded-2xl font-label-md text-label-md hover:bg-secondary transition-colors shadow-md">
+            <Link href={`/checkout/${adventure.slug}`} className="w-full block text-center bg-primary text-white py-4 rounded-2xl font-label-md text-label-md hover:bg-secondary transition-colors shadow-md">
               Book Experience
             </Link>
             <p className="font-label-sm text-on-surface-variant text-center mt-4">You won't be charged yet</p>

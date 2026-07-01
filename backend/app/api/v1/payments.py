@@ -31,8 +31,9 @@ async def create_checkout_session(
     db: DbSession,
     current_user: CurrentUser
 ):
-    if not stripe.api_key:
-        raise HTTPException(status_code=500, detail="Stripe is not configured.")
+    if not stripe.api_key or stripe.api_key == "mock" or stripe.api_key == "sk_test_placeholder":
+        # Will be handled below as a mock session
+        pass
 
     # 1. Fetch Adventure
     result = await db.execute(select(Adventure).where(Adventure.id == adventure_id))
@@ -60,6 +61,9 @@ async def create_checkout_session(
 
     # 4. Create Stripe Checkout Session
     try:
+        if not stripe.api_key or stripe.api_key == "mock" or stripe.api_key == "sk_test_placeholder":
+            return {"id": "mock_session", "url": f"{FRONTEND_URL}/checkout/mock?booking_id={booking.id}&adventure_id={adventure_id}"}
+        
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             customer_email=current_user.email,
@@ -80,9 +84,9 @@ async def create_checkout_session(
             success_url=f"{FRONTEND_URL}/customer/bookings?success=true&booking_id={booking.id}",
             cancel_url=f"{FRONTEND_URL}/adventures/{adventure_id}?canceled=true",
             metadata={
-                'booking_id': booking.id,
-                'user_id': current_user.id,
-                'adventure_id': adventure_id
+                'booking_id': str(booking.id),
+                'user_id': str(current_user.id),
+                'adventure_id': str(adventure_id)
             }
         )
         return {"id": checkout_session.id, "url": checkout_session.url}
@@ -141,3 +145,22 @@ async def stripe_webhook(request: Request, stripe_signature: Annotated[str | Non
                 )
                 
     return {"status": "success"}
+
+@router.post("/mock-webhook")
+async def mock_webhook(booking_id: str, db: DbSession):
+    if stripe.api_key and stripe.api_key != "mock" and stripe.api_key != "sk_test_placeholder":
+        raise HTTPException(status_code=400, detail="Mock webhook only available in test mode")
+        
+    result = await db.execute(
+        select(Booking, Adventure, User)
+        .join(Adventure, Booking.adventure_id == Adventure.id)
+        .join(User, Booking.user_id == User.id)
+        .where(Booking.id == booking_id)
+    )
+    row = result.first()
+    if row:
+        booking, adventure, user = row
+        booking.status = "confirmed"
+        await db.commit()
+        return {"status": "success"}
+    raise HTTPException(status_code=404, detail="Booking not found")

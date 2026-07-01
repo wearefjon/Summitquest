@@ -44,15 +44,17 @@ export default function Home() {
           animate="show"
           className="relative z-10 text-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto flex flex-col items-center"
         >
-          <motion.h1 variants={fadeInUp} className="font-display-lg-mobile md:font-display-lg text-white mb-6 max-w-3xl drop-shadow-lg">
-            Discover the Untamed Beauty of Maharashtra
-          </motion.h1>
-          <motion.p variants={fadeInUp} className="font-body-lg text-white/90 mb-12 max-w-2xl drop-shadow-md">
-            Curated expeditions, verified professional guides, and safety-first adventures across the Sahyadris.
-          </motion.p>
+          <motion.div variants={fadeInUp} className="bg-black/30 backdrop-blur-md rounded-[24px] md:rounded-3xl p-6 md:p-10 mb-12 border border-white/20 shadow-2xl max-w-3xl">
+            <h1 className="font-display-lg-mobile md:font-display-lg text-white mb-4 drop-shadow-lg">
+              Discover the Untamed Beauty of Maharashtra
+            </h1>
+            <p className="font-body-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">
+              Curated expeditions, verified professional guides, and safety-first adventures across the Sahyadris.
+            </p>
+          </motion.div>
           
           {/* Glassmorphism Search Bar */}
-          <motion.div variants={fadeInUp} className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-full p-2 w-full max-w-4xl flex flex-col md:flex-row items-center gap-2 shadow-2xl">
+          <motion.div variants={fadeInUp} className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-[24px] md:rounded-full p-2 w-full max-w-4xl flex flex-col md:flex-row items-center gap-2 shadow-2xl">
             <div className="flex-1 bg-white/60 rounded-full px-6 py-3 flex items-center w-full">
               <MapPin className="text-on-surface-variant mr-3 w-5 h-5" />
               <input className="bg-transparent border-none outline-none focus:ring-0 text-on-surface font-body-md w-full placeholder-on-surface-variant" placeholder="Where do you want to go?" type="text"/>
