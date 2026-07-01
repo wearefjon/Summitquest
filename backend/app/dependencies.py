@@ -50,7 +50,7 @@ async def get_current_user(
             new_user = User(
                 id=UUID(user_id),
                 email=email,
-                password_hash="supabase_auth",
+                hashed_password="supabase_auth",
                 full_name=full_name,
                 role=role
             )
