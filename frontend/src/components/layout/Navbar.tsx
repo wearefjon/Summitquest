@@ -31,8 +31,8 @@ export function Navbar() {
       <header 
         className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out border ${
           scrolled 
-            ? "bg-primary/95 backdrop-blur-md shadow-2xl border-white/10 py-3 px-6 md:px-8" 
-            : "bg-black/20 backdrop-blur-md shadow-lg border-white/20 py-4 px-6 md:px-10"
+            ? "bg-primary/80 backdrop-blur-xl shadow-2xl border-white/20 py-3 px-6 md:px-8" 
+            : "bg-black/30 backdrop-blur-xl shadow-lg border-white/30 py-4 px-6 md:px-10"
         }`}
       >
         <div className="flex justify-between items-center w-full">
