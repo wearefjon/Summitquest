@@ -2,7 +2,8 @@ from datetime import UTC, datetime, timedelta
 from typing import Any
 from uuid import UUID
 
-from jose import JWTError, jwt
+import jwt
+from jwt.exceptions import PyJWTError
 from passlib.context import CryptContext
 
 from app.config import get_settings
@@ -50,5 +51,5 @@ def decode_token(token: str) -> dict[str, Any]:
             algorithms=["HS256"],
             options={"verify_aud": False}
         )
-    except JWTError as exc:
+    except PyJWTError as exc:
         raise ValueError("Invalid token") from exc
