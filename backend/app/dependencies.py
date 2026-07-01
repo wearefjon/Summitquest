@@ -69,6 +69,8 @@ async def get_current_user(
                 await db.commit()
                 
         except Exception as exc:
+            import structlog
+            structlog.get_logger().error("lazy_user_creation_failed", error=str(exc))
             raise AuthenticationError("Failed to initialize user session") from exc
 
     return user
