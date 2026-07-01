@@ -11,6 +11,7 @@ class AdventureBase(BaseModel):
     duration_days: int
     price: float
     image_url: str
+    gallery_urls: list[str] = []
     destination_id: str
     operator_id: str | None = None
 

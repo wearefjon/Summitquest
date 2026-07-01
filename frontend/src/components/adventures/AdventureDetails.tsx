@@ -89,16 +89,44 @@ export function AdventureDetails() {
         </div>
       </div>
 
-      {/* Hero Image */}
+      {/* Image Gallery */}
       <div className="w-full h-[400px] md:h-[500px] mb-12 rounded-3xl overflow-hidden shadow-sm relative group">
-        <img 
-          src={adventure.image_url} 
-          alt={adventure.title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-        />
-        <div className="absolute top-4 left-4 bg-tertiary-container/90 text-white backdrop-blur-sm px-4 py-2 rounded-full font-label-md shadow-sm">
-          {adventure.activity_type}
-        </div>
+        {adventure.gallery_urls && adventure.gallery_urls.length > 1 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 h-full">
+            {/* Left big image */}
+            <div className="h-full relative overflow-hidden">
+              <img src={adventure.gallery_urls[0]} alt={adventure.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              <div className="absolute top-4 left-4 bg-tertiary-container/90 text-white backdrop-blur-sm px-4 py-2 rounded-full font-label-md shadow-sm z-10">
+                {adventure.activity_type}
+              </div>
+            </div>
+            {/* Right smaller images grid */}
+            <div className="grid grid-rows-2 gap-2 h-full hidden md:grid">
+              <div className="h-full overflow-hidden relative">
+                <img src={adventure.gallery_urls[1] || adventure.gallery_urls[0]} alt={`${adventure.title} image 2`} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+              </div>
+              <div className="h-full overflow-hidden relative">
+                <img src={adventure.gallery_urls[2] || adventure.gallery_urls[0]} alt={`${adventure.title} image 3`} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                {adventure.gallery_urls.length > 3 && (
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer hover:bg-black/50 transition-colors">
+                    <span className="text-white font-headline-sm">+{adventure.gallery_urls.length - 3} Photos</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="h-full relative">
+            <img 
+              src={adventure.image_url} 
+              alt={adventure.title} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+            <div className="absolute top-4 left-4 bg-tertiary-container/90 text-white backdrop-blur-sm px-4 py-2 rounded-full font-label-md shadow-sm">
+              {adventure.activity_type}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Main Layout Grid */}

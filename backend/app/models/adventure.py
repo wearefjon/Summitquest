@@ -23,6 +23,8 @@ class Adventure(Base):
     price: Mapped[float] = mapped_column(Float, nullable=False)
     
     image_url: Mapped[str] = mapped_column(String(1024), nullable=False)
+    from sqlalchemy.dialects.postgresql import JSONB
+    gallery_urls: Mapped[list[str]] = mapped_column(JSONB, default=list, server_default='[]')
     
     destination_id: Mapped[str] = mapped_column(String(36), ForeignKey("destinations.id"), nullable=False)
     operator_id: Mapped[str] = mapped_column(String(36), ForeignKey("operators.id"), nullable=True) # Making it true for existing seed data, ideally False

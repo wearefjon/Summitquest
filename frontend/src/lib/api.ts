@@ -48,6 +48,7 @@ export interface Adventure {
   duration_days: number;
   price: number;
   image_url: string;
+  gallery_urls: string[];
   destination_id: string;
   operator_id?: string;
   created_at: string;

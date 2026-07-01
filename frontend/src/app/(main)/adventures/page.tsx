@@ -10,23 +10,22 @@ export default function AdventuresExplorePage() {
 
   // Filters state
   const [difficulty, setDifficulty] = useState<string | null>(null);
+  const [activityType, setActivityType] = useState<string | null>(null);
 
   useEffect(() => {
     async function load() {
       setLoading(true);
       try {
-        const queryParams = new URLSearchParams();
-        if (difficulty) queryParams.append("difficulty", difficulty);
-        
-        // Use our fetchAdventures function, optionally pass queries if we modify api.ts
-        // For now, we'll fetch all and filter in frontend if api doesn't support query
         const data = await fetchAdventures();
         
+        let filtered = data;
         if (difficulty) {
-          setAdventures(data.filter(a => a.difficulty.toLowerCase() === difficulty.toLowerCase()));
-        } else {
-          setAdventures(data);
+          filtered = filtered.filter(a => a.difficulty.toLowerCase() === difficulty.toLowerCase());
         }
+        if (activityType) {
+          filtered = filtered.filter(a => a.activity_type?.toLowerCase() === activityType.toLowerCase());
+        }
+        setAdventures(filtered);
       } catch (err) {
         console.error(err);
       } finally {
@@ -57,9 +56,29 @@ export default function AdventuresExplorePage() {
         <aside className="lg:col-span-1 bg-surface-off-white rounded-[24px] p-6 ambient-shadow sticky top-[120px] max-h-[calc(100vh-140px)] overflow-y-auto custom-scrollbar hidden md:block border border-outline-variant/30">
           <div className="flex items-center justify-between mb-8 border-b border-outline-variant/30 pb-4">
             <h2 className="font-headline-sm text-headline-sm text-primary">Filters</h2>
-            <button onClick={() => setDifficulty(null)} className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors">Reset</button>
+            <button onClick={() => { setDifficulty(null); setActivityType(null); }} className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors">Reset</button>
           </div>
           
+          {/* Activity Type Filter */}
+          <div className="mb-8 border-b border-outline-variant/30 pb-8">
+            <h3 className="font-label-md text-label-md text-primary mb-4">Activity Type</h3>
+            <div className="flex flex-wrap gap-2">
+              {['Trekking', 'Camping', 'Sightseeing', 'Ocean Diving', 'Paragliding', 'Water Sports', 'Hiking'].map(activity => (
+                <button 
+                  key={activity}
+                  onClick={() => setActivityType(activity === activityType ? null : activity)}
+                  className={`px-4 py-2 rounded-full font-label-sm text-label-sm border transition-colors ${
+                    activityType === activity 
+                      ? "bg-secondary-container text-on-secondary-container border-transparent" 
+                      : "border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary"
+                  }`}
+                >
+                  {activity}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Difficulty Filter */}
           <div className="mb-8">
             <h3 className="font-label-md text-label-md text-primary mb-4">Difficulty Level</h3>

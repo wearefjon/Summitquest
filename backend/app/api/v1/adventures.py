@@ -105,6 +105,7 @@ async def create_adventure(
         duration_days=duration_days,
         price=price,
         image_url=image_url,
+        gallery_urls=[],
         destination_id=destination_id,
         operator_id=current_user.id
     )
