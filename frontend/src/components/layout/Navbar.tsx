@@ -27,50 +27,51 @@ export function Navbar() {
   }
 
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? "bg-primary shadow-md py-4" 
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-        <Link href="/" className="flex items-center gap-2">
-          <Mountain className="h-6 w-6 text-white" />
-          <span className="font-headline-md text-headline-sm md:text-headline-md font-bold text-white">
-            SummitQuest
-          </span>
-        </Link>
-        
-        <nav className="hidden md:flex items-center gap-gutter">
-          <Link href="/destinations" className="text-white/90 font-label-md text-label-md hover:text-white transition-colors">
-            Destinations
+    <div className="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-8 px-4 pointer-events-none">
+      <header 
+        className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out border ${
+          scrolled 
+            ? "bg-primary/95 backdrop-blur-md shadow-2xl border-white/10 py-3 px-6 md:px-8" 
+            : "bg-black/20 backdrop-blur-md shadow-lg border-white/20 py-4 px-6 md:px-10"
+        }`}
+      >
+        <div className="flex justify-between items-center w-full">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="bg-white/10 p-2 rounded-full group-hover:bg-white/20 transition-colors">
+              <Mountain className="h-5 w-5 text-white" />
+            </div>
+            <span className="font-headline-md text-headline-sm md:text-headline-md font-bold text-white tracking-tight">
+              SummitQuest
+            </span>
           </Link>
-          <Link href="/activities" className="text-white/90 font-label-md text-label-md hover:text-white transition-colors">
-            Activities
-          </Link>
-          <Link href="/stays" className="text-white/90 font-label-md text-label-md hover:text-white transition-colors">
-            Stays & Basecamps
-          </Link>
-          <Link href="/operators" className="text-white/90 font-label-md text-label-md hover:text-white transition-colors">
-            Expert Custodians
-          </Link>
-          <Link href="/safety" className="text-white/90 font-label-md text-label-md hover:text-white transition-colors">
-            Safety
-          </Link>
-        </nav>
-        
-        <div className="flex items-center gap-4">
-          <Link href="/login" className="hidden md:block font-label-md text-label-md text-white/90 hover:text-white transition-colors scale-95 active:scale-90 transition-transform">
-            Login
-          </Link>
-          <Link href="/register" className={`px-6 py-2 rounded-xl font-label-md text-label-md transition-colors scale-95 active:scale-90 transition-transform ${
-            scrolled ? "bg-white text-primary hover:bg-surface-off-white" : "bg-white/20 backdrop-blur-md text-white hover:bg-white/30"
-          }`}>
-            Register
-          </Link>
+          
+          <nav className="hidden md:flex items-center gap-8">
+            <Link href="/destinations" className="text-white/80 font-label-md hover:text-white transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">
+              Destinations
+            </Link>
+            <Link href="/activities" className="text-white/80 font-label-md hover:text-white transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">
+              Activities
+            </Link>
+            <Link href="/stays" className="text-white/80 font-label-md hover:text-white transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">
+              Stays
+            </Link>
+            <Link href="/operators" className="text-white/80 font-label-md hover:text-white transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-white hover:after:w-full after:transition-all after:duration-300">
+              Experts
+            </Link>
+          </nav>
+          
+          <div className="flex items-center gap-3">
+            <Link href="/login" className="hidden md:flex font-label-md text-white/90 hover:text-white px-4 py-2 hover:bg-white/10 rounded-full transition-colors">
+              Login
+            </Link>
+            <Link href="/register" className={`px-5 py-2 rounded-full font-label-md transition-all shadow-sm hover:shadow-md ${
+              scrolled ? "bg-white text-primary hover:bg-surface-off-white hover:scale-105" : "bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30 hover:scale-105"
+            }`}>
+              Register
+            </Link>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 }
