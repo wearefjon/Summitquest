@@ -133,18 +133,24 @@ export const apiClient = axios.create({
 });
 
 let cachedSessionToken: string | null = null;
+let isSessionInitialized = false;
 
 // Initialize token cache
-supabase.auth.getSession().then(({ data: { session } }) => {
+const initPromise = supabase.auth.getSession().then(({ data: { session } }) => {
   cachedSessionToken = session?.access_token || null;
+  isSessionInitialized = true;
 });
 
 // Update cache on auth state changes
 supabase.auth.onAuthStateChange((_event, session) => {
   cachedSessionToken = session?.access_token || null;
+  isSessionInitialized = true;
 });
 
-apiClient.interceptors.request.use((config) => {
+apiClient.interceptors.request.use(async (config) => {
+  if (!isSessionInitialized) {
+    await initPromise;
+  }
   if (cachedSessionToken) {
     config.headers.Authorization = `Bearer ${cachedSessionToken}`;
   }
