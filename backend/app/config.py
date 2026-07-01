@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     app_name: str = "SummitQuest API"
     app_version: str = "0.1.0"
     environment: Literal["development", "staging", "production"] = "development"
-    debug: bool = True
+    debug: bool = False
     api_v1_prefix: str = "/api/v1"
 
     database_url: str = "postgresql+asyncpg://summitquest:summitquest@localhost:5432/summitquest"
@@ -31,9 +31,8 @@ class Settings(BaseSettings):
     google_client_id: str = ""
     google_client_secret: str = ""
 
-    razorpay_key_id: str = ""
-    razorpay_key_secret: str = ""
-    razorpay_webhook_secret: str = ""
+    stripe_secret_key: str = ""
+    stripe_webhook_secret: str = ""
 
     cloudinary_cloud_name: str = ""
     cloudinary_api_key: str = ""

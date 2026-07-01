@@ -23,6 +23,11 @@ AsyncSessionLocal = async_sessionmaker(
 )
 
 async def seed_data():
+    from app.config import get_settings
+    settings = get_settings()
+    if settings.environment == "production":
+        raise RuntimeError("Cannot run seed script in production")
+        
     # Ensure tables exist
     async with engine.begin() as conn:
         import app.models.destination

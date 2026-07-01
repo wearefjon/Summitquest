@@ -12,10 +12,13 @@ from app.models.adventure import Adventure
 from app.models.booking import Booking
 from app.services.email import send_booking_confirmation
 
+from app.config import get_settings
+
 router = APIRouter(prefix="/payments", tags=["payments"])
 
-stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
-STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
+settings = get_settings()
+stripe.api_key = settings.stripe_secret_key
+STRIPE_WEBHOOK_SECRET = settings.stripe_webhook_secret
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")
 
 DbSession = Annotated[AsyncSession, Depends(get_db)]

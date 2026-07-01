@@ -20,6 +20,10 @@ from app.core.exceptions import SummitQuestException
 from app.database import engine
 
 settings = get_settings()
+
+if settings.environment == "production" and settings.debug:
+    raise ValueError("DEBUG must be False in production environment")
+
 logger = structlog.get_logger()
 
 

@@ -132,11 +132,21 @@ export const apiClient = axios.create({
   baseURL: API_BASE_URL,
 });
 
-apiClient.interceptors.request.use(async (config) => {
-  const { data: { session } } = await supabase.auth.getSession();
-  const token = session?.access_token;
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+let cachedSessionToken: string | null = null;
+
+// Initialize token cache
+supabase.auth.getSession().then(({ data: { session } }) => {
+  cachedSessionToken = session?.access_token || null;
+});
+
+// Update cache on auth state changes
+supabase.auth.onAuthStateChange((_event, session) => {
+  cachedSessionToken = session?.access_token || null;
+});
+
+apiClient.interceptors.request.use((config) => {
+  if (cachedSessionToken) {
+    config.headers.Authorization = `Bearer ${cachedSessionToken}`;
   }
   return config;
 });

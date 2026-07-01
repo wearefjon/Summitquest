@@ -8,11 +8,12 @@ Adventure tourism booking marketplace for Maharashtra — customers discover and
 |-------|------|
 | Frontend | Next.js 14, TypeScript, Tailwind, shadcn/ui |
 | Backend | FastAPI, SQLAlchemy, Alembic |
-| Database | PostgreSQL 16 |
+| Database | PostgreSQL 16 (via Supabase) |
 | Cache | Redis 7 |
-| Payments | Razorpay |
+| Payments | Stripe |
 | Images | Cloudinary |
-| Email | Resend |
+| Email | Resend / SMTP |
+| Auth | Supabase Auth (OAuth + Email) |
 
 ## Project structure
 
@@ -63,13 +64,17 @@ See `backend/.env.example` and `frontend/.env.local.example`.
 ## Current build status
 
 - [x] Monorepo scaffold
-- [x] Backend auth (register/login)
-- [x] Database migrations (users table)
+- [x] Backend auth (register/login) with Supabase
+- [x] Database migrations & schema setup
 - [x] Frontend landing shell + route structure
-- [ ] UI design integration (awaiting design files)
-- [ ] Adventures, search, booking flow
-- [ ] Operator & admin dashboards
-- [ ] Razorpay, Cloudinary, email
+- [x] Dynamic beautiful UI design integration
+- [x] Adventures, search, booking flow
+- [x] Operator & Admin dashboards
+- [x] Stripe Payments integration
+- [x] Cloudinary image uploads
+- [x] Email notifications (Booking & Approval)
+- [x] Security hardening (Rate limiting, auth guards)
+- [x] Tech debt cleanup
 
 ## Documentation
 
