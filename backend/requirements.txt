@@ -20,7 +20,7 @@ deprecation==2.1.0
 dnspython==2.8.0
 ecdsa==0.19.2
 email_validator==2.2.0
-fastapi==0.112.0
+fastapi==0.115.0
 fastapi-cli==0.0.27
 google-ai-generativelanguage==0.6.15
 google-api-core==2.31.0
