@@ -28,6 +28,8 @@ class Settings(BaseSettings):
 
     cors_origins: str = "http://localhost:3000"
 
+    supabase_url: str = ""
+
     google_client_id: str = ""
     google_client_secret: str = ""
 

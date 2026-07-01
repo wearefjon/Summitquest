@@ -42,15 +42,34 @@ def create_refresh_token(subject: str | UUID) -> str:
     return jwt.encode(payload, settings.secret_key, algorithm=settings.jwt_algorithm)
 
 
+from jwt import PyJWKClient
+
+_jwks_client = None
+
+def get_jwks_client():
+    global _jwks_client
+    if _jwks_client is None and settings.supabase_url:
+        jwks_url = f"{settings.supabase_url.rstrip('/')}/auth/v1/.well-known/jwks.json"
+        _jwks_client = PyJWKClient(jwks_url)
+    return _jwks_client
+
 def decode_token(token: str) -> dict[str, Any]:
     try:
-        # Supabase JWTs use the HS256 algorithm and the project's JWT_SECRET
         unverified_header = jwt.get_unverified_header(token)
         alg = unverified_header.get("alg", "HS256")
         
-        import structlog
-        structlog.get_logger().info("jwt_alg_check", alg=alg)
-        
+        # If the token uses an asymmetric algorithm like ES256 or RS256, verify via Supabase JWKS
+        if alg in ["ES256", "RS256"] and settings.supabase_url:
+            jwks_client = get_jwks_client()
+            signing_key = jwks_client.get_signing_key_from_jwt(token)
+            return jwt.decode(
+                token, 
+                signing_key.key, 
+                algorithms=[alg],
+                options={"verify_aud": False}
+            )
+            
+        # Fallback to symmetric HS256 verification (legacy tokens or local dev without URL)
         return jwt.decode(
             token, 
             settings.secret_key, 
