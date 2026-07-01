@@ -2,10 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Mountain } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/customer') || pathname?.startsWith('/operator') || pathname?.startsWith('/login') || pathname?.startsWith('/register')) {
+    return null;
+  }
 
   useEffect(() => {
     const handleScroll = () => {
