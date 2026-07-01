@@ -27,12 +27,12 @@ export function Navbar() {
   }
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 flex justify-center pt-4 md:pt-8 px-4 pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-50 flex justify-center pointer-events-none px-4 md:px-8">
       <header 
-        className={`pointer-events-auto w-full max-w-6xl rounded-full transition-all duration-500 ease-out border ${
+        className={`pointer-events-auto w-full max-w-6xl rounded-b-3xl transition-all duration-500 ease-out border-b border-x ${
           scrolled 
             ? "bg-primary/95 backdrop-blur-md shadow-2xl border-white/10 py-3 px-6 md:px-8" 
-            : "bg-black/20 backdrop-blur-md shadow-lg border-white/20 py-4 px-6 md:px-10"
+            : "bg-black/30 backdrop-blur-md shadow-lg border-white/20 py-4 px-6 md:px-10 mt-0"
         }`}
       >
         <div className="flex justify-between items-center w-full">
