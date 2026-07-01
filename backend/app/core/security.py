@@ -48,7 +48,7 @@ def decode_token(token: str) -> dict[str, Any]:
         return jwt.decode(
             token, 
             settings.secret_key, 
-            algorithms=["HS256"],
+            algorithms=["HS256", "HS384", "HS512", "RS256"],
             options={"verify_aud": False}
         )
     except PyJWTError as exc:
