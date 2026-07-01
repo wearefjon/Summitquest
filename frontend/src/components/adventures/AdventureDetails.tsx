@@ -27,7 +27,7 @@ export function AdventureDetails() {
 
   if (isLoading) {
     return (
-      <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+      <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-[120px] pb-12">
         <div className="animate-pulse flex flex-col gap-8">
           <div className="h-12 w-3/4 bg-surface-variant rounded" />
           <div className="h-[400px] w-full bg-surface-variant rounded-3xl" />
@@ -39,7 +39,7 @@ export function AdventureDetails() {
 
   if (error || !adventure) {
     return (
-      <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 text-center">
+      <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-[120px] pb-24 text-center">
         <h2 className="font-headline-md text-primary mb-4">Adventure not found</h2>
         <Link href="/adventures" className="text-secondary hover:underline">Return to Explore</Link>
       </div>
@@ -47,7 +47,7 @@ export function AdventureDetails() {
   }
 
   return (
-    <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-24 pt-8">
+    <div className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-[120px] pb-24">
       {/* Header */}
       <div className="mb-6 space-y-4">
         <nav className="flex text-sm text-on-surface-variant font-label-sm items-center space-x-2">
