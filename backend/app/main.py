@@ -27,9 +27,17 @@ if settings.environment == "production" and settings.debug:
 logger = structlog.get_logger()
 
 
+from app.database import engine, Base
+from app.models import user, destination, adventure, operator, booking
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("starting_application", environment=settings.environment)
+    
+    # Auto-create any missing tables on startup
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+        
     yield
     await engine.dispose()
     logger.info("application_shutdown")

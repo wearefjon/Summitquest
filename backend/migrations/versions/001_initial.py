@@ -18,12 +18,13 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    user_role = postgresql.ENUM("customer", "operator", "admin", name="user_role", create_type=True)
+    op.execute("DO $$ BEGIN CREATE TYPE user_role AS ENUM ('customer', 'operator', 'admin'); EXCEPTION WHEN duplicate_object THEN null; END $$;")
+    op.execute("DO $$ BEGIN CREATE TYPE user_status AS ENUM ('active', 'pending', 'suspended', 'deactivated'); EXCEPTION WHEN duplicate_object THEN null; END $$;")
+
+    user_role = postgresql.ENUM("customer", "operator", "admin", name="user_role", create_type=False)
     user_status = postgresql.ENUM(
-        "active", "pending", "suspended", "deactivated", name="user_status", create_type=True
+        "active", "pending", "suspended", "deactivated", name="user_status", create_type=False
     )
-    user_role.create(op.get_bind(), checkfirst=True)
-    user_status.create(op.get_bind(), checkfirst=True)
 
     op.create_table(
         "users",
