@@ -9,10 +9,6 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  if (pathname?.startsWith('/customer') || pathname?.startsWith('/operator') || pathname?.startsWith('/login') || pathname?.startsWith('/register')) {
-    return null;
-  }
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -25,6 +21,10 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (pathname?.startsWith('/customer') || pathname?.startsWith('/operator') || pathname?.startsWith('/login') || pathname?.startsWith('/register')) {
+    return null;
+  }
 
   return (
     <header 
