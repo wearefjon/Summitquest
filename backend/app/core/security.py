@@ -45,10 +45,16 @@ def create_refresh_token(subject: str | UUID) -> str:
 def decode_token(token: str) -> dict[str, Any]:
     try:
         # Supabase JWTs use the HS256 algorithm and the project's JWT_SECRET
+        unverified_header = jwt.get_unverified_header(token)
+        alg = unverified_header.get("alg", "HS256")
+        
+        import structlog
+        structlog.get_logger().info("jwt_alg_check", alg=alg)
+        
         return jwt.decode(
             token, 
             settings.secret_key, 
-            algorithms=["HS256", "HS384", "HS512", "RS256"],
+            algorithms=[alg] if alg != "none" else ["HS256"],
             options={"verify_aud": False}
         )
     except PyJWTError as exc:
