@@ -52,4 +52,6 @@ def decode_token(token: str) -> dict[str, Any]:
             options={"verify_aud": False}
         )
     except PyJWTError as exc:
+        import structlog
+        structlog.get_logger().error("jwt_decode_error", error=str(exc), type=type(exc).__name__)
         raise ValueError("Invalid token") from exc
